@@ -66,9 +66,9 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* Logo Section */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 -my-4">
               <Link href="/" className="group block">
-                <div className="relative w-28 h-28 group-hover:scale-105 transition-transform duration-300">
+                <div className="relative w-36 h-24 group-hover:scale-105 transition-transform duration-300">
                   <Image
                     src="/images/logo-v4.png"
                     alt="Sravya Global Developers"
@@ -154,7 +154,7 @@ export default function Header() {
               <div>
                 {/* Header of Mobile Menu */}
                 <div className="flex items-center justify-between pb-6 border-b border-primary-900">
-                  <div className="relative w-24 h-24">
+                  <div className="relative w-24 h-16">
                     <Image
                       src="/images/logo-v4.png"
                       alt="Sravya Global Developers"

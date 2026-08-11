@@ -52,8 +52,8 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
           
           {/* Brand Info */}
           <div className="space-y-6">
-            <Link href="/" className="group block">
-              <div className="relative w-36 h-36 group-hover:scale-105 transition-transform duration-300">
+            <Link href="/" className="group block -ml-4">
+              <div className="relative w-48 h-32 group-hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/images/logo-v4.png"
                   alt="Sravya Global Developers"
