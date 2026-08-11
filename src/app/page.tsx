@@ -194,6 +194,40 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Venture Showcase Video Section */}
+      <section className="py-20 bg-primary-950 font-sans text-ivory relative overflow-hidden">
+        <div className="absolute inset-0 bg-primary-950/20 z-10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-12">
+          
+          <div className="text-center space-y-2 max-w-xl mx-auto">
+            <p className="text-xs font-bold uppercase tracking-widest text-gold-400">
+              Venture Tour
+            </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-ivory">
+              Sravya Global Venture Showcase
+            </h2>
+            <p className="text-sm text-ivory/70 leading-relaxed">
+              Experience a cinematic walk-through of our master-planned layouts, premium avenue plantations, and luxury plotting developments.
+            </p>
+          </div>
+
+          <div className="relative mx-auto max-w-5xl rounded-2xl overflow-hidden border border-gold-500/20 shadow-2xl bg-black aspect-video">
+            <video
+              className="w-full h-full object-cover"
+              controls
+              autoPlay
+              muted
+              loop
+              playsInline
+            >
+              <source src="/showcase.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+        </div>
+      </section>
+
       {/* Investment Analysis (Plots vs Apartments) */}
       <section className="py-20 md:py-24 bg-ivory font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
