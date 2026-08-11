@@ -67,8 +67,8 @@ export default function Header() {
           <div className="flex items-center justify-between">
             {/* Logo Section */}
             <div className="flex-shrink-0">
-              <Link href="/" className="group flex items-center gap-3">
-                <div className="relative w-20 h-20 group-hover:scale-105 transition-transform duration-300">
+              <Link href="/" className="group block">
+                <div className="relative w-28 h-28 group-hover:scale-105 transition-transform duration-300">
                   <Image
                     src="/images/logo-v4.png"
                     alt="Sravya Global Developers"
@@ -76,14 +76,6 @@ export default function Header() {
                     className="object-contain"
                     priority
                   />
-                </div>
-                <div>
-                  <h1 className="font-serif text-lg md:text-xl font-semibold text-ivory tracking-wide leading-tight group-hover:text-gold-300 transition-colors">
-                    SRAVYA GLOBAL
-                  </h1>
-                  <p className="text-[10px] uppercase font-sans font-medium tracking-widest text-gold-300/80 -mt-0.5">
-                    Developers
-                  </p>
                 </div>
               </Link>
             </div>
@@ -162,23 +154,13 @@ export default function Header() {
               <div>
                 {/* Header of Mobile Menu */}
                 <div className="flex items-center justify-between pb-6 border-b border-primary-900">
-                  <div className="flex items-center gap-3">
-                    <div className="relative w-16 h-16">
-                      <Image
-                        src="/images/logo-v4.png"
-                        alt="Sravya Global Developers"
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                    <div>
-                      <h2 className="font-serif text-base font-semibold text-ivory tracking-wide leading-tight">
-                        SRAVYA GLOBAL
-                      </h2>
-                      <p className="text-[9px] uppercase font-sans font-medium tracking-widest text-gold-300/80 -mt-0.5">
-                        Developers
-                      </p>
-                    </div>
+                  <div className="relative w-24 h-24">
+                    <Image
+                      src="/images/logo-v4.png"
+                      alt="Sravya Global Developers"
+                      fill
+                      className="object-contain"
+                    />
                   </div>
                   <button
                     onClick={() => setIsOpen(false)}
