@@ -52,7 +52,7 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
           
           {/* Brand Info */}
           <div className="space-y-6">
-            <Link href="/" className="group block -ml-4">
+            <Link href="/" className="group block ml-2">
               <div className="relative w-48 h-32 group-hover:scale-105 transition-transform duration-300">
                 <Image
                   src="/images/logo-v4.png"
