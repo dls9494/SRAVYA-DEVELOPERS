@@ -7,16 +7,12 @@ import { ArrowRight, ShieldCheck, Landmark, CheckCircle2, TrendingUp, Trees, Hel
 import { projectsData } from "@/data/projects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import ProjectGrid from "@/components/ProjectGrid";
 import Testimonials from "@/components/Testimonials";
 import CTA from "@/components/CTA";
 import DisclaimerModal from "@/components/DisclaimerModal";
 
 export default function Home() {
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
-
-  // We only show the top 3 projects on the homepage
-  const featuredProjects = projectsData.slice(0, 3);
 
   const stats = [
     { value: "100%", label: "Title Transparency", desc: "Rigorous legal audit verification" },
@@ -166,33 +162,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Projects Section */}
-      <section className="py-20 bg-white border-y border-primary-900/5 font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center space-y-2">
-            <p className="text-xs font-bold uppercase tracking-widest text-gold-600">
-              Featured Properties
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-950">
-              Our Signature Plotted Ventures
-            </h2>
-            <p className="text-sm text-charcoal/60 max-w-xl mx-auto leading-relaxed">
-              Explore our range of fully-developed open plots, ongoing villa communities, and upcoming high-yield pre-launch opportunities.
-            </p>
-          </div>
 
-          <ProjectGrid projects={featuredProjects} showFilters={false} />
-
-          <div className="text-center pt-4">
-            <Link
-              href="/projects"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-primary-900/20 text-primary-900 hover:bg-primary-900 hover:text-white font-semibold text-sm uppercase tracking-wider transition-all duration-300"
-            >
-              View All Portfolios
-            </Link>
-          </div>
-        </div>
-      </section>
 
       {/* Venture Showcase Video Section */}
       <section className="py-20 bg-primary-950 font-sans text-ivory relative overflow-hidden">
