@@ -62,7 +62,7 @@ export default function Home() {
             alt="Premium Plotting Developments"
             fill
             priority
-            className="object-cover object-center opacity-45"
+            className="object-cover object-center opacity-50"
           />
         </div>
 
