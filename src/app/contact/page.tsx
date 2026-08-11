@@ -55,17 +55,17 @@ export default function Contact() {
               </p>
             </div>
 
-            {/* List of Contact Details */}
+             {/* List of Contact Details */}
             <div className="space-y-6 flex-grow py-8">
               
               <div className="flex gap-4 items-start">
                 <div className="w-10 h-10 rounded-lg bg-primary-900/5 border border-primary-900/5 flex items-center justify-center flex-shrink-0 text-primary-900">
-                  <MapPin size={20} className="text-gold-500" />
+                   <MapPin size={20} className="text-gold-500" />
                 </div>
                 <div>
                   <h4 className="font-serif text-base font-bold text-primary-950">Corporate Office</h4>
                   <p className="text-xs sm:text-sm text-charcoal/70 leading-relaxed mt-1">
-                    [OFFICE ADDRESS]
+                    7-2/P-30, My Homes Colony, Manneguda, Hyderabad.
                   </p>
                 </div>
               </div>
@@ -76,12 +76,20 @@ export default function Contact() {
                 </div>
                 <div>
                   <h4 className="font-serif text-base font-bold text-primary-950">Call Helpline</h4>
-                  <a
-                    href="tel:[PHONE NUMBER]"
-                    className="block text-xs sm:text-sm text-charcoal/75 hover:text-gold-600 font-semibold transition-colors mt-1"
-                  >
-                    +91 [PHONE NUMBER]
-                  </a>
+                  <div className="flex flex-col mt-1">
+                    <a
+                      href="tel:+919949736082"
+                      className="text-xs sm:text-sm text-charcoal/75 hover:text-gold-600 font-semibold transition-colors"
+                    >
+                      +91 9949736082
+                    </a>
+                    <a
+                      href="tel:+916309366082"
+                      className="text-xs sm:text-sm text-charcoal/75 hover:text-gold-600 font-semibold transition-colors"
+                    >
+                      +91 6309366082
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -92,10 +100,10 @@ export default function Contact() {
                 <div>
                   <h4 className="font-serif text-base font-bold text-primary-950">Email Support</h4>
                   <a
-                    href="mailto:[EMAIL ADDRESS]"
+                    href="mailto:sravyaglobaldevelopers@gmail.com"
                     className="block text-xs sm:text-sm text-charcoal/75 hover:text-gold-600 font-semibold transition-colors mt-1"
                   >
-                    [EMAIL ADDRESS]
+                    sravyaglobaldevelopers@gmail.com
                   </a>
                 </div>
               </div>
@@ -138,7 +146,7 @@ export default function Contact() {
       {/* Maps section */}
       <section className="h-[400px] w-full border-t border-primary-900/5 bg-primary-900/5 relative">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789012!2d78.38421!3d17.44789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI2JzU1LjYiTiA3OMKwMjMnMDMuMSJFCg!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3811.026778107937!2d78.5810893!3d17.251417!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDE1JzA1LjEiTiA3OMKwMzQnNTkuOCJFCg!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
           width="100%"
           height="100%"
           style={{ border: 0 }}

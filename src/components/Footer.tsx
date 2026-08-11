@@ -190,19 +190,24 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-gold-500 flex-shrink-0 mt-0.5" />
                 <span className="text-ivory/75">
-                  [OFFICE ADDRESS]
+                  7-2/P-30, My Homes Colony, Manneguda, Hyderabad.
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-gold-500 flex-shrink-0" />
-                <a href="tel:[PHONE NUMBER]" className="text-ivory/75 hover:text-gold-500 transition-colors">
-                  +91 [PHONE NUMBER]
-                </a>
+                <div className="flex flex-col">
+                  <a href="tel:+919949736082" className="text-ivory/75 hover:text-gold-500 transition-colors">
+                    +91 9949736082
+                  </a>
+                  <a href="tel:+916309366082" className="text-ivory/75 hover:text-gold-500 transition-colors">
+                    +91 6309366082
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-gold-500 flex-shrink-0" />
-                <a href="mailto:[EMAIL ADDRESS]" className="text-ivory/75 hover:text-gold-500 transition-colors">
-                  [EMAIL ADDRESS]
+                <a href="mailto:sravyaglobaldevelopers@gmail.com" className="text-ivory/75 hover:text-gold-500 transition-colors">
+                  sravyaglobaldevelopers@gmail.com
                 </a>
               </li>
             </ul>

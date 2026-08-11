@@ -106,14 +106,14 @@ export default function Header() {
               })}
             </nav>
 
-            {/* Action Button & Contact Info */}
+             {/* Action Button & Contact Info */}
             <div className="hidden lg:flex items-center gap-4">
               <a
-                href="tel:[PHONE NUMBER]"
+                href="tel:+919949736082"
                 className="flex items-center gap-2 text-xs font-sans text-gold-300/90 font-medium tracking-wider hover:text-gold-400 transition-colors"
               >
                 <Phone size={14} className="text-gold-500" />
-                <span>+91 [PHONE NUMBER]</span>
+                <span>+91 9949736082</span>
               </a>
               <Link
                 href="/contact"
@@ -213,23 +213,23 @@ export default function Header() {
               {/* Mobile Drawer Footer Contacts */}
               <div className="mt-auto pt-6 border-t border-primary-900 space-y-4">
                 <a
-                  href="tel:[PHONE NUMBER]"
+                  href="tel:+919949736082"
                   className="flex items-center gap-3 text-sm text-ivory/80 hover:text-gold-400 transition-colors"
                 >
                   <Phone size={16} className="text-gold-500" />
-                  <span>+91 [PHONE NUMBER]</span>
+                  <span>+91 9949736082 / 6309366082</span>
                 </a>
                 <a
-                  href="mailto:[EMAIL ADDRESS]"
+                  href="mailto:sravyaglobaldevelopers@gmail.com"
                   className="flex items-center gap-3 text-sm text-ivory/80 hover:text-gold-400 transition-colors"
                 >
                   <Mail size={16} className="text-gold-500" />
-                  <span>[EMAIL ADDRESS]</span>
+                  <span>sravyaglobaldevelopers@gmail.com</span>
                 </a>
                 <div className="flex items-start gap-3 text-sm text-ivory/70">
                   <MapPin size={18} className="text-gold-500 flex-shrink-0 mt-0.5" />
                   <span>
-                    [OFFICE ADDRESS]
+                    7-2/P-30, My Homes Colony, Manneguda, Hyderabad.
                   </span>
                 </div>
 
