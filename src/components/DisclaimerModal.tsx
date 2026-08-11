@@ -71,7 +71,7 @@ export default function DisclaimerModal({ isOpen, onClose }: DisclaimerModalProp
             {/* Content */}
             <div className="text-sm text-charcoal/80 leading-relaxed space-y-4 max-h-[60vh] overflow-y-auto pr-2">
               <p>
-                The information provided on this website for **Sravya Global Developers** is for general informational and marketing purposes only. It does not constitute a legal offering, investment advice, or financial recommendation.
+                The information provided on this website for **Sravya Global Developers** (Registered Firm No: 791 of 2026, Government of Telangana) is for general informational and marketing purposes only. It does not constitute a legal offering, investment advice, or financial recommendation.
               </p>
               <p>
                 All specifications, project details, plots sizes, pricing structures, layouts, connectivity statistics, RERA numbers, and landmark distance references are illustrative placeholders and subject to modification without prior notice. The final designs, area specifications, and prices will be specified in the agreement of sale.

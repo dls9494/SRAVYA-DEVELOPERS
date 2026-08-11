@@ -160,10 +160,10 @@ export default function About() {
             "We do not merely sell plots of land. We help you secure an appreciating asset that will safeguard your family's future for generations."
           </h2>
 
-          <div className="space-y-1">
-            <h4 className="font-serif text-lg font-bold text-primary-950">Management Message</h4>
+          <div className="space-y-2">
+            <h4 className="font-serif text-lg font-bold text-primary-950">Pedapudi Chandrasekhar & Peddapudi Sibe Rani</h4>
             <p className="text-xs text-gold-600 font-bold uppercase tracking-wider">
-              Sravya Global Developers Leadership
+              Managing Partners, Sravya Global Developers
             </p>
           </div>
 
