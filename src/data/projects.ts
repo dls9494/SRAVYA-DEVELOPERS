@@ -76,54 +76,5 @@ export const projectsData: Project[] = [
       "Reqelford International School",
       "Narayana Multispeciality Hospital"
     ]
-  },
-  {
-    slug: "elite-county",
-    name: "Sravya Elite County",
-    location: "Shankarpally (West Hyderabad Corridor)",
-    status: "Upcoming",
-    type: "Luxury Residential Plots",
-    tagline: "Invest in West Hyderabad's high-potential residential hub",
-    description: "Sravya Elite County is an upcoming signature residential plot community situated in Shankarpally, the crown jewel of West Hyderabad's investment corridor. Strategically positioned to provide easy access to Gachibowli, financial hubs, and top-tier educational institutions, it offers high-potential land investments. Characterized by premium infrastructure and luxury clubhouse amenities, it represents the gold standard of plot development.",
-    image: "/images/sravya-3.jpeg",
-    gallery: [
-      "/images/sravya-3.jpeg",
-      "/images/sravya-2.jpeg",
-      "/images/sravya-1.jpeg"
-    ],
-    startingPrice: "₹[STARTING PRICE] Lakhs",
-    plotSizes: "200 - 600 Sq. Yards",
-    totalArea: "25 Acres",
-    totalPlots: "320 Units",
-    reraNumber: "[RERA REGISTRATION IN PROGRESS]",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3807.567890123456!2d78.123456!3d17.454321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI3JzE1LjYiTiA3OMKwMDcnMjQuNCJFCg!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
-    highlights: [
-      "Excellent connectivity to Gachibowli Financial District and Neopolis Kokapet",
-      "Near Shankarpally railway station and proposed radial roads",
-      "100% vaastu compliant layouts with standard orientations",
-      "Grand clubhouse with swimming pool and community lounge",
-      "Pre-launch investment benefits with high early-stage appreciation"
-    ],
-    amenities: [
-      { icon: "Coffee", title: "Grand Clubhouse", description: "Elite social and recreational club featuring banquet halls and indoor games." },
-      { icon: "Pocket", title: "Swimming Pool", description: "Clean half-olympic swimming pool with a dedicated kids splash zone." },
-      { icon: "Sun", title: "Solar Fencing", description: "Additional solar security cabling along the perimeter compound wall." },
-      { icon: "Tv", title: "Underground Drainage", description: "Eco-friendly, storm-water integrated underground sewage drainage system." },
-      { icon: "Leaf", title: "Theme Park", description: "Stylized pathways, dense green lawns, and native flora thematic installations." },
-      { icon: "Radio", title: "24/7 Surveillance", description: "High-definition CCTV camera coverage across entry points and main junctions." }
-    ],
-    connectivity: [
-      { destination: "Financial District / Gachibowli", distance: "25 Mins" },
-      { destination: "IIT Hyderabad (Kandi)", distance: "20 Mins" },
-      { destination: "Kokapet Neopolis", distance: "20 Mins" },
-      { destination: "Shankarpally Railway Station", distance: "5 Mins" },
-      { destination: "Mokila Residential Zone", distance: "10 Mins" }
-    ],
-    nearbyLandmarks: [
-      "ICFAI Business School",
-      "Indus International School",
-      "Mokila Radial Corridor",
-      "Upcoming Western Radial Ring Road"
-    ]
   }
 ];

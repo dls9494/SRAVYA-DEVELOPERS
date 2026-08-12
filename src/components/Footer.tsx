@@ -159,12 +159,7 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
                   <span className="block text-[11px] text-ivory/50">Ongoing · Rampally ORR Exit 9</span>
                 </Link>
               </li>
-              <li>
-                <Link href="/projects/elite-county" className="text-ivory/70 hover:text-gold-500 transition-colors block">
-                  <span className="font-medium text-ivory">Sravya Elite County</span>
-                  <span className="block text-[11px] text-ivory/50">Upcoming · Shankarpally Corridor</span>
-                </Link>
-              </li>
+
             </ul>
           </div>
 

@@ -24,7 +24,6 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
   const projectsList = [
     { label: "Select a Venture", value: "" },
     { label: "Pearl City (Rampally)", value: "pearl-city" },
-    { label: "Sravya Elite County (Shankarpally)", value: "elite-county" },
   ];
 
   const validate = () => {
