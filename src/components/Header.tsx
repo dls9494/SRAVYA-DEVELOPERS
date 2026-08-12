@@ -65,9 +65,9 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-10 lg:gap-16">
+            <div className="flex items-center gap-4 lg:gap-6">
               {/* Logo Section */}
-              <div className="flex-shrink-0 -my-4 ml-2 md:ml-4">
+              <div className="flex-shrink-0 -my-4 ml-2 md:ml-4 -mr-4 md:-mr-6">
                 <Link href="/" className="group block">
                   <div className="relative w-36 h-24 group-hover:scale-105 transition-transform duration-300">
                     <Image
