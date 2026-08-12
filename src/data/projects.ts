@@ -29,55 +29,6 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    slug: "rustic-valley",
-    name: "Rustic Valley",
-    location: "Chakalisheripally, Yacharam (Nagarjuna Sagar Highway)",
-    status: "Completed",
-    type: "Gated Community Residential Plots",
-    tagline: "Experience nature's tranquility near the future Hyderabad 4th City",
-    description: "Rustic Valley is a premium plotted development thoughtfully laid out across 10.5 acres. Situated near the fast-developing Nagarjuna Sagar Highway, it is in close proximity to the proposed Regional Ring Road (RRR) and the upcoming Hyderabad 4th City. Offering 164 well-defined plots with world-class amenities, it represents the perfect blend of natural tranquility and high-yielding investment potential.",
-    image: "/images/sravya-1.jpeg",
-    gallery: [
-      "/images/sravya-1.jpeg",
-      "/images/sravya-2.jpeg",
-      "/images/sravya-3.jpeg"
-    ],
-    startingPrice: "₹[STARTING PRICE] Lakhs",
-    plotSizes: "150 - 400 Sq. Yards",
-    totalArea: "10.5 Acres",
-    totalPlots: "164 Units",
-    reraNumber: "[RERA APPROVED: P0180000XXXX]",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3813.565432109876!2d78.7890123!3d17.0987654!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDA1JzU1LjYiTiA3OMKwNDcnMjAuNCJFCg!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
-    highlights: [
-      "Strategically located near the proposed Regional Ring Road (RRR)",
-      "Close proximity to the Hyderabad 4th City and Yacharam Pharma City corridor",
-      "100% clear title with spot registration",
-      "Gated community with 24/7 security and compound wall",
-      "Ready for construction with rapid growth in surrounding land value"
-    ],
-    amenities: [
-      { icon: "Road", title: "Wide blacktop roads", description: "33' and 40' wide BT roads built to premium standards." },
-      { icon: "Shield", title: "Gated Community", description: "Fully secured boundary walls and entrance arch with 24/7 security personnel." },
-      { icon: "Droplet", title: "Water Supply", description: "Underground water connection pipeline to every plot with overhead storage tanks." },
-      { icon: "Zap", title: "Electricity & Lights", description: "Underground electricity lines and LED streetlights throughout the community." },
-      { icon: "Trees", title: "Landscaped Gardens", description: "Lush green parks, seating spaces, and manicured plantations on all avenues." },
-      { icon: "Smile", title: "Kids Play Area", description: "Safe, designated play zones equipped with premium modern swings and slides." }
-    ],
-    connectivity: [
-      { destination: "Regional Ring Road (RRR)", distance: "10 Mins" },
-      { destination: "Nagarjuna Sagar Highway", distance: "5 Mins" },
-      { destination: "Hyderabad 4th City", distance: "15 Mins" },
-      { destination: "ORR Bongloor Exit", distance: "25 Mins" },
-      { destination: "Yacharam Town & Police Station", distance: "8 Mins" }
-    ],
-    nearbyLandmarks: [
-      "Upcoming Pharma City Corridor",
-      "Guru Nanak Group of Institutions",
-      "TCS Adibatla Aerospace SEZ",
-      "Proposed Regional Ring Road Junction"
-    ]
-  },
-  {
     slug: "pearl-city",
     name: "Pearl City",
     location: "Rampally (Near ORR & Pocharam IT Corridor)",

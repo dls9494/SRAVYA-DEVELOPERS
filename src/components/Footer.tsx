@@ -152,12 +152,7 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
               Our Portfolios
             </h4>
             <ul className="space-y-3 text-sm">
-              <li>
-                <Link href="/projects/rustic-valley" className="text-ivory/70 hover:text-gold-500 transition-colors block">
-                  <span className="font-medium text-ivory">Rustic Valley</span>
-                  <span className="block text-[11px] text-ivory/50">Completed · Yacharam Sagar Highway</span>
-                </Link>
-              </li>
+
               <li>
                 <Link href="/projects/pearl-city" className="text-ivory/70 hover:text-gold-500 transition-colors block">
                   <span className="font-medium text-ivory">Pearl City</span>
