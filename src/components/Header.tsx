@@ -89,11 +89,18 @@ export default function Header() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`px-3 py-2 rounded-md font-sans text-sm font-medium tracking-wider uppercase transition-all duration-200 hover:text-gold-300 ${
-                        isActive ? "text-gold-500 font-semibold" : "text-ivory/90"
+                      className={`relative px-3 py-2 font-sans text-xs font-semibold tracking-widest uppercase transition-all duration-300 hover:text-gold-300 ${
+                        isActive ? "text-gold-400 font-bold" : "text-ivory/80"
                       }`}
                     >
-                      {link.name}
+                      <span>{link.name}</span>
+                      {isActive && (
+                        <motion.span
+                          layoutId="activeNavLine"
+                          className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-gold-400"
+                          transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                        />
+                      )}
                     </Link>
                   );
                 })}

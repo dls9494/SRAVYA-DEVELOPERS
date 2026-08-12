@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, ShieldCheck, Landmark, CheckCircle2, TrendingUp, Trees, HelpCircle } from "lucide-react";
+import { motion } from "framer-motion";
 import { projectsData } from "@/data/projects";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -44,75 +45,114 @@ export default function Home() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 100, damping: 20 },
+    },
+  };
+
   return (
     <>
       <Header />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center bg-primary-950 overflow-hidden font-sans">
+      <section className="relative min-h-[100dvh] flex items-center justify-center bg-primary-950 overflow-hidden font-sans">
         {/* Background Image Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-950/70 via-primary-950/60 to-primary-950 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-950/75 via-primary-950/60 to-primary-950 z-10" />
         <div className="absolute inset-0 w-full h-full">
           <Image
             src="/images/hero.jpeg"
             alt="Premium Plotting Developments"
             fill
             priority
-            className="object-cover object-center opacity-50"
+            className="object-cover object-center opacity-45 scale-105"
           />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center space-y-8 pt-20">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gold-500/20 bg-primary-900/60 text-gold-400 text-xs font-semibold uppercase tracking-widest backdrop-blur-sm">
-            <ShieldCheck size={14} className="text-gold-500" />
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center space-y-8 pt-28 pb-16"
+        >
+          <motion.div 
+            variants={itemVariants}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-gold-500/20 bg-primary-900/60 text-gold-400 text-[11px] font-bold uppercase tracking-widest backdrop-blur-sm"
+          >
+            <ShieldCheck size={13} className="text-gold-500" />
             <span>Hyderabad's Trusted Plot Developer</span>
-          </div>
+          </motion.div>
 
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl font-bold text-ivory tracking-tight leading-tight max-w-4xl mx-auto">
+          <motion.h1 
+            variants={itemVariants}
+            className="font-serif text-4xl sm:text-6xl md:text-8xl font-bold text-ivory tracking-tight leading-tight max-w-4xl mx-auto"
+          >
             Building Trust.<br className="hidden md:inline" /> Creating Landmarks.
-          </h1>
+          </motion.h1>
 
-          <p className="text-base sm:text-lg md:text-xl text-ivory/80 max-w-2xl mx-auto leading-relaxed">
+          <motion.p 
+            variants={itemVariants}
+            className="text-sm sm:text-base md:text-lg text-ivory/80 max-w-2xl mx-auto leading-relaxed"
+          >
             Thoughtfully planned gated community plots and land investment opportunities in high-growth corridors of Hyderabad.
-          </p>
+          </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+          <motion.div 
+            variants={itemVariants}
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2"
+          >
             <Link
               href="/projects"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-base font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300 shadow-lg shadow-gold-500/10"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 text-xs font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300 shadow-lg shadow-gold-500/10"
             >
               <span>Explore Active Plots</span>
-              <ArrowRight size={18} />
+              <ArrowRight size={16} />
             </Link>
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-semibold uppercase tracking-wider text-ivory border border-white/20 hover:bg-white/5 rounded-lg transition-all duration-300"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-xs font-semibold uppercase tracking-wider text-ivory border border-white/20 hover:bg-white/5 rounded-lg transition-all duration-300"
             >
               Talk to Specialist
             </Link>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </section>
 
       {/* Trust & Stats Section */}
-      <section className="bg-white border-y border-primary-900/5 py-12 relative z-20 -mt-16 max-w-6xl mx-auto rounded-xl shadow-xl px-6 md:px-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
-        {stats.map((stat, idx) => (
-          <div key={idx} className="text-center space-y-1 font-sans">
-            <span className="block font-serif text-3xl md:text-4xl font-extrabold text-primary-900">
-              {stat.value}
-            </span>
-            <h4 className="text-xs font-bold uppercase tracking-wider text-gold-600">
-              {stat.label}
-            </h4>
-            <p className="text-xs text-charcoal/50">
-              {stat.desc}
-            </p>
-          </div>
-        ))}
+      <section className="relative z-20 -mt-12 max-w-6xl mx-auto px-4">
+        <div className="bg-primary-900 border border-primary-800/80 rounded-2xl shadow-2xl py-10 px-6 md:px-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y lg:divide-y-0 lg:divide-x divide-white/5">
+          {stats.map((stat, idx) => (
+            <div key={idx} className="text-center space-y-1.5 font-sans pt-6 lg:pt-0 first:pt-0 lg:pl-4 first:pl-0">
+              <span className="block font-serif text-3xl md:text-4xl font-extrabold text-gold-400">
+                {stat.value}
+              </span>
+              <h4 className="text-[10px] font-bold uppercase tracking-wider text-ivory/80">
+                {stat.label}
+              </h4>
+              <p className="text-xs text-ivory/60 max-w-[200px] mx-auto leading-relaxed">
+                {stat.desc}
+              </p>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* About Section */}
-      <section className="py-20 md:py-28 bg-ivory font-sans">
+      <section className="py-24 md:py-32 bg-ivory font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left: Text Details */}
           <div className="space-y-6">
@@ -132,40 +172,38 @@ export default function Home() {
             <div className="pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary-900 hover:text-gold-600 transition-colors"
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary-900 hover:text-gold-600 transition-colors"
               >
                 <span>Read Our Journey</span>
-                <ArrowRight size={16} className="text-gold-500" />
+                <ArrowRight size={14} className="text-gold-500" />
               </Link>
             </div>
           </div>
 
           {/* Right: Picture Grid */}
           <div className="grid grid-cols-12 gap-4 items-stretch relative">
-            <div className="col-span-8 rounded-xl overflow-hidden shadow-lg relative min-h-[250px] bg-primary-950">
+            <div className="col-span-8 rounded-xl overflow-hidden shadow-lg relative min-h-[300px] bg-primary-950">
               <Image
                 src="/images/sravya-2.jpeg"
                 alt="Plotted land layout"
                 fill
-                className="object-cover"
+                className="object-cover hover:scale-105 transition-transform duration-750"
               />
             </div>
-            <div className="col-span-4 rounded-xl overflow-hidden shadow-lg relative min-h-[180px] self-end bg-primary-950">
+            <div className="col-span-4 rounded-xl overflow-hidden shadow-lg relative min-h-[220px] self-end bg-primary-950">
               <Image
                 src="/images/sravya-3.jpeg"
                 alt="Green landscaping plots"
                 fill
-                className="object-cover"
+                className="object-cover hover:scale-105 transition-transform duration-750"
               />
             </div>
           </div>
         </div>
       </section>
 
-
-
       {/* Venture Showcase Video Section */}
-      <section className="py-20 bg-primary-950 font-sans text-ivory relative overflow-hidden">
+      <section className="py-24 bg-primary-950 font-sans text-ivory relative overflow-hidden">
         <div className="absolute inset-0 bg-primary-950/20 z-10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 space-y-12">
           
@@ -199,7 +237,7 @@ export default function Home() {
       </section>
 
       {/* Investment Analysis (Plots vs Apartments) */}
-      <section className="py-20 md:py-24 bg-ivory font-sans">
+      <section className="py-24 md:py-32 bg-ivory font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -223,7 +261,7 @@ export default function Home() {
                       <h4 className="font-serif text-base font-bold text-primary-950">
                         {reason.title}
                       </h4>
-                      <p className="text-xs text-charcoal/60 leading-relaxed">
+                      <p className="text-xs text-charcoal/65 leading-relaxed">
                         {reason.desc}
                       </p>
                     </div>
@@ -251,26 +289,26 @@ export default function Home() {
                 {/* Row 2 */}
                 <div className="grid grid-cols-3 gap-4 pb-3 border-b border-primary-900/5">
                   <span className="font-semibold text-charcoal/70">Ownership</span>
-                  <span className="text-primary-800 font-medium">Complete ownership of Land & Airspace</span>
+                  <span className="text-gold-600 font-semibold">Complete Land & Airspace</span>
                   <span className="text-charcoal/60">Fractional Undivided Share (UDS)</span>
                 </div>
                 {/* Row 3 */}
                 <div className="grid grid-cols-3 gap-4 pb-3 border-b border-primary-900/5">
                   <span className="font-semibold text-charcoal/70">Depreciation</span>
-                  <span className="text-primary-800 font-medium">Zero depreciation. Values always grow.</span>
-                  <span className="text-charcoal/60">High structure depreciation over 15-20 years</span>
+                  <span className="text-gold-600 font-semibold">Zero depreciation. Constantly grows.</span>
+                  <span className="text-charcoal/60">High structure depreciation over time</span>
                 </div>
                 {/* Row 4 */}
                 <div className="grid grid-cols-3 gap-4 pb-3 border-b border-primary-900/5">
                   <span className="font-semibold text-charcoal/70">Flexibility</span>
-                  <span className="text-primary-800 font-medium">Build custom villa anytime as per budget</span>
-                  <span className="text-charcoal/60">Fixed builder layout. Cannot modify structure</span>
+                  <span className="text-gold-600 font-semibold">Build custom villa as per budget</span>
+                  <span className="text-charcoal/60">Fixed builder layout. Cannot modify.</span>
                 </div>
                 {/* Row 5 */}
                 <div className="grid grid-cols-3 gap-4">
                   <span className="font-semibold text-charcoal/70">Entry Capital</span>
-                  <span className="text-primary-800 font-medium">Lower entry cost, higher leverage</span>
-                  <span className="text-charcoal/60">Heavy upfront capital, recurring maintenance</span>
+                  <span className="text-gold-600 font-semibold">Lower entry cost, higher leverage</span>
+                  <span className="text-charcoal/60">Heavy upfront capital & maintenance</span>
                 </div>
               </div>
 
@@ -290,7 +328,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials section */}
-      <section className="py-20 bg-white border-y border-primary-900/5">
+      <section className="py-24 bg-white border-y border-primary-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
           <div className="text-center space-y-2">
             <p className="text-xs font-bold uppercase tracking-widest text-gold-600">
@@ -305,7 +343,7 @@ export default function Home() {
       </section>
 
       {/* CTA section */}
-      <section className="py-20 bg-ivory">
+      <section className="py-24 bg-ivory">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <CTA />
         </div>

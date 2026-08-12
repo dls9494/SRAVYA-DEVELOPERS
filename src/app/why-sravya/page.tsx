@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { CheckSquare, HeartHandshake, ShieldCheck, MapPin, Compass, Hammer, FileText, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DisclaimerModal from "@/components/DisclaimerModal";
@@ -15,41 +16,58 @@ export default function WhySravya() {
     {
       title: "Legally Vetted Titles Only",
       desc: "We perform exhaustive legal verification through top corporate lawyers before land acquisition. We provide a complete legal summary dossier to buyers.",
-      icon: <FileText className="w-6 h-6 text-gold-500" />,
+      icon: <FileText className="w-5 h-5 text-gold-500" />,
     },
     {
       title: "HMDA & DTCP Standards",
       desc: "We do not compromise on approvals. Every venture matches zoning guidelines, providing wide layouts, park provisions, and proper civic setbacks.",
-      icon: <CheckSquare className="w-6 h-6 text-gold-500" />,
+      icon: <CheckSquare className="w-5 h-5 text-gold-500" />,
     },
     {
       title: "Strategic Growth Locations",
       desc: "We prioritize areas situated on future transit grids (Regional Ring Road, Outer Ring Road, highway expansions) to guarantee early-stage investor gains.",
-      icon: <MapPin className="w-6 h-6 text-gold-500" />,
+      icon: <MapPin className="w-5 h-5 text-gold-500" />,
     },
     {
       title: "Premium Civic Amenities",
       desc: "Our communities boast underground cabling, blacktop road networks, overhead storage tanks, water connections, rainwater recharge, and landscaped parks.",
-      icon: <Hammer className="w-6 h-6 text-gold-500" />,
+      icon: <Hammer className="w-5 h-5 text-gold-500" />,
     },
     {
       title: "Vaastu-Compliant Layouts",
       desc: "Every plot layout is scientifically designed according to traditional Vaastu principles for perfect alignment and positive energy flow.",
-      icon: <Compass className="w-6 h-6 text-gold-500" />,
+      icon: <Compass className="w-5 h-5 text-gold-500" />,
     },
     {
       title: "Transparent Post-Sale Support",
       desc: "We guide you from spot registration through link document sourcing and boundary marking, ensuring absolute peace of mind.",
-      icon: <HeartHandshake className="w-6 h-6 text-gold-500" />,
+      icon: <HeartHandshake className="w-5 h-5 text-gold-500" />,
     },
   ];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 24 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { type: "spring" as const, stiffness: 100, damping: 20 },
+    },
+  };
 
   return (
     <>
       <Header />
 
       {/* Hero Banner */}
-      <section className="relative pt-32 pb-20 bg-primary-950 text-center font-sans overflow-hidden">
+      <section className="relative pt-36 pb-24 bg-primary-950 text-center font-sans overflow-hidden">
         <div className="absolute inset-0 bg-primary-950/85 z-10" />
         <div className="absolute inset-0 w-full h-full">
           <Image
@@ -60,21 +78,26 @@ export default function WhySravya() {
           />
         </div>
         
-        <div className="max-w-7xl mx-auto px-4 relative z-20 space-y-4">
-          <p className="text-xs font-bold uppercase tracking-widest text-gold-400">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="max-w-7xl mx-auto px-4 relative z-20 space-y-4"
+        >
+          <motion.p variants={itemVariants} className="text-xs font-bold uppercase tracking-widest text-gold-400">
             The Sravya Difference
-          </p>
-          <h1 className="font-serif text-3xl sm:text-5xl font-bold text-ivory tracking-wide leading-tight">
+          </motion.p>
+          <motion.h1 variants={itemVariants} className="font-serif text-3xl sm:text-5xl font-bold text-ivory tracking-wide leading-tight">
             Why Invest With Sravya Global Developers?
-          </h1>
-          <p className="text-sm md:text-base text-ivory/80 max-w-2xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p variants={itemVariants} className="text-sm md:text-base text-ivory/80 max-w-2xl mx-auto leading-relaxed">
             Discover the pillars of trust, compliance, and quality engineering that make our plotting communities the preferred choice for smart land buyers.
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* Core Advantages Pillars */}
-      <section className="py-20 bg-white font-sans">
+      <section className="py-24 bg-white font-sans">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
           
           <div className="text-center space-y-2 max-w-xl mx-auto">
@@ -93,9 +116,9 @@ export default function WhySravya() {
             {pillars.map((pillar, idx) => (
               <div
                 key={idx}
-                className="p-6 bg-white border border-primary-900/10 hover:border-gold-300 rounded-xl shadow-sm space-y-4 hover:shadow-md transition-all duration-300"
+                className="p-8 bg-white border border-primary-900/10 hover:border-gold-300 rounded-xl shadow-sm hover:shadow-lg transition-smooth space-y-4"
               >
-                <div className="w-12 h-12 rounded-lg bg-primary-900/5 flex items-center justify-center text-primary-900">
+                <div className="w-10 h-10 rounded-lg bg-primary-900/5 flex items-center justify-center text-primary-900">
                   {pillar.icon}
                 </div>
                 <h4 className="font-serif text-lg font-bold text-primary-950">
@@ -112,7 +135,7 @@ export default function WhySravya() {
       </section>
 
       {/* Land as a Legacy Section */}
-      <section className="py-20 bg-ivory font-sans border-y border-primary-900/5">
+      <section className="py-24 bg-ivory font-sans border-y border-primary-900/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Details */}
@@ -148,7 +171,7 @@ export default function WhySravya() {
               src="/images/sravya-2.jpeg"
               alt="Land plots landmarks"
               fill
-              className="object-cover"
+              className="object-cover hover:scale-105 transition-transform duration-750"
             />
           </div>
 
@@ -156,7 +179,7 @@ export default function WhySravya() {
       </section>
 
       {/* CTA section */}
-      <section className="py-20 bg-white font-sans text-center">
+      <section className="py-24 bg-white font-sans text-center">
         <div className="max-w-3xl mx-auto px-4 space-y-6">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-950">
             Ready to Build Your Landmark?
@@ -167,10 +190,10 @@ export default function WhySravya() {
           <div className="pt-2">
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-base font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300 shadow-md"
+              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300 shadow-md"
             >
               <span>Talk to Investment Advisor</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={14} />
             </Link>
           </div>
         </div>

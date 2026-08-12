@@ -14,7 +14,7 @@ interface ProjectGridProps {
 export default function ProjectGrid({ projects, showFilters = true, limit }: ProjectGridProps) {
   const [activeFilter, setActiveFilter] = useState<string>("All");
 
-  const filterTabs = ["All", "Ongoing", "Completed", "Upcoming"];
+  const filterTabs = ["All", "Ongoing"];
 
   const filteredProjects = projects.filter((project) => {
     if (activeFilter === "All") return true;
