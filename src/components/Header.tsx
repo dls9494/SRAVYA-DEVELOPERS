@@ -65,38 +65,40 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
-            {/* Logo Section */}
-            <div className="flex-shrink-0 -my-4 ml-2 md:ml-4">
-              <Link href="/" className="group block">
-                <div className="relative w-36 h-24 group-hover:scale-105 transition-transform duration-300">
-                  <Image
-                    src="/images/logo-v4.png"
-                    alt="Sravya Global Developers"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              </Link>
-            </div>
+            <div className="flex items-center gap-10 lg:gap-16">
+              {/* Logo Section */}
+              <div className="flex-shrink-0 -my-4 ml-2 md:ml-4">
+                <Link href="/" className="group block">
+                  <div className="relative w-36 h-24 group-hover:scale-105 transition-transform duration-300">
+                    <Image
+                      src="/images/logo-v4.png"
+                      alt="Sravya Global Developers"
+                      fill
+                      className="object-contain"
+                      priority
+                    />
+                  </div>
+                </Link>
+              </div>
 
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`px-3 py-2 rounded-md font-sans text-sm font-medium tracking-wider uppercase transition-all duration-200 hover:text-gold-300 ${
-                      isActive ? "text-gold-500 font-semibold" : "text-ivory/90"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-            </nav>
+              {/* Desktop Navigation */}
+              <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
+                {navLinks.map((link) => {
+                  const isActive = pathname === link.href;
+                  return (
+                    <Link
+                      key={link.name}
+                      href={link.href}
+                      className={`px-3 py-2 rounded-md font-sans text-sm font-medium tracking-wider uppercase transition-all duration-200 hover:text-gold-300 ${
+                        isActive ? "text-gold-500 font-semibold" : "text-ivory/90"
+                      }`}
+                    >
+                      {link.name}
+                    </Link>
+                  );
+                })}
+              </nav>
+            </div>
 
              {/* Action Button & Contact Info */}
             <div className="hidden lg:flex items-center gap-4">
