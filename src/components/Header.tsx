@@ -1,239 +1,223 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, Phone, Mail, MapPin } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import {
+  PhoneCall,
+  List,
+  X,
+  EnvelopeSimple,
+  MapPin,
+} from "@phosphor-icons/react";
+
+const navLinks = [
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Why Sravya", href: "/why-sravya" },
+  { name: "NRI / Investors", href: "/nri-investors" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
+  const [scrolled, setScrolled] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const onScroll = () => setScrolled(window.scrollY > 48);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Close menu on route change
+  // Close drawer on navigation
   useEffect(() => {
-    setIsOpen(false);
+    setDrawerOpen(false);
   }, [pathname]);
-
-  // Prevent scrolling when mobile menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About Us", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Why Sravya", href: "/why-sravya" },
-    { name: "NRI / Investors", href: "/nri-investors" },
-    { name: "Contact Us", href: "/contact" },
-  ];
-
-  const headerBgClass = isHome
-    ? scrolled
-      ? "bg-primary-900 shadow-xl border-b border-primary-800/40 py-4"
-      : "bg-transparent py-6"
-    : "bg-primary-900 shadow-xl border-b border-primary-800/40 py-4";
 
   return (
     <>
+      {/* ── Navigation ── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 ${headerBgClass}`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          scrolled
+            ? "glass-nav py-4"
+            : "bg-transparent border-b border-transparent py-5"
+        }`}
+        style={{ height: "72px" }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4 lg:gap-6">
-              {/* Logo Section */}
-              <div className="flex-shrink-0 -my-4 ml-2 md:ml-4 -mr-4 md:-mr-6">
-                <Link href="/" className="group block">
-                  <div className="relative w-36 h-24 group-hover:scale-105 transition-transform duration-300">
-                    <Image
-                      src="/images/logo-v4.png"
-                      alt="Sravya Global Developers"
-                      fill
-                      className="object-contain"
-                      priority
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-6">
+
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0 flex items-center group" aria-label="Sravya Global Developers home">
+            <div className="relative w-32 h-10 transition-opacity duration-300 group-hover:opacity-80">
+              <Image
+                src="/images/logo-v4.png"
+                alt="Sravya Global Developers"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
+          </Link>
+
+          {/* Desktop nav — all items in ONE line */}
+          <nav className="hidden lg:flex items-center gap-1" aria-label="Primary navigation">
+            {navLinks.map((link) => {
+              const active = pathname === link.href;
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`relative px-3 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] transition-colors duration-200 ${
+                    active
+                      ? "text-[#C8923A]"
+                      : "text-[#F5F3EF]/70 hover:text-[#F5F3EF]"
+                  }`}
+                >
+                  {link.name}
+                  {active && (
+                    <motion.span
+                      layoutId="nav-underline"
+                      className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-[#C8923A] rounded-full"
+                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
-                  </div>
+                  )}
                 </Link>
-              </div>
+              );
+            })}
+          </nav>
 
-              {/* Desktop Navigation */}
-              <nav className="hidden md:flex items-center space-x-1 lg:space-x-2">
-                {navLinks.map((link) => {
-                  const isActive = pathname === link.href;
-                  return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      className={`relative px-3 py-2 font-sans text-xs font-semibold tracking-widest uppercase transition-all duration-300 hover:text-gold-300 ${
-                        isActive ? "text-gold-400 font-bold" : "text-ivory/80"
-                      }`}
-                    >
-                      <span>{link.name}</span>
-                      {isActive && (
-                        <motion.span
-                          layoutId="activeNavLine"
-                          className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-gold-400"
-                          transition={{ type: "spring", stiffness: 300, damping: 25 }}
-                        />
-                      )}
-                    </Link>
-                  );
-                })}
-              </nav>
-            </div>
-
-             {/* Action Button & Contact Info */}
-            <div className="hidden lg:flex items-center gap-4">
-              <a
-                href="tel:+919949736082"
-                className="flex items-center gap-2 text-xs font-sans text-gold-300/90 font-medium tracking-wider hover:text-gold-400 transition-colors"
-              >
-                <Phone size={14} className="text-gold-500" />
-                <span>+91 9949736082</span>
-              </a>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded transition-all duration-300 shadow-md hover:shadow-gold-500/10"
-              >
-                Enquire Now
-              </Link>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <div className="flex md:hidden">
-              <button
-                onClick={() => setIsOpen(true)}
-                type="button"
-                className="inline-flex items-center justify-center p-2 rounded-md text-ivory hover:text-gold-500 hover:bg-primary-800/40 focus:outline-none transition-colors"
-                aria-label="Open navigation menu"
-              >
-                <Menu size={26} />
-              </button>
-            </div>
+          {/* CTA row */}
+          <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
+            <a
+              href="tel:+919949736082"
+              className="flex items-center gap-1.5 text-[0.75rem] font-medium text-[#C8923A]/80 hover:text-[#C8923A] transition-colors"
+            >
+              <PhoneCall size={13} weight="fill" />
+              <span>+91 99497 36082</span>
+            </a>
+            <Link href="/contact" className="btn-primary text-[0.75rem] px-5 py-2">
+              Enquire Now
+            </Link>
           </div>
+
+          {/* Mobile hamburger */}
+          <button
+            onClick={() => setDrawerOpen(true)}
+            className="lg:hidden p-2 text-[#F5F3EF]/70 hover:text-[#C8923A] transition-colors"
+            aria-label="Open navigation menu"
+            aria-expanded={drawerOpen}
+          >
+            <List size={24} weight="bold" />
+          </button>
         </div>
       </header>
 
-      {/* Mobile Drawer (framer-motion) */}
+      {/* ── Mobile Drawer ── */}
       <AnimatePresence>
-        {isOpen && (
+        {drawerOpen && (
           <>
-            {/* Dark Overlay */}
+            {/* Scrim */}
             <motion.div
+              key="scrim"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.5 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-              className="fixed inset-0 z-50 bg-black"
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-[60] bg-black/70 backdrop-blur-sm"
+              onClick={() => setDrawerOpen(false)}
             />
 
-            {/* Drawer Content */}
-            <motion.div
+            {/* Drawer panel */}
+            <motion.aside
+              key="drawer"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-primary-950 border-l border-primary-900/60 p-6 shadow-2xl flex flex-col justify-between"
+              transition={{ type: "spring", damping: 28, stiffness: 220 }}
+              className="fixed top-0 right-0 bottom-0 z-[70] w-full max-w-[320px] bg-[#111111] border-l border-white/5 flex flex-col"
+              aria-label="Mobile navigation"
             >
-              <div>
-                {/* Header of Mobile Menu */}
-                <div className="flex items-center justify-between pb-6 border-b border-primary-900">
-                  <div className="relative w-24 h-16">
-                    <Image
-                      src="/images/logo-v4.png"
-                      alt="Sravya Global Developers"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="p-2 text-ivory hover:text-gold-500 transition-colors"
-                    aria-label="Close navigation menu"
-                  >
-                    <X size={24} />
-                  </button>
+              {/* Drawer header */}
+              <div className="flex items-center justify-between px-6 py-5 border-b border-white/5">
+                <div className="relative w-28 h-9">
+                  <Image
+                    src="/images/logo-v4.png"
+                    alt="Sravya Global Developers"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
+                <button
+                  onClick={() => setDrawerOpen(false)}
+                  className="p-2 text-[#F5F3EF]/50 hover:text-[#C8923A] transition-colors"
+                  aria-label="Close navigation menu"
+                >
+                  <X size={20} weight="bold" />
+                </button>
+              </div>
 
-                {/* Mobile Navigation Links */}
-                <nav className="mt-8 space-y-3">
-                  {navLinks.map((link) => {
-                    const isActive = pathname === link.href;
-                    return (
+              {/* Links */}
+              <nav className="flex-1 px-4 py-8 space-y-1" aria-label="Mobile navigation links">
+                {navLinks.map((link, i) => {
+                  const active = pathname === link.href;
+                  return (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.05, duration: 0.3 }}
+                    >
                       <Link
-                        key={link.name}
                         href={link.href}
-                        className={`block px-4 py-3 rounded-lg font-sans text-base font-medium uppercase tracking-widest transition-all duration-200 ${
-                          isActive
-                            ? "bg-primary-900 text-gold-500 border-l-4 border-gold-500"
-                            : "text-ivory/80 hover:bg-primary-900/40 hover:text-ivory"
+                        className={`block px-4 py-3 rounded-[4px] text-sm font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
+                          active
+                            ? "bg-[#C8923A]/10 text-[#C8923A] border-l-2 border-[#C8923A]"
+                            : "text-[#F5F3EF]/60 hover:text-[#F5F3EF] hover:bg-white/5"
                         }`}
                       >
                         {link.name}
                       </Link>
-                    );
-                  })}
-                </nav>
-              </div>
+                    </motion.div>
+                  );
+                })}
+              </nav>
 
-              {/* Mobile Drawer Footer Contacts */}
-              <div className="mt-auto pt-6 border-t border-primary-900 space-y-4">
+              {/* Drawer footer */}
+              <div className="px-6 pb-8 space-y-4 border-t border-white/5 pt-6">
                 <a
                   href="tel:+919949736082"
-                  className="flex items-center gap-3 text-sm text-ivory/80 hover:text-gold-400 transition-colors"
+                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#C8923A] transition-colors"
                 >
-                  <Phone size={16} className="text-gold-500" />
-                  <span>+91 9949736082 / 6309366082</span>
+                  <PhoneCall size={16} weight="fill" className="text-[#C8923A]" />
+                  <span>+91 99497 36082</span>
+                </a>
+                <a
+                  href="tel:+916309366082"
+                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#C8923A] transition-colors"
+                >
+                  <PhoneCall size={16} weight="fill" className="text-[#C8923A]" />
+                  <span>+91 63093 66082</span>
                 </a>
                 <a
                   href="mailto:sravyaglobaldevelopers@gmail.com"
-                  className="flex items-center gap-3 text-sm text-ivory/80 hover:text-gold-400 transition-colors"
+                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#C8923A] transition-colors"
                 >
-                  <Mail size={16} className="text-gold-500" />
+                  <EnvelopeSimple size={16} weight="fill" className="text-[#C8923A]" />
                   <span>sravyaglobaldevelopers@gmail.com</span>
                 </a>
-                <div className="flex items-start gap-3 text-sm text-ivory/70">
-                  <MapPin size={18} className="text-gold-500 flex-shrink-0 mt-0.5" />
-                  <span>
-                    7-2/P-30, My Homes Colony, Manneguda, Hyderabad.
-                  </span>
+                <div className="flex items-start gap-3 text-sm text-[#F5F3EF]/50">
+                  <MapPin size={16} weight="fill" className="text-[#C8923A] mt-0.5 flex-shrink-0" />
+                  <span>7-2/P-30, My Homes Colony, Manneguda, Hyderabad</span>
                 </div>
-
-                <div className="pt-2">
-                  <Link
-                    href="/contact"
-                    className="w-full inline-flex items-center justify-center px-4 py-3 font-semibold uppercase tracking-wider text-primary-950 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300"
-                  >
-                    Enquire Now
-                  </Link>
-                </div>
+                <Link href="/contact" className="btn-primary w-full text-center mt-2">
+                  Enquire Now
+                </Link>
               </div>
-            </motion.div>
+            </motion.aside>
           </>
         )}
       </AnimatePresence>

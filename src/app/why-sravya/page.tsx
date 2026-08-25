@@ -1,203 +1,195 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckSquare, HeartHandshake, ShieldCheck, MapPin, Compass, Hammer, FileText, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import {
+  FileMagnifyingGlass,
+  CheckSquareOffset,
+  MapPin,
+  Wrench,
+  Compass,
+  HandHeart,
+  ArrowRight,
+} from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DisclaimerModal from "@/components/DisclaimerModal";
 
-export default function WhySravya() {
+function Reveal({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+const pillars = [
+  {
+    icon: <FileMagnifyingGlass size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "Legally Vetted Titles Only",
+    desc: "We perform exhaustive legal verification through corporate lawyers before acquisition. A complete legal dossier is shared with every buyer.",
+  },
+  {
+    icon: <CheckSquareOffset size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "HMDA & DTCP Approved",
+    desc: "Every venture matches zoning guidelines — wide layouts, park provisions, and proper civic setbacks. No compromise on approvals.",
+  },
+  {
+    icon: <MapPin size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "Strategic Growth Locations",
+    desc: "We prioritize areas on future transit grids (Regional Ring Road, ORR, highway expansions) to guarantee early-stage investor gains.",
+  },
+  {
+    icon: <Wrench size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "Premium Civic Amenities",
+    desc: "Underground cabling, blacktop roads, overhead tanks, water connections, rainwater recharge, and landscaped parks — all included.",
+  },
+  {
+    icon: <Compass size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "Vaastu-Compliant Layouts",
+    desc: "Every plot is scientifically designed per Vaastu principles for perfect alignment and positive energy flow.",
+  },
+  {
+    icon: <HandHeart size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "Transparent Post-Sale Support",
+    desc: "From registration through boundary marking and link document sourcing — we guide you completely, with zero hidden steps.",
+  },
+];
+
+export default function WhySravyaPage() {
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
-
-  const pillars = [
-    {
-      title: "Legally Vetted Titles Only",
-      desc: "We perform exhaustive legal verification through top corporate lawyers before land acquisition. We provide a complete legal summary dossier to buyers.",
-      icon: <FileText className="w-5 h-5 text-gold-500" />,
-    },
-    {
-      title: "HMDA & DTCP Standards",
-      desc: "We do not compromise on approvals. Every venture matches zoning guidelines, providing wide layouts, park provisions, and proper civic setbacks.",
-      icon: <CheckSquare className="w-5 h-5 text-gold-500" />,
-    },
-    {
-      title: "Strategic Growth Locations",
-      desc: "We prioritize areas situated on future transit grids (Regional Ring Road, Outer Ring Road, highway expansions) to guarantee early-stage investor gains.",
-      icon: <MapPin className="w-5 h-5 text-gold-500" />,
-    },
-    {
-      title: "Premium Civic Amenities",
-      desc: "Our communities boast underground cabling, blacktop road networks, overhead storage tanks, water connections, rainwater recharge, and landscaped parks.",
-      icon: <Hammer className="w-5 h-5 text-gold-500" />,
-    },
-    {
-      title: "Vaastu-Compliant Layouts",
-      desc: "Every plot layout is scientifically designed according to traditional Vaastu principles for perfect alignment and positive energy flow.",
-      icon: <Compass className="w-5 h-5 text-gold-500" />,
-    },
-    {
-      title: "Transparent Post-Sale Support",
-      desc: "We guide you from spot registration through link document sourcing and boundary marking, ensuring absolute peace of mind.",
-      icon: <HeartHandshake className="w-5 h-5 text-gold-500" />,
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring" as const, stiffness: 100, damping: 20 },
-    },
-  };
 
   return (
     <>
       <Header />
 
-      {/* Hero Banner */}
-      <section className="relative pt-36 pb-24 bg-primary-950 text-center font-sans overflow-hidden">
-        <div className="absolute inset-0 bg-primary-950/85 z-10" />
-        <div className="absolute inset-0 w-full h-full">
-          <Image
-            src="/images/sravya-1.jpeg"
-            alt="Why Sravya Global Developers"
-            fill
-            className="object-cover opacity-20"
-          />
-        </div>
-        
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-7xl mx-auto px-4 relative z-20 space-y-4"
-        >
-          <motion.p variants={itemVariants} className="text-xs font-bold uppercase tracking-widest text-gold-400">
-            The Sravya Difference
-          </motion.p>
-          <motion.h1 variants={itemVariants} className="font-serif text-3xl sm:text-5xl font-bold text-ivory tracking-wide leading-tight">
-            Why Invest With Sravya Global Developers?
-          </motion.h1>
-          <motion.p variants={itemVariants} className="text-sm md:text-base text-ivory/80 max-w-2xl mx-auto leading-relaxed">
-            Discover the pillars of trust, compliance, and quality engineering that make our plotting communities the preferred choice for smart land buyers.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* Core Advantages Pillars */}
-      <section className="py-24 bg-white font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
-          <div className="text-center space-y-2 max-w-xl mx-auto">
-            <p className="text-xs font-bold uppercase tracking-widest text-gold-600">
-              Our Core Commitments
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-950">
-              The Six Pillars of Trust & Quality
-            </h2>
-            <p className="text-sm text-charcoal/60 leading-relaxed">
-              We make land investments safe, structured, and highly profitable by adhering to strict developer standards.
-            </p>
+      <main>
+        {/* ── Hero ── */}
+        <section className="relative min-h-[45dvh] flex items-center pt-20 overflow-hidden" aria-label="Why Sravya hero">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/gvr-kothapally/gvr-25.jpeg"
+              alt="Why choose Sravya"
+              fill
+              priority
+              className="object-cover"
+              sizes="100vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0C0C0C]/95 via-[#0C0C0C]/75 to-[#0C0C0C]/40" />
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {pillars.map((pillar, idx) => (
-              <div
-                key={idx}
-                className="p-8 bg-white border border-primary-900/10 hover:border-gold-300 rounded-xl shadow-sm hover:shadow-lg transition-smooth space-y-4"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary-900/5 flex items-center justify-center text-primary-900">
-                  {pillar.icon}
-                </div>
-                <h4 className="font-serif text-lg font-bold text-primary-950">
-                  {pillar.title}
-                </h4>
-                <p className="text-sm text-charcoal/70 leading-relaxed">
-                  {pillar.desc}
-                </p>
-              </div>
-            ))}
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="space-y-4"
+            >
+              <span className="amber-line" />
+              <h1 className="t-display text-[#F5F3EF] max-w-lg mt-4">
+                Why Choose Sravya?
+              </h1>
+              <p className="t-body max-w-md mt-4">
+                Six pillars that separate premium land development from ordinary real estate.
+              </p>
+            </motion.div>
           </div>
+        </section>
 
-        </div>
-      </section>
+        {/* ── 6-pillar grid ── */}
+        <section className="py-24 md:py-32" aria-label="Our pillars">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            <Reveal className="max-w-xl">
+              <span className="amber-line" />
+              <h2 className="t-headline text-[#F5F3EF] mt-4">
+                What Sets Us Apart
+              </h2>
+            </Reveal>
 
-      {/* Land as a Legacy Section */}
-      <section className="py-24 bg-ivory font-sans border-y border-primary-900/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Details */}
-          <div className="space-y-6">
-            <p className="text-xs font-bold uppercase tracking-widest text-gold-600">
-              Wealth Preservation
-            </p>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary-950 leading-tight">
-              Creating Landmarks that Endure Across Generations
-            </h2>
-            <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
-              Real estate has always been a premier asset class in India, but land remains the absolute gold standard. Buildings decompose, structures weather, and apartment maintenance costs eat into yields. In contrast, clear-titled land grows in value as urban boundaries extend.
-            </p>
-            <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
-              Sravya Global Developers focuses on acquiring prime parcels directly in high-growth corridors. We handle the design, municipal approvals, layout engineering, and amenity packaging, delivering a ready-to-build canvas for you. It's not just a purchase; it's a legacy.
-            </p>
-            
-            <div className="flex gap-4 pt-2">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="text-gold-500 w-5 h-5 flex-shrink-0" />
-                <span className="text-xs font-bold uppercase tracking-wider text-primary-950">RERA Compliant</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="text-gold-500 w-5 h-5 flex-shrink-0" />
-                <span className="text-xs font-bold uppercase tracking-wider text-primary-950">Clean Titles</span>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {pillars.map((p, i) => (
+                <Reveal key={p.title} delay={i * 0.06}>
+                  <div className="card p-7 space-y-5 h-full hover:border-[#C8923A]/20 transition-colors duration-300 group">
+                    <div className="w-11 h-11 rounded-full bg-[#C8923A]/10 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#C8923A]/20">
+                      {p.icon}
+                    </div>
+                    <h3 className="font-bold text-[#F5F3EF] leading-snug">{p.title}</h3>
+                    <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">{p.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
             </div>
           </div>
+        </section>
 
-          {/* Picture Grid */}
-          <div className="relative aspect-video w-full rounded-2xl overflow-hidden shadow-lg bg-primary-950">
-            <Image
-              src="/images/sravya-2.jpeg"
-              alt="Land plots landmarks"
-              fill
-              className="object-cover hover:scale-105 transition-transform duration-750"
-            />
+        <div className="section-divider" />
+
+        {/* ── Visual proof strip — 4-image row ── */}
+        <section className="py-24 bg-[#111111]" aria-label="Site images">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+            <Reveal className="text-center">
+              <h2 className="t-headline text-[#F5F3EF]">On the Ground</h2>
+              <p className="t-body text-center mt-3 max-w-lg mx-auto">
+                Real development, real progress — GVR Kothapally site photographs.
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+              {[11, 19, 29, 37].map((n) => (
+                <Reveal key={n} delay={(n % 4) * 0.07}>
+                  <div className="relative aspect-square rounded-[4px] overflow-hidden">
+                    <Image
+                      src={`/images/gvr-kothapally/gvr-${String(n).padStart(2, "0")}.jpeg`}
+                      alt={`GVR Kothapally site photo`}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-700"
+                      sizes="(max-width: 768px) 50vw, 25vw"
+                    />
+                  </div>
+                </Reveal>
+              ))}
+            </div>
           </div>
+        </section>
 
-        </div>
-      </section>
+        <div className="section-divider" />
 
-      {/* CTA section */}
-      <section className="py-24 bg-white font-sans text-center">
-        <div className="max-w-3xl mx-auto px-4 space-y-6">
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-950">
-            Ready to Build Your Landmark?
-          </h2>
-          <p className="text-sm text-charcoal/60 leading-relaxed max-w-xl mx-auto">
-            Contact our property investment planners today to review compliance folders, request title certificates, and schedule a customized site trip.
-          </p>
-          <div className="pt-2">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300 shadow-md"
-            >
-              <span>Talk to Investment Advisor</span>
-              <ArrowRight size={14} />
-            </Link>
+        {/* ── CTA ── */}
+        <section className="py-24 text-center" aria-label="Contact call to action">
+          <div className="max-w-2xl mx-auto px-4 space-y-8">
+            <Reveal>
+              <span className="amber-line mx-auto" />
+              <h2 className="t-headline text-[#F5F3EF] mt-4">Ready to Invest?</h2>
+              <p className="t-body text-center mt-4 max-w-md mx-auto">
+                Speak with our team today. We'll walk you through site details, legal documents, and pricing.
+              </p>
+            </Reveal>
+            <Reveal delay={0.1} className="flex flex-wrap items-center justify-center gap-4">
+              <Link href="/contact" className="btn-primary">
+                Book a Site Visit <ArrowRight size={15} weight="bold" />
+              </Link>
+              <Link href="/projects/gvr-kothapally" className="btn-ghost">
+                View Project
+              </Link>
+            </Reveal>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
       <Footer onOpenDisclaimer={() => setIsDisclaimerOpen(true)} />
       <DisclaimerModal isOpen={isDisclaimerOpen} onClose={() => setIsDisclaimerOpen(false)} />

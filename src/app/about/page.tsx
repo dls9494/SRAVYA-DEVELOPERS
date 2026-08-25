@@ -1,206 +1,218 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, Award, Eye, Target, Users, MapPin, ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
+import {
+  Target,
+  Eye,
+  ShieldCheck,
+  Handshake,
+  UsersThree,
+  ArrowRight,
+} from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import DisclaimerModal from "@/components/DisclaimerModal";
 
-export default function About() {
+function Reveal({
+  children,
+  delay = 0,
+  className = "",
+}: {
+  children: React.ReactNode;
+  delay?: number;
+  className?: string;
+}) {
+  return (
+    <motion.div
+      className={className}
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, delay, ease: [0.16, 1, 0.3, 1] }}
+    >
+      {children}
+    </motion.div>
+  );
+}
+
+const values = [
+  {
+    icon: <ShieldCheck size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "Integrity",
+    desc: "Every document is legally vetted, RERA registered, and transparently shared with buyers from day one.",
+  },
+  {
+    icon: <Handshake size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "Trust",
+    desc: "We build relationships before transactions. Our repeat buyer rate speaks to the confidence our clients have in us.",
+  },
+  {
+    icon: <UsersThree size={22} weight="fill" className="text-[#C8923A]" />,
+    title: "Customer First",
+    desc: "From inquiry to registration — we guide buyers through every step without confusion or hidden costs.",
+  },
+];
+
+export default function AboutPage() {
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
-
-  const values = [
-    {
-      title: "100% Legal Transparency",
-      desc: "Every plot we offer undergoes deep legal vetting. All titles are clear and ready for immediate registration.",
-      icon: <ShieldCheck className="w-5 h-5 text-gold-500" />,
-    },
-    {
-      title: "Compliance Focus",
-      desc: "We exclusively develop layouts approved by HMDA or DTCP, strictly complying with TS RERA regulations.",
-      icon: <Award className="w-5 h-5 text-gold-500" />,
-    },
-    {
-      title: "Customer Centricity",
-      desc: "From plotting layout architecture to on-ground utilities delivery, we place customer needs first.",
-      icon: <Users className="w-5 h-5 text-gold-500" />,
-    },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.15, delayChildren: 0.1 },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 24 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: "spring" as const, stiffness: 100, damping: 20 },
-    },
-  };
 
   return (
     <>
       <Header />
 
-      {/* Hero Banner */}
-      <section className="relative pt-36 pb-24 bg-primary-950 text-center font-sans overflow-hidden">
-        <div className="absolute inset-0 bg-primary-950/85 z-10" />
-        <div className="absolute inset-0 w-full h-full">
-          <Image
-            src="/images/sravya-2.jpeg"
-            alt="About Sravya Developers"
-            fill
-            className="object-cover opacity-30"
-          />
-        </div>
-        
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-7xl mx-auto px-4 relative z-20 space-y-4"
-        >
-          <motion.p variants={itemVariants} className="text-xs font-bold uppercase tracking-widest text-gold-400">
-            About Sravya Global Developers
-          </motion.p>
-          <motion.h1 variants={itemVariants} className="font-serif text-3xl sm:text-5xl font-bold text-ivory tracking-wide leading-tight">
-            Building Trust. Creating Landmarks.
-          </motion.h1>
-          <motion.p variants={itemVariants} className="text-sm md:text-base text-ivory/80 max-w-2xl mx-auto leading-relaxed">
-            Hyderabad's leading land development company focused on premium residential open plots, gated communities, and high-yield real estate investments.
-          </motion.p>
-        </motion.div>
-      </section>
-
-      {/* Mission & Vision Section */}
-      <section className="py-24 bg-white font-sans border-b border-primary-900/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          
-          {/* Left image banner */}
-          <div className="relative aspect-video lg:aspect-square w-full rounded-2xl overflow-hidden shadow-xl bg-primary-950">
+      <main>
+        {/* ── Page Hero ── */}
+        <section className="relative min-h-[50dvh] flex items-center pt-20 overflow-hidden" aria-label="About page hero">
+          <div className="absolute inset-0 z-0">
             <Image
-              src="/images/sravya-3.jpeg"
-              alt="Land plotting layouts"
+              src="/images/gvr-kothapally/gvr-08.jpeg"
+              alt="About Sravya Global Developers"
               fill
-              className="object-cover hover:scale-105 transition-transform duration-750"
+              priority
+              className="object-cover"
+              sizes="100vw"
             />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0C0C0C]/95 via-[#0C0C0C]/80 to-[#0C0C0C]/50" />
           </div>
-
-          {/* Right Details */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="font-serif text-2xl md:text-4xl font-bold text-primary-950 leading-tight">
-                Our Commitment to Excellence in Plot Development
-              </h2>
-              <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
-                Sravya Global Developers was founded on the core values of transparency, integrity, and long-term customer growth. We specialize purely in land developments—transforming suburban outskirts into thriving, master-planned residential communities.
-              </p>
-              <p className="text-sm md:text-base text-charcoal/70 leading-relaxed">
-                By maintaining a strong focus on strategic location selection near proposed radial corridors, highways, and IT hubs, we ensure that every square yard you buy from us is poised for maximum wealth appreciation.
-              </p>
-            </div>
-
-            {/* Mission / Vision Cards: Divided layout instead of boxes */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 pt-4 border-t border-primary-900/5">
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-600">
-                  <Target size={20} />
-                </div>
-                <h4 className="font-serif text-lg font-bold text-primary-950">Our Mission</h4>
-                <p className="text-xs text-charcoal/65 leading-relaxed">
-                  To deliver premium, legal compliance-checked open plots that offer a safe and lucrative investment channel for residential developers and property buyers.
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                <div className="w-10 h-10 rounded-lg bg-gold-500/10 flex items-center justify-center text-gold-600">
-                  <Eye size={20} />
-                </div>
-                <h4 className="font-serif text-lg font-bold text-primary-950">Our Vision</h4>
-                <p className="text-xs text-charcoal/65 leading-relaxed">
-                  To establish Sravya Global Developers as the most trusted land-development brand in South India, celebrated for clear titles and quality developments.
-                </p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* Core Values Section */}
-      <section className="py-24 bg-ivory font-sans">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          
-          <div className="text-center space-y-2 max-w-xl mx-auto">
-            <p className="text-xs font-bold uppercase tracking-widest text-gold-600">
-              Company Ideals
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-950">
-              The Foundations of Our Business
-            </h2>
-            <p className="text-sm text-charcoal/60 leading-relaxed">
-              We govern every business transaction by values that protect our investors' wealth and guarantee clean property handovers.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((val, idx) => (
-              <div
-                key={idx}
-                className="p-8 bg-white border border-primary-900/10 hover:border-gold-300 rounded-xl shadow-sm hover:shadow-lg transition-smooth space-y-4"
-              >
-                <div className="w-10 h-10 rounded-lg bg-primary-900/5 flex items-center justify-center text-primary-900">
-                  {val.icon}
-                </div>
-                <h4 className="font-serif text-xl font-bold text-primary-950">
-                  {val.title}
-                </h4>
-                <p className="text-sm text-charcoal/70 leading-relaxed">
-                  {val.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
-      {/* Leadership message or quote */}
-      <section className="py-24 bg-white font-sans border-t border-primary-900/5 text-center">
-        <div className="max-w-4xl mx-auto px-4 space-y-8">
-          <div className="w-16 h-0.5 bg-gold-500 mx-auto" />
-          
-          <h2 className="font-serif text-3xl md:text-4xl font-bold text-primary-950 leading-tight italic max-w-3xl mx-auto">
-            "We do not merely sell plots of land. We help you secure an appreciating asset that will safeguard your family's future for generations."
-          </h2>
-
-          <div className="space-y-1">
-            <h4 className="font-serif text-lg font-bold text-primary-950">Pedapudi Chandrasekhar & Peddapudi Sibe Rani</h4>
-            <p className="text-xs text-gold-600 font-bold uppercase tracking-wider">
-              Managing Partners, Sravya Global Developers
-            </p>
-          </div>
-
-          <div className="pt-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300 shadow-md"
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              className="space-y-4"
             >
-              <span>Partner with Us</span>
-              <ArrowRight size={14} />
-            </Link>
+              <span className="amber-line" />
+              <h1 className="t-display text-[#F5F3EF] max-w-xl mt-4">
+                About Us
+              </h1>
+              <p className="t-body max-w-md mt-4">
+                Hyderabad's most trusted land developer — built on transparency, legal compliance, and long-term relationships.
+              </p>
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
+
+        {/* ── Story + Mission/Vision ── */}
+        <section className="py-24 md:py-32" aria-label="Our story">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8 order-2 lg:order-1">
+                <Reveal>
+                  <span className="amber-line" />
+                  <h2 className="t-headline text-[#F5F3EF] mt-4">
+                    Our Commitment to Excellence
+                  </h2>
+                </Reveal>
+                <Reveal delay={0.1}>
+                  <p className="t-body">
+                    Sravya Global Developers was founded on core values of transparency, integrity, and long-term customer growth. We specialize purely in land developments — transforming suburban outskirts into thriving, master-planned residential communities.
+                  </p>
+                </Reveal>
+                <Reveal delay={0.15}>
+                  <p className="t-body">
+                    By maintaining a strong focus on strategic location selection near proposed radial corridors, highways, and IT hubs, we ensure every square yard you buy is poised for maximum wealth appreciation.
+                  </p>
+                </Reveal>
+
+                {/* Mission / Vision — vertical stack (no split header) */}
+                <Reveal delay={0.2} className="pt-8 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-2 gap-8">
+                  <div className="space-y-3">
+                    <div className="w-10 h-10 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
+                      <Target size={18} weight="fill" className="text-[#C8923A]" />
+                    </div>
+                    <h3 className="font-semibold text-[#F5F3EF]">Our Mission</h3>
+                    <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">
+                      To deliver premium, legally compliant open plots that offer safe and lucrative investment channels for families and NRI buyers.
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <div className="w-10 h-10 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
+                      <Eye size={18} weight="fill" className="text-[#C8923A]" />
+                    </div>
+                    <h3 className="font-semibold text-[#F5F3EF]">Our Vision</h3>
+                    <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">
+                      To become South India's most trusted land development brand — celebrated for clear titles, quality infrastructure, and buyer satisfaction.
+                    </p>
+                  </div>
+                </Reveal>
+              </div>
+
+              {/* Image */}
+              <Reveal className="order-1 lg:order-2">
+                <div className="relative aspect-[4/5] rounded-[4px] overflow-hidden">
+                  <Image
+                    src="/images/gvr-kothapally/gvr-20.jpeg"
+                    alt="Sravya Global land development"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-700"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  {/* Stat badge overlay */}
+                  <div className="absolute bottom-6 left-6 bg-[#0C0C0C]/80 backdrop-blur-md border border-white/10 rounded-[4px] p-4 space-y-1">
+                    <div className="text-2xl font-bold text-[#C8923A]">15+</div>
+                    <div className="text-xs font-semibold uppercase tracking-[0.1em] text-[#F5F3EF]/50">Years of Experience</div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+          </div>
+        </section>
+
+        <div className="section-divider" />
+
+        {/* ── Core Values — 3-col cards ── */}
+        <section className="py-24 md:py-32 bg-[#111111]" aria-label="Core values">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            <Reveal className="max-w-lg">
+              <span className="amber-line" />
+              <h2 className="t-headline text-[#F5F3EF] mt-4">The Foundations We Build On</h2>
+            </Reveal>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {values.map((v, i) => (
+                <Reveal key={v.title} delay={i * 0.08}>
+                  <div className="card p-8 space-y-5 h-full hover:border-[#C8923A]/20 transition-colors duration-300">
+                    <div className="w-11 h-11 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
+                      {v.icon}
+                    </div>
+                    <h3 className="text-lg font-bold text-[#F5F3EF]">{v.title}</h3>
+                    <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">{v.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <div className="section-divider" />
+
+        {/* ── Leadership Quote — centered editorial ── */}
+        <section className="py-24 md:py-32" aria-label="Leadership message">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+            <Reveal>
+              <span className="amber-line mx-auto" />
+              <blockquote className="mt-8 text-2xl md:text-3xl font-light text-[#F5F3EF]/80 leading-[1.4] italic"
+                style={{ fontFamily: "var(--font-playfair)" }}>
+                "We do not merely sell plots of land. We help you secure an appreciating asset that will safeguard your family's future for generations."
+              </blockquote>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="space-y-1">
+                <div className="font-semibold text-[#F5F3EF]">Peddapudi Chandrasekhar &amp; Peddapudi Sibe Rani</div>
+                <div className="text-xs text-[#C8923A] font-semibold uppercase tracking-[0.12em]">Managing Partners, Sravya Global Developers</div>
+              </div>
+            </Reveal>
+            <Reveal delay={0.15}>
+              <Link href="/contact" className="btn-primary inline-flex">
+                Partner With Us <ArrowRight size={15} weight="bold" />
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+      </main>
 
       <Footer onOpenDisclaimer={() => setIsDisclaimerOpen(true)} />
       <DisclaimerModal isOpen={isDisclaimerOpen} onClose={() => setIsDisclaimerOpen(false)} />
