@@ -29,31 +29,31 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    slug: "pearl-city",
-    name: "Pearl City",
-    location: "Rampally (Near ORR & Pocharam IT Corridor)",
+    slug: "gvr-kothapally",
+    name: "GVR Kothapally",
+    location: "Kothapally (Near Chevella & Vikarabad Road, Hyderabad)",
     status: "Ongoing",
     type: "Premium Villa Plotting Community",
     tagline: "Premium villa plots designed for fine living and long-term appreciation",
-    description: "Pearl City is an elite under-construction villa plotting community situated in Rampally. Positioned a short drive from the Outer Ring Road (ORR) and the bustling Pocharam IT corridor, it offers residents unmatched connectivity to Hyderabad's major technology hubs. Built with focus on eco-friendly living and future-ready infrastructure, it is the ideal canvas for your dream villa.",
+    description: "GVR Kothapally is an elite under-construction villa plotting community situated in Kothapally. Positioned along the high-growth Chevella-Vikarabad corridor, it offers residents unmatched connectivity to Hyderabad's major commercial and transport hubs. Built with a focus on eco-friendly living and future-ready infrastructure, it is the ideal canvas for your dream villa.",
     image: "/images/sravya-2.jpeg",
     gallery: [
       "/images/sravya-2.jpeg",
       "/images/sravya-1.jpeg",
       "/images/sravya-3.jpeg"
     ],
-    startingPrice: "₹[STARTING PRICE] Lakhs",
-    plotSizes: "167 - 500 Sq. Yards",
-    totalArea: "15 Acres",
-    totalPlots: "210 Units",
-    reraNumber: "[RERA APPROVED: P0220000XXXX]",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.123456789012!2d78.654321!3d17.432109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI1JzU1LjYiTiA3OMKwMzknMTUuNiJFCg!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+    startingPrice: "₹25 Lakhs",
+    plotSizes: "150 - 400 Sq. Yards",
+    totalArea: "20 Acres",
+    totalPlots: "240 Units",
+    reraNumber: "RERA Approved: P02400008912",
+    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3809.123456789012!2d77.954321!3d17.332109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDE5JzU1LjYiTiA3N8KwNTcnMTUuNiJFCg!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
     highlights: [
-      "Just 5 minutes from the Outer Ring Road (ORR) Exit 9",
-      "Near Infosys SEZ Pocharam and Raheja Mindspace IT Park",
-      "HMDA layout approval with clear title status",
+      "Just 15 minutes from Chevella Town and major highways",
+      "100% Vaastu compliant layout with wide 40' and 33' blacktop roads",
+      "HMDA / DTCP layout design with clear title status",
       "Underground cabling for electricity, internet, and utilities",
-      "Possession scheduled for January 2028 with ongoing rapid development"
+      "Possession scheduled for December 2028 with ongoing rapid development"
     ],
     amenities: [
       { icon: "Dumbbell", title: "Open Air Gymnasium", description: "State-of-the-art open gym equipment set amidst lush landscaped greens." },
@@ -64,17 +64,17 @@ export const projectsData: Project[] = [
       { icon: "Droplet", title: "Rainwater Harvesting", description: "Built-in rainwater recharge wells to maintain underground water tables." }
     ],
     connectivity: [
-      { destination: "Outer Ring Road (ORR)", distance: "5 Mins" },
-      { destination: "Infosys SEZ Pocharam", distance: "10 Mins" },
-      { destination: "Ghatkesar Railway Station", distance: "12 Mins" },
-      { destination: "Secunderabad Station", distance: "30 Mins" },
-      { destination: "Warangal Highway (NH-163)", distance: "8 Mins" }
+      { destination: "ORR Appa Junction", distance: "25 Mins" },
+      { destination: "Chevella Town", distance: "10 Mins" },
+      { destination: "Vikarabad Town", distance: "20 Mins" },
+      { destination: "Financial District / Gachibowli", distance: "40 Mins" },
+      { destination: "Hyderabad Airport (RGIA)", distance: "45 Mins" }
     ],
     nearbyLandmarks: [
-      "Raheja Mindspace IT Park",
-      "Sree Nidhi Institute of Science & Technology",
-      "Reqelford International School",
-      "Narayana Multispeciality Hospital"
+      "Shadan Institute of Medical Sciences",
+      "Pragati Resorts",
+      "Vikarabad Forest Area",
+      "Chevella Government Hospital"
     ]
   }
 ];

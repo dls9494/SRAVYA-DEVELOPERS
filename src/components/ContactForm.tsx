@@ -23,7 +23,7 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
 
   const projectsList = [
     { label: "Select a Venture", value: "" },
-    { label: "Pearl City (Rampally)", value: "pearl-city" },
+    { label: "GVR Kothapally", value: "gvr-kothapally" },
   ];
 
   const validate = () => {

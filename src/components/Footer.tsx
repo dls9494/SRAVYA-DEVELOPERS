@@ -154,9 +154,9 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
             <ul className="space-y-3 text-sm">
 
               <li>
-                <Link href="/projects/pearl-city" className="text-ivory/70 hover:text-gold-500 transition-colors block">
-                  <span className="font-medium text-ivory">Pearl City</span>
-                  <span className="block text-[11px] text-ivory/50">Ongoing · Rampally ORR Exit 9</span>
+                <Link href="/projects/gvr-kothapally" className="text-ivory/70 hover:text-gold-500 transition-colors block">
+                  <span className="font-medium text-ivory">GVR Kothapally</span>
+                  <span className="block text-[11px] text-ivory/50">Ongoing · Chevella - Vikarabad Road</span>
                 </Link>
               </li>
 
