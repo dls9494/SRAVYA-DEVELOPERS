@@ -260,6 +260,26 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 </div>
               </div>
             </div>
+
+            {/* Project Location Map */}
+            {project.mapEmbedUrl && (
+              <div className="mt-8 space-y-4">
+                <div className="text-xs font-semibold uppercase tracking-[0.1em] text-[#F5F3EF]/30">
+                  Exact Venture Location
+                </div>
+                <div className="rounded-[4px] overflow-hidden border border-white/[0.06] aspect-[21/9] min-h-[300px]">
+                  <iframe
+                    src={project.mapEmbedUrl}
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}
+                    allowFullScreen
+                    loading="lazy"
+                    title={`${project.name} location map`}
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </section>
 

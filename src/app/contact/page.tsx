@@ -182,7 +182,7 @@ export default function ContactPage() {
                 <Reveal delay={0.15}>
                   <div className="rounded-[4px] overflow-hidden border border-white/[0.06] aspect-video">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1234567890123!2d78.4867890!3d17.5430000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDMyJzM0LjgiTiA3OMKwMjknMTIuNCJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                      src="https://maps.google.com/maps?q=17.251406,78.583283&z=15&output=embed"
                       width="100%"
                       height="100%"
                       style={{ border: 0, filter: "invert(90%) hue-rotate(180deg)" }}

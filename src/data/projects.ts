@@ -84,7 +84,7 @@ export const projectsData: Project[] = [
     totalArea: "20 Acres",
     totalPlots: "240 Units",
     reraNumber: "RERA Approved: P02400008912",
-    mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3809.123456789012!2d77.954321!3d17.332109!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDE5JzU1LjYiTiA3N8KwNTcnMTUuNiJFCg!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
+    mapEmbedUrl: "https://maps.google.com/maps?q=17.251406,78.583283&z=15&output=embed",
     highlights: [
       "Just 15 minutes from Chevella Town and major highways",
       "100% Vaastu compliant layout with wide 40' and 33' blacktop roads",
