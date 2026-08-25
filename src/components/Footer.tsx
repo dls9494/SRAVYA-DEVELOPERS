@@ -41,12 +41,12 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
           {/* ── Brand col ── */}
           <div className="lg:col-span-1 space-y-6">
             <Link href="/" aria-label="Sravya Global Developers home">
-              <div className="relative w-36 h-11">
+              <div className="relative w-48 h-16">
                 <Image
                   src="/images/logo-v4.png"
                   alt="Sravya Global Developers"
                   fill
-                  className="object-contain"
+                  className="object-contain object-left"
                 />
               </div>
             </Link>

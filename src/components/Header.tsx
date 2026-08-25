@@ -52,7 +52,7 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center group" aria-label="Sravya Global Developers home">
-            <div className="relative w-14 h-14 transition-opacity duration-300 group-hover:opacity-80">
+            <div className="relative w-44 h-14 sm:w-48 sm:h-16 transition-opacity duration-300 group-hover:opacity-85">
               <Image
                 src="/images/logo-v4.png"
                 alt="Sravya Global Developers"
@@ -60,10 +60,6 @@ export default function Header() {
                 className="object-contain object-left"
                 priority
               />
-            </div>
-            <div className="ml-2 hidden sm:block">
-              <div className="text-[0.7rem] font-bold tracking-[0.15em] uppercase text-[#C8923A] leading-none">Sravya Global</div>
-              <div className="text-[0.55rem] font-semibold tracking-[0.2em] uppercase text-[#F5F3EF]/40 leading-none mt-0.5">Developers</div>
             </div>
           </Link>
 
@@ -147,19 +143,13 @@ export default function Header() {
             >
               {/* Drawer header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/5">
-                <div className="flex items-center gap-2">
-                  <div className="relative w-12 h-12">
-                    <Image
-                      src="/images/logo-v4.png"
-                      alt="Sravya Global Developers"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div>
-                    <div className="text-[0.65rem] font-bold tracking-[0.15em] uppercase text-[#C8923A] leading-none">Sravya Global</div>
-                    <div className="text-[0.5rem] font-semibold tracking-[0.2em] uppercase text-[#F5F3EF]/40 leading-none mt-0.5">Developers</div>
-                  </div>
+                <div className="relative w-40 h-14">
+                  <Image
+                    src="/images/logo-v4.png"
+                    alt="Sravya Global Developers"
+                    fill
+                    className="object-contain object-left"
+                  />
                 </div>
                 <button
                   onClick={() => setDrawerOpen(false)}
