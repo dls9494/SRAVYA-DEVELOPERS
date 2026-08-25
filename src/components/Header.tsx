@@ -46,20 +46,24 @@ export default function Header() {
             ? "glass-nav py-4"
             : "bg-transparent border-b border-transparent py-5"
         }`}
-        style={{ height: "72px" }}
+        style={{ height: "80px" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-6">
 
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center group" aria-label="Sravya Global Developers home">
-            <div className="relative w-32 h-10 transition-opacity duration-300 group-hover:opacity-80">
+            <div className="relative w-14 h-14 transition-opacity duration-300 group-hover:opacity-80">
               <Image
                 src="/images/logo-v4.png"
                 alt="Sravya Global Developers"
                 fill
-                className="object-contain"
+                className="object-contain object-left"
                 priority
               />
+            </div>
+            <div className="ml-2 hidden sm:block">
+              <div className="text-[0.7rem] font-bold tracking-[0.15em] uppercase text-[#C8923A] leading-none">Sravya Global</div>
+              <div className="text-[0.55rem] font-semibold tracking-[0.2em] uppercase text-[#F5F3EF]/40 leading-none mt-0.5">Developers</div>
             </div>
           </Link>
 
@@ -143,13 +147,19 @@ export default function Header() {
             >
               {/* Drawer header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/5">
-                <div className="relative w-28 h-9">
-                  <Image
-                    src="/images/logo-v4.png"
-                    alt="Sravya Global Developers"
-                    fill
-                    className="object-contain"
-                  />
+                <div className="flex items-center gap-2">
+                  <div className="relative w-12 h-12">
+                    <Image
+                      src="/images/logo-v4.png"
+                      alt="Sravya Global Developers"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-[0.65rem] font-bold tracking-[0.15em] uppercase text-[#C8923A] leading-none">Sravya Global</div>
+                    <div className="text-[0.5rem] font-semibold tracking-[0.2em] uppercase text-[#F5F3EF]/40 leading-none mt-0.5">Developers</div>
+                  </div>
                 </div>
                 <button
                   onClick={() => setDrawerOpen(false)}

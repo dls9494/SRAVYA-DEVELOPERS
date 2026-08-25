@@ -36,7 +36,7 @@ export const projectsData: Project[] = [
     type: "Premium Villa Plotting Community",
     tagline: "Premium villa plots designed for fine living and long-term appreciation",
     description: "GVR Kothapally is an elite under-construction villa plotting community situated in Kothapally. Positioned along the high-growth Chevella-Vikarabad corridor, it offers residents unmatched connectivity to Hyderabad's major commercial and transport hubs. Built with a focus on eco-friendly living and future-ready infrastructure, it is the ideal canvas for your dream villa.",
-    image: "/images/gvr-kothapally/gvr-01.jpeg",
+    image: "/images/gvr-kothapally/gvr-03.jpeg",
     gallery: [
       "/images/gvr-kothapally/gvr-01.jpeg",
       "/images/gvr-kothapally/gvr-02.jpeg",
