@@ -198,9 +198,9 @@ export default function HomePage() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 className="flex items-center gap-5"
               >
-                <div className="relative w-28 h-28 sm:w-36 sm:h-36 flex-shrink-0">
+                <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0">
                   <Image
-                    src="/images/logo-v4.png"
+                    src="/images/globe-v5.png"
                     alt="Sravya Global Developers"
                     fill
                     className="object-contain"
