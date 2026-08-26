@@ -51,45 +51,48 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-6">
 
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex items-center group" aria-label="Sravya Global Developers home">
-            <div className="relative w-56 h-16 sm:w-64 sm:h-[4.5rem] transition-opacity duration-300 group-hover:opacity-85">
-              <Image
-                src="/images/logo-v4.png"
-                alt="Sravya Global Developers"
-                fill
-                className="object-contain object-left"
-                preload={true}
-              />
-            </div>
-          </Link>
+          {/* Left group: Logo + Desktop Nav */}
+          <div className="flex items-center gap-6 xl:gap-8">
+            {/* Logo */}
+            <Link href="/" className="flex-shrink-0 flex items-center group" aria-label="Sravya Global Developers home">
+              <div className="relative w-56 h-16 sm:w-64 sm:h-[4.5rem] transition-opacity duration-300 group-hover:opacity-85">
+                <Image
+                  src="/images/logo-v4.png"
+                  alt="Sravya Global Developers"
+                  fill
+                  className="object-contain object-left"
+                  preload={true}
+                />
+              </div>
+            </Link>
 
-          {/* Desktop nav — all items in ONE line */}
-          <nav className="hidden lg:flex items-center gap-1" aria-label="Primary navigation">
-            {navLinks.map((link) => {
-              const active = pathname === link.href;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className={`relative px-3 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] transition-colors duration-200 ${
-                    active
-                      ? "text-[#D4A847]"
-                      : "text-[#F5F3EF]/70 hover:text-[#F5F3EF]"
-                  }`}
-                >
-                  {link.name}
-                  {active && (
-                    <motion.span
-                      layoutId="nav-underline"
-                      className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-[#D4A847] rounded-full"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                </Link>
-              );
-            })}
-          </nav>
+            {/* Desktop nav */}
+            <nav className="hidden lg:flex items-center gap-1" aria-label="Primary navigation">
+              {navLinks.map((link) => {
+                const active = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className={`relative px-3 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] transition-colors duration-200 ${
+                      active
+                        ? "text-[#D4A847]"
+                        : "text-[#F5F3EF]/70 hover:text-[#F5F3EF]"
+                    }`}
+                  >
+                    {link.name}
+                    {active && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-[#D4A847] rounded-full"
+                        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
 
           {/* CTA row */}
           <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
