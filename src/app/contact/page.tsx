@@ -41,7 +41,7 @@ function Reveal({
 
 const contactInfo = [
   {
-    icon: <Phone size={18} weight="fill" className="text-[#C8923A]" />,
+    icon: <Phone size={18} weight="fill" className="text-[#D4A847]" />,
     label: "Phone",
     values: [
       { text: "+91 99497 36082", href: "tel:+919949736082" },
@@ -49,21 +49,21 @@ const contactInfo = [
     ],
   },
   {
-    icon: <EnvelopeSimple size={18} weight="fill" className="text-[#C8923A]" />,
+    icon: <EnvelopeSimple size={18} weight="fill" className="text-[#D4A847]" />,
     label: "Email",
     values: [
       { text: "sravyaglobaldevelopers@gmail.com", href: "mailto:sravyaglobaldevelopers@gmail.com" },
     ],
   },
   {
-    icon: <MapPin size={18} weight="fill" className="text-[#C8923A]" />,
+    icon: <MapPin size={18} weight="fill" className="text-[#D4A847]" />,
     label: "Office",
     values: [
       { text: "7-2/P-30, My Homes Colony, Manneguda, Hyderabad", href: "#" },
     ],
   },
   {
-    icon: <Clock size={18} weight="fill" className="text-[#C8923A]" />,
+    icon: <Clock size={18} weight="fill" className="text-[#D4A847]" />,
     label: "Hours",
     values: [
       { text: "Mon – Sat: 9:00 AM – 6:00 PM", href: "#" },
@@ -73,7 +73,7 @@ const contactInfo = [
 
 export default function ContactPage() {
   const [isDisclaimerOpen, setIsDisclaimerOpen] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "", project: "", message: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", serviceType: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -101,11 +101,11 @@ export default function ContactPage() {
     setTimeout(() => {
       setSubmitting(false);
       setSuccess(true);
-      setFormData({ name: "", email: "", phone: "", project: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", serviceType: "", message: "" });
     }, 1500);
   };
 
-  const inputBase = "w-full bg-[#1A1A1A] border border-white/[0.08] rounded-[4px] px-4 py-3 text-[#F5F3EF] text-sm placeholder-[#F5F3EF]/25 focus:outline-none focus:border-[#C8923A]/60 focus:ring-1 focus:ring-[#C8923A]/30 transition-colors duration-200";
+  const inputBase = "w-full bg-[#1A1A1A] border border-[#D4A847]/30 rounded-[4px] px-4 py-3 text-[#F5F3EF] text-sm placeholder-[#F5F3EF]/25 focus:outline-none focus:border-[#D4A847]/60 focus:ring-1 focus:ring-[#D4A847]/30 transition-colors duration-200";
 
   return (
     <>
@@ -119,7 +119,7 @@ export default function ContactPage() {
               src="/images/gvr-kothapally/gvr-33.jpeg"
               alt="Contact Sravya Global Developers"
               fill
-              priority
+              preload={true}
               className="object-cover"
               sizes="100vw"
             />
@@ -132,12 +132,54 @@ export default function ContactPage() {
               transition={{ duration: 0.7 }}
               className="space-y-4"
             >
-              <span className="amber-line" />
+              <span className="gold-divider" />
               <h1 className="t-display text-[#F5F3EF] max-w-md mt-4">Contact Us</h1>
               <p className="t-body max-w-sm mt-4">
                 Questions about a venture, pricing, or site visits? We're here.
               </p>
             </motion.div>
+          </div>
+        </section>
+
+        {/* ── Digital Business Card ── */}
+        <section className="py-24 md:py-32 bg-[#111111]" aria-label="Digital Business Card">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Reveal>
+              <div className="biz-card bg-[#0C0C0C] border border-[#D4A847] p-8 md:p-12 text-center rounded-[4px]">
+                <div className="flex justify-center mb-6">
+                  <Image src="/images/logo-v4.png" alt="Sravya Global Developers Logo" width={80} height={80} className="object-contain" />
+                </div>
+                <h2 className="t-display text-[#F5F3EF] mb-1 text-3xl md:text-5xl">SRAVYA GLOBAL</h2>
+                <p className="font-sans text-[#F5F3EF] tracking-[0.2em] md:tracking-[0.3em] uppercase text-sm md:text-base mb-6">DEVELOPERS</p>
+                <p className="text-[#F5F3EF]/70 text-sm md:text-base max-w-2xl mx-auto leading-relaxed mb-8">
+                  Layout Designs & Approvals, Layout Developments-HMDA, FCDA & DTCP, Earth Work, Landscaping, Building Plans, Land Survey and Quantity Surveys
+                </p>
+                <div className="biz-card-divider w-full h-[1px] bg-[#D4A847] mb-8"></div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                  <div className="space-y-4 md:border-r border-[#D4A847]/30 md:pr-8">
+                    <h3 className="text-[#F5F3EF] font-bold text-lg mb-2 font-serif">Office Address</h3>
+                    <div className="flex items-start gap-3">
+                      <MapPin size={20} weight="fill" className="text-[#D4A847] flex-shrink-0 mt-1" />
+                      <p className="text-[#F5F3EF]/70 text-sm leading-relaxed">
+                        7-2/P-30, My Homes Colony,<br />
+                        Manneguda, Hyderabad
+                      </p>
+                    </div>
+                  </div>
+                  <div className="space-y-4 md:pl-4">
+                    <h3 className="text-[#F5F3EF] font-bold text-lg mb-2 font-serif">P.C. Sekhar <span className="text-[#F5F3EF]/50 text-sm font-sans font-normal ml-2">Managing Partner</span></h3>
+                    <div className="flex items-center gap-3">
+                      <Phone size={20} weight="fill" className="text-[#D4A847]" />
+                      <p className="text-[#F5F3EF]/70 text-sm">+91 9949736082, 6309366082</p>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <EnvelopeSimple size={20} weight="fill" className="text-[#D4A847]" />
+                      <p className="text-[#F5F3EF]/70 text-sm">Sravyaglobaldevelopers@gmail.com</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </section>
 
@@ -149,7 +191,7 @@ export default function ContactPage() {
               {/* Left — contact details */}
               <div className="space-y-10">
                 <Reveal>
-                  <span className="amber-line" />
+                  <span className="gold-divider" />
                   <h2 className="t-headline text-[#F5F3EF] mt-4">Get in Touch</h2>
                   <p className="t-body mt-4 max-w-sm">
                     Our customer relations team is available 6 days a week to answer any questions about our plots, legal documentation, or site visits.
@@ -159,7 +201,7 @@ export default function ContactPage() {
                 <Reveal delay={0.1} className="space-y-6">
                   {contactInfo.map((info) => (
                     <div key={info.label} className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-[#C8923A]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <div className="w-10 h-10 rounded-full bg-[#D4A847]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                         {info.icon}
                       </div>
                       <div>
@@ -167,7 +209,7 @@ export default function ContactPage() {
                         {info.values.map((v) => (
                           <div key={v.text}>
                             {v.href !== "#" ? (
-                              <a href={v.href} className="text-sm text-[#F5F3EF]/70 hover:text-[#C8923A] transition-colors">{v.text}</a>
+                              <a href={v.href} className="text-sm text-[#F5F3EF]/70 hover:text-[#D4A847] transition-colors">{v.text}</a>
                             ) : (
                               <span className="text-sm text-[#F5F3EF]/70">{v.text}</span>
                             )}
@@ -180,7 +222,7 @@ export default function ContactPage() {
 
                 {/* Map embed */}
                 <Reveal delay={0.15}>
-                  <div className="rounded-[4px] overflow-hidden border border-white/[0.06] aspect-video">
+                  <div className="rounded-[4px] overflow-hidden border border-[#D4A847]/30 aspect-video">
                     <iframe
                       src="https://maps.google.com/maps?q=17.251406,78.583283&z=15&output=embed"
                       width="100%"
@@ -196,22 +238,22 @@ export default function ContactPage() {
 
               {/* Right — enquiry form */}
               <Reveal delay={0.1}>
-                <div className="card p-8 md:p-10">
+                <div className="card p-8 md:p-10 border border-[#D4A847]/30">
                   <h3 className="text-xl font-bold text-[#F5F3EF] mb-6">Send an Enquiry</h3>
 
                   {success ? (
                     <div className="flex flex-col items-center justify-center py-12 space-y-4 text-center">
-                      <CheckCircle size={48} weight="fill" className="text-[#C8923A]" />
+                      <CheckCircle size={48} weight="fill" className="text-[#D4A847]" />
                       <h4 className="text-lg font-bold text-[#F5F3EF]">Thank you!</h4>
                       <p className="text-sm text-[#F5F3EF]/50">We received your enquiry. Our team will contact you within 24 hours.</p>
-                      <button onClick={() => setSuccess(false)} className="btn-ghost mt-4 text-xs">Send Another</button>
+                      <button onClick={() => setSuccess(false)} className="btn-ghost mt-4 text-xs text-[#D4A847] border-[#D4A847]/30 hover:bg-[#D4A847]/10">Send Another</button>
                     </div>
                   ) : (
                     <form onSubmit={onSubmit} className="space-y-4" noValidate>
                       {/* Name */}
                       <div className="space-y-1.5">
                         <label htmlFor="contact-name" className="block text-xs font-semibold uppercase tracking-[0.1em] text-[#F5F3EF]/40">
-                          Full Name <span className="text-[#C8923A]">*</span>
+                          Full Name <span className="text-[#D4A847]">*</span>
                         </label>
                         <input
                           id="contact-name"
@@ -229,7 +271,7 @@ export default function ContactPage() {
                       {/* Phone */}
                       <div className="space-y-1.5">
                         <label htmlFor="contact-phone" className="block text-xs font-semibold uppercase tracking-[0.1em] text-[#F5F3EF]/40">
-                          Phone <span className="text-[#C8923A]">*</span>
+                          Phone <span className="text-[#D4A847]">*</span>
                         </label>
                         <input
                           id="contact-phone"
@@ -262,20 +304,28 @@ export default function ContactPage() {
                         {errors.email && <p className="text-xs text-red-400 flex items-center gap-1"><Warning size={12} />{errors.email}</p>}
                       </div>
 
-                      {/* Project */}
+                      {/* Service Type */}
                       <div className="space-y-1.5">
-                        <label htmlFor="contact-project" className="block text-xs font-semibold uppercase tracking-[0.1em] text-[#F5F3EF]/40">
-                          Interested In
+                        <label htmlFor="contact-serviceType" className="block text-xs font-semibold uppercase tracking-[0.1em] text-[#F5F3EF]/40">
+                          Service Type
                         </label>
                         <select
-                          id="contact-project"
-                          name="project"
-                          value={formData.project}
+                          id="contact-serviceType"
+                          name="serviceType"
+                          value={formData.serviceType}
                           onChange={onChange}
-                          className={`${inputBase} appearance-none cursor-pointer`}
+                          className={`${inputBase} appearance-none cursor-pointer bg-[#1A1A1A]`}
                         >
-                          <option value="">Select a venture</option>
-                          <option value="gvr-kothapally">GVR Kothapally</option>
+                          <option value="">Select a Service</option>
+                          <option value="Layout Designs & Approvals">Layout Designs & Approvals</option>
+                          <option value="Layout Developments (HMDA, FCDA & DTCP)">Layout Developments (HMDA, FCDA & DTCP)</option>
+                          <option value="Earth Work">Earth Work</option>
+                          <option value="Landscaping">Landscaping</option>
+                          <option value="Building Plans">Building Plans</option>
+                          <option value="Land Survey">Land Survey</option>
+                          <option value="Quantity Surveys">Quantity Surveys</option>
+                          <option value="Plot Investment (GVR Kothapally)">Plot Investment (GVR Kothapally)</option>
+                          <option value="Other">Other</option>
                         </select>
                       </div>
 
@@ -298,7 +348,7 @@ export default function ContactPage() {
                       <button
                         type="submit"
                         disabled={submitting}
-                        className="btn-primary w-full mt-2 disabled:opacity-60 disabled:cursor-not-allowed"
+                        className="btn-primary w-full mt-2 disabled:opacity-60 disabled:cursor-not-allowed bg-[#D4A847] hover:bg-[#D4A847]/80 text-[#0C0C0C]"
                       >
                         {submitting ? (
                           <>

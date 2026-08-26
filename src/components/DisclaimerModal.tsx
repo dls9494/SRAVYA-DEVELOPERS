@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { AlertTriangle, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Warning, X } from "@phosphor-icons/react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface DisclaimerModalProps {
   isOpen: boolean;
@@ -40,7 +40,7 @@ export default function DisclaimerModal({ isOpen, onClose }: DisclaimerModalProp
     <dialog
       ref={dialogRef}
       onCancel={handleCancel}
-      className="bg-transparent border-0 outline-none backdrop:bg-black/65 backdrop:backdrop-blur-sm p-4 w-full max-w-xl"
+      className="bg-transparent border-0 outline-none backdrop:bg-black/80 backdrop:backdrop-blur-sm p-4 w-full max-w-xl"
     >
       <AnimatePresence>
         {isOpen && (
@@ -49,27 +49,27 @@ export default function DisclaimerModal({ isOpen, onClose }: DisclaimerModalProp
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 15 }}
             transition={{ duration: 0.25, ease: "easeOut" }}
-            className="bg-ivory border border-gold-300 rounded-xl shadow-2xl p-6 md:p-8 flex flex-col gap-5 overflow-hidden"
+            className="bg-[#1A1A1A] border border-[#D4A847]/30 rounded-lg shadow-2xl p-6 md:p-8 flex flex-col gap-5 overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between border-b border-gold-300/40 pb-4">
-              <div className="flex items-center gap-3 text-gold-600">
-                <AlertTriangle size={24} className="flex-shrink-0" />
-                <h3 className="font-serif text-xl font-bold tracking-wide text-primary-950">
+            <div className="flex items-center justify-between border-b border-[#D4A847]/30 pb-4">
+              <div className="flex items-center gap-3 text-[#D4A847]">
+                <Warning size={24} weight="bold" className="flex-shrink-0" />
+                <h3 className="font-serif text-xl font-bold tracking-wide text-[#F5F3EF]">
                   Site Disclaimer
                 </h3>
               </div>
               <button
                 onClick={onClose}
-                className="p-1.5 rounded-full hover:bg-gold-200/50 text-primary-900 transition-colors"
+                className="p-1.5 rounded-full hover:bg-white/10 text-[#F5F3EF] transition-colors"
                 aria-label="Close disclaimer dialog"
               >
-                <X size={18} />
+                <X size={18} weight="bold" />
               </button>
             </div>
 
             {/* Content */}
-            <div className="text-sm text-charcoal/80 leading-relaxed space-y-4 max-h-[60vh] overflow-y-auto pr-2">
+            <div className="text-sm text-[#F5F3EF]/80 leading-relaxed space-y-4 max-h-[60vh] overflow-y-auto pr-2 font-sans">
               <p>
                 The information provided on this website for **Sravya Global Developers** (Registered Firm No: 791 of 2026, Government of Telangana) is for general informational and marketing purposes only. It does not constitute a legal offering, investment advice, or financial recommendation.
               </p>
@@ -85,10 +85,10 @@ export default function DisclaimerModal({ isOpen, onClose }: DisclaimerModalProp
             </div>
 
             {/* Footer Buttons */}
-            <div className="flex items-center justify-end border-t border-gold-300/40 pt-4 mt-2">
+            <div className="flex items-center justify-end border-t border-[#D4A847]/30 pt-4 mt-2">
               <button
                 onClick={onClose}
-                className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300 shadow-md shadow-gold-500/10"
+                className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold uppercase tracking-wider text-[#111111] bg-[#D4A847] hover:bg-[#C8923A] rounded-full transition-all duration-300"
               >
                 I Agree & Proceed
               </button>

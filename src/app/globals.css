@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 /* ────────────────────────────────────────────────────────
-   DESIGN SYSTEM — Cold Luxury / Top-Tier Real Estate
-   Palette: Off-Black + Warm Stone + Amber Gold accent
-   Font: Geist + Playfair (for one deliberate luxury touch)
-   Shape: 4px cards, pill buttons — locked system-wide
+   DESIGN SYSTEM — Business Card Match
+   Palette: Deep Black + Warm Gold (matching visiting card)
+   Font: Playfair Display (serif display) + Outfit (sans body)
+   Shape: 4px cards with thin gold borders, pill buttons
    Motion: INTENSITY 7 — scroll reveals, hover physics, cinematic hero
    ─────────────────────────────────────────────────────── */
 
 @theme {
-  /* ── Core Neutrals (Cold Luxury) ── */
+  /* ── Core Neutrals ── */
   --color-ink:        #0C0C0C;
   --color-ink-900:    #111111;
   --color-ink-800:    #1A1A1A;
@@ -21,19 +21,21 @@
   --color-ink-200:    #CACACA;
   --color-ink-100:    #E8E8E8;
 
-  /* ── Stone (warm neutral for surfaces) ── */
+  /* ── Stone (warm neutral for text) ── */
   --color-stone:      #F5F3EF;
   --color-stone-dark: #EDE9E3;
   --color-stone-mid:  #D8D4CC;
 
-  /* ── Amber Gold — SINGLE ACCENT, locked globally ── */
-  --color-amber:      #C8923A;
-  --color-amber-light:#DCA85C;
-  --color-amber-dim:  #A67430;
-  --color-amber-glow: rgba(200, 146, 58, 0.15);
+  /* ── Gold — Matched to Business Card ── */
+  --color-gold:       #D4A847;
+  --color-gold-light: #E8C068;
+  --color-gold-dark:  #C8923A;
+  --color-gold-dim:   #A67430;
+  --color-gold-glow:  rgba(212, 168, 71, 0.15);
+  --color-gold-border: rgba(212, 168, 71, 0.3);
 
   /* ── Fonts ── */
-  --font-display: var(--font-geist-display);
+  --font-display: var(--font-playfair);
   --font-sans:    var(--font-geist);
   --font-serif:   var(--font-playfair);
 
@@ -59,7 +61,7 @@ html {
 body {
   background-color: var(--color-ink);
   color: var(--color-stone);
-  font-family: var(--font-sans), 'Geist', system-ui, -apple-system, sans-serif;
+  font-family: var(--font-sans), 'Outfit', system-ui, -apple-system, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
@@ -69,7 +71,7 @@ body {
 
 /* ── Selection ── */
 ::selection {
-  background: var(--color-amber);
+  background: var(--color-gold);
   color: var(--color-ink);
 }
 
@@ -77,26 +79,37 @@ body {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--color-ink-800); }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-amber-dim);
+  background: var(--color-gold-dim);
   border-radius: 3px;
 }
-::-webkit-scrollbar-thumb:hover { background: var(--color-amber); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-gold); }
 
-/* ── Typography tokens ── */
+/* ══════════════════════════════════════════════════════
+   TYPOGRAPHY — Serif-dominant (matching business card)
+   ══════════════════════════════════════════════════════ */
+
 .t-display {
-  font-family: var(--font-display), var(--font-serif), serif;
+  font-family: var(--font-display), 'Playfair Display', serif;
   font-size: clamp(2.5rem, 7vw, 6rem);
   font-weight: 600;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   line-height: 1.0;
 }
 
 .t-headline {
-  font-family: var(--font-display), var(--font-sans), sans-serif;
+  font-family: var(--font-display), 'Playfair Display', serif;
   font-size: clamp(1.75rem, 4vw, 3.5rem);
   font-weight: 600;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.015em;
   line-height: 1.1;
+}
+
+.t-subheadline {
+  font-family: var(--font-display), 'Playfair Display', serif;
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
 .t-title {
@@ -116,23 +129,31 @@ body {
 .t-caption {
   font-family: var(--font-sans), sans-serif;
   font-size: 0.75rem;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-/* ── Amber accent text ── */
-.accent { color: var(--color-amber); }
-.accent-light { color: var(--color-amber-light); }
+/* ── Serif text helper ── */
+.serif {
+  font-family: var(--font-serif), 'Playfair Display', serif;
+}
 
-/* ── Button system ── */
+/* ── Gold accent text ── */
+.accent { color: var(--color-gold); }
+.accent-light { color: var(--color-gold-light); }
+
+/* ══════════════════════════════════════════════════════
+   BUTTON SYSTEM
+   ══════════════════════════════════════════════════════ */
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  background: var(--color-amber);
+  background: var(--color-gold);
   color: var(--color-ink);
   font-family: var(--font-sans), sans-serif;
   font-size: 0.8125rem;
@@ -146,9 +167,9 @@ body {
   transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
 }
 .btn-primary:hover {
-  background: var(--color-amber-light);
+  background: var(--color-gold-light);
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(200, 146, 58, 0.25);
+  box-shadow: 0 8px 24px rgba(212, 168, 71, 0.3);
 }
 .btn-primary:active {
   transform: translateY(0) scale(0.98);
@@ -168,46 +189,92 @@ body {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   border-radius: var(--radius-btn);
-  border: 1px solid rgba(245, 243, 239, 0.3);
+  border: 1px solid var(--color-gold-border);
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.25s ease;
 }
 .btn-ghost:hover {
-  border-color: var(--color-amber);
-  color: var(--color-amber);
+  border-color: var(--color-gold);
+  color: var(--color-gold);
   transform: translateY(-1px);
 }
 .btn-ghost:active {
   transform: translateY(0) scale(0.98);
 }
 
-/* ── Card — sharp 4px ── */
+/* ══════════════════════════════════════════════════════
+   CARD — Gold-framed (matching business card border)
+   ══════════════════════════════════════════════════════ */
+
 .card {
   background: var(--color-ink-800);
-  border: 1px solid rgba(245, 243, 239, 0.06);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 24px rgba(212, 168, 71, 0.08);
+}
+
+/* ── Card without hover glow ── */
+.card-static {
+  background: var(--color-ink-800);
+  border: 1px solid var(--color-gold-border);
   border-radius: var(--radius-card);
   overflow: hidden;
 }
-.card:hover {
-  border-color: rgba(200, 146, 58, 0.2);
-}
 
-/* ── Glassmorphism nav surface ── */
+/* ══════════════════════════════════════════════════════
+   GLASSMORPHISM NAV
+   ══════════════════════════════════════════════════════ */
+
 .glass-nav {
-  background: rgba(12, 12, 12, 0.75);
+  background: rgba(12, 12, 12, 0.82);
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border-bottom: 1px solid rgba(245, 243, 239, 0.06);
+  border-bottom: 1px solid var(--color-gold-border);
 }
 
-/* ── Amber hairline ── */
+/* ══════════════════════════════════════════════════════
+   GOLD DESIGN ELEMENTS (Business Card Signature)
+   ══════════════════════════════════════════════════════ */
+
+/* ── Amber hairline (left-aligned accent) ── */
 .amber-line {
   display: block;
   width: 2.5rem;
   height: 2px;
-  background: var(--color-amber);
+  background: var(--color-gold);
   border-radius: 1px;
+}
+
+/* ── Gold horizontal divider (matching card's gold line) ── */
+.gold-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* ── Gold frame border (matching card's thin gold outline) ── */
+.gold-frame {
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-card);
+}
+
+/* ── Section divider — subtle gold tint ── */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-border),
+    transparent
+  );
 }
 
 /* ── Stat chip ── */
@@ -217,15 +284,8 @@ body {
   gap: 0.25rem;
   padding: 1.25rem 1.5rem;
   background: var(--color-ink-800);
-  border: 1px solid rgba(245, 243, 239, 0.08);
+  border: 1px solid var(--color-gold-border);
   border-radius: var(--radius-card);
-}
-
-/* ── Section divider ── */
-.section-divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(245, 243, 239, 0.08), transparent);
 }
 
 /* ── Image overlay ── */
@@ -235,23 +295,75 @@ body {
   background: linear-gradient(to bottom, rgba(12,12,12,0) 40%, rgba(12,12,12,0.85) 100%);
 }
 
-/* ── Amber glow pill ── */
+/* ── Gold glow pill badge ── */
 .glow-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
   padding: 0.25rem 0.875rem;
-  background: var(--color-amber-glow);
-  border: 1px solid rgba(200, 146, 58, 0.3);
+  background: var(--color-gold-glow);
+  border: 1px solid var(--color-gold-border);
   border-radius: var(--radius-btn);
-  color: var(--color-amber-light);
+  color: var(--color-gold-light);
   font-size: 0.6875rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-/* ── Reduced-motion override ── */
+/* ══════════════════════════════════════════════════════
+   BUSINESS CARD REPLICA (Contact page section)
+   ══════════════════════════════════════════════════════ */
+
+.biz-card {
+  background: var(--color-ink);
+  border: 1px solid var(--color-gold);
+  border-radius: var(--radius-card);
+  padding: 2.5rem;
+  max-width: 640px;
+  width: 100%;
+}
+
+.biz-card-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-gold);
+  margin: 1.5rem 0;
+}
+
+/* ══════════════════════════════════════════════════════
+   SERVICE CARD (for services section)
+   ══════════════════════════════════════════════════════ */
+
+.service-card {
+  background: var(--color-ink-800);
+  border: 1px solid var(--color-gold-border);
+  border-radius: var(--radius-card);
+  padding: 2rem;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(212, 168, 71, 0.1);
+}
+
+/* ══════════════════════════════════════════════════════
+   SCROLLBAR HIDE UTILITY
+   ══════════════════════════════════════════════════════ */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ══════════════════════════════════════════════════════
+   REDUCED-MOTION OVERRIDE
+   ══════════════════════════════════════════════════════ */
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.001ms !important;

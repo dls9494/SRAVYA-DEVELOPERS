@@ -34,7 +34,7 @@ function Reveal({
 
 const STATUS_COLORS: Record<string, string> = {
   Ongoing: "text-emerald-400 bg-emerald-400/10 border-emerald-400/20",
-  Completed: "text-[#C8923A] bg-[#C8923A]/10 border-[#C8923A]/20",
+  Completed: "text-[#D4A847] bg-[#D4A847]/10 border-[#D4A847]/20",
   Upcoming: "text-blue-400 bg-blue-400/10 border-blue-400/20",
 };
 
@@ -56,7 +56,7 @@ export default function ProjectsPage() {
               src="/images/gvr-kothapally/gvr-04.jpeg"
               alt="Sravya Projects"
               fill
-              priority
+              preload={true}
               className="object-cover"
               sizes="100vw"
             />
@@ -69,8 +69,8 @@ export default function ProjectsPage() {
               transition={{ duration: 0.7 }}
               className="space-y-4"
             >
-              <span className="amber-line" />
-              <h1 className="t-display text-[#F5F3EF] max-w-xl mt-4">
+              <div className="gold-divider w-12" />
+              <h1 className="t-headline text-[#F5F3EF] max-w-xl mt-4">
                 Our Projects
               </h1>
               <p className="t-body max-w-md mt-4">
@@ -95,7 +95,7 @@ export default function ProjectsPage() {
                   className="group block"
                   aria-label={`View ${project.name} project`}
                 >
-                  <div className="card overflow-hidden grid grid-cols-1 lg:grid-cols-2 hover:border-[#C8923A]/25 transition-colors duration-300">
+                  <div className="card overflow-hidden grid grid-cols-1 lg:grid-cols-2 hover:border-[#D4A847]/60 transition-colors duration-300 border border-[#D4A847]/30">
                     {/* Image */}
                     <div className="relative h-72 lg:h-auto min-h-[320px] overflow-hidden">
                       <Image
@@ -117,12 +117,12 @@ export default function ProjectsPage() {
                           {project.status}
                         </span>
 
-                        <h3 className="text-2xl font-bold text-[#F5F3EF] tracking-tight">
+                        <h3 className="t-headline text-2xl font-bold text-[#F5F3EF] tracking-tight">
                           {project.name}
                         </h3>
 
                         <div className="flex items-start gap-2 text-sm text-[#F5F3EF]/50">
-                          <MapPin size={14} weight="fill" className="text-[#C8923A] mt-0.5 flex-shrink-0" />
+                          <MapPin size={14} weight="fill" className="text-[#D4A847] mt-0.5 flex-shrink-0" />
                           <span>{project.location}</span>
                         </div>
 
@@ -133,27 +133,27 @@ export default function ProjectsPage() {
 
                       {/* Key facts */}
                       <div className="grid grid-cols-2 gap-3">
-                        <div className="stat-chip">
-                          <span className="t-caption text-[#C8923A] text-[10px]">Starting Price</span>
-                          <span className="font-bold text-[#F5F3EF] text-sm">{project.startingPrice}</span>
+                        <div className="stat-chip border border-[#D4A847]/30 p-3 rounded">
+                          <span className="t-caption text-[#D4A847] text-[10px]">Starting Price</span>
+                          <span className="font-bold text-[#F5F3EF] text-sm block mt-1">{project.startingPrice}</span>
                         </div>
-                        <div className="stat-chip">
-                          <span className="t-caption text-[#C8923A] text-[10px]">Plot Sizes</span>
-                          <span className="font-bold text-[#F5F3EF] text-sm">{project.plotSizes}</span>
+                        <div className="stat-chip border border-[#D4A847]/30 p-3 rounded">
+                          <span className="t-caption text-[#D4A847] text-[10px]">Plot Sizes</span>
+                          <span className="font-bold text-[#F5F3EF] text-sm block mt-1">{project.plotSizes}</span>
                         </div>
-                        <div className="stat-chip">
-                          <span className="t-caption text-[#C8923A] text-[10px]">Total Area</span>
-                          <span className="font-bold text-[#F5F3EF] text-sm">{project.totalArea}</span>
+                        <div className="stat-chip border border-[#D4A847]/30 p-3 rounded">
+                          <span className="t-caption text-[#D4A847] text-[10px]">Total Area</span>
+                          <span className="font-bold text-[#F5F3EF] text-sm block mt-1">{project.totalArea}</span>
                         </div>
-                        <div className="stat-chip">
-                          <span className="t-caption text-[#C8923A] text-[10px]">Total Plots</span>
-                          <span className="font-bold text-[#F5F3EF] text-sm">{project.totalPlots}</span>
+                        <div className="stat-chip border border-[#D4A847]/30 p-3 rounded">
+                          <span className="t-caption text-[#D4A847] text-[10px]">Total Plots</span>
+                          <span className="font-bold text-[#F5F3EF] text-sm block mt-1">{project.totalPlots}</span>
                         </div>
                       </div>
 
-                      <div className="flex items-center justify-between pt-2 border-t border-white/[0.06]">
+                      <div className="flex items-center justify-between pt-4 mt-2 border-t border-[#D4A847]/30">
                         <span className="text-xs text-[#F5F3EF]/30 font-mono">{project.reraNumber}</span>
-                        <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#C8923A] group-hover:gap-2.5 transition-all duration-200">
+                        <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#D4A847] group-hover:gap-2.5 transition-all duration-200">
                           View Details <ArrowUpRight size={14} weight="bold" />
                         </span>
                       </div>
@@ -171,3 +171,4 @@ export default function ProjectsPage() {
     </>
   );
 }
+

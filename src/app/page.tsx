@@ -14,6 +14,13 @@ import {
   CheckCircle,
   Star,
   PhoneCall,
+  Compass,
+  HouseLine,
+  Mountains,
+  Tree,
+  ChartBar,
+  Ruler,
+  Blueprint,
 } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -41,31 +48,69 @@ function Reveal({
   );
 }
 
+const services = [
+  {
+    icon: <Blueprint size={24} weight="duotone" className="text-[#D4A847]" />,
+    title: "Layout Designs & Approvals",
+    desc: "Expert preparation and approval of residential & commercial layout plans with regulatory authorities.",
+  },
+  {
+    icon: <Buildings size={24} weight="duotone" className="text-[#D4A847]" />,
+    title: "Layout Developments",
+    desc: "End-to-end layout development with HMDA, FCDA & DTCP compliance and infrastructure execution.",
+  },
+  {
+    icon: <Mountains size={24} weight="duotone" className="text-[#D4A847]" />,
+    title: "Earth Work",
+    desc: "Land grading, leveling, excavation, and ground preparation for development-ready sites.",
+  },
+  {
+    icon: <Tree size={24} weight="duotone" className="text-[#D4A847]" />,
+    title: "Landscaping",
+    desc: "Green space design, avenue plantations, park development, and eco-friendly site beautification.",
+  },
+  {
+    icon: <HouseLine size={24} weight="duotone" className="text-[#D4A847]" />,
+    title: "Building Plans",
+    desc: "Architectural and structural planning for residential, commercial, and institutional projects.",
+  },
+  {
+    icon: <Compass size={24} weight="duotone" className="text-[#D4A847]" />,
+    title: "Land Survey",
+    desc: "Precision boundary surveys, topographic mapping, and land measurement services.",
+  },
+  {
+    icon: <ChartBar size={24} weight="duotone" className="text-[#D4A847]" />,
+    title: "Quantity Surveys",
+    desc: "Detailed cost estimation, BOQ preparation, and resource planning for construction projects.",
+  },
+];
+
 const stats = [
   { value: "15+", label: "Years of Experience" },
-  { value: "240", label: "Plots Launched" },
-  { value: "₹25L", label: "Starting Price" },
-  { value: "20 Ac", label: "Total Area" },
+  { value: "240+", label: "Plots Delivered" },
+  { value: "7", label: "Core Services" },
+  { value: "100%", label: "Legal Compliance" },
 ];
 
 const reasons = [
   {
-    icon: <ShieldCheck size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <ShieldCheck size={22} weight="fill" className="text-[#D4A847]" />,
     title: "RERA Approved",
     desc: "All ventures are RERA registered, ensuring full legal compliance and buyer protection.",
   },
   {
-    icon: <MapTrifold size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <MapTrifold size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Strategic Locations",
     desc: "Plots in high-growth corridors with direct connectivity to Hyderabad's major hubs.",
   },
   {
-    icon: <CurrencyInr size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <CurrencyInr size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Wealth Multiplication",
     desc: "Land appreciates while apartments depreciate. Open plots deliver superior ROI.",
   },
   {
-    icon: <Buildings size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <Buildings size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Clear Title Status",
     desc: "HMDA/DTCP approved layouts with transparent title chains and documentation.",
   },
@@ -115,8 +160,7 @@ export default function HomePage() {
 
       <main>
         {/* ──────────────────────────────────────
-            HERO — Full-viewport cinematic split
-            Left: copy + CTAs | Right: real site image
+            HERO — Business Card Style with Globe Logo
             ────────────────────────────────────── */}
         <section
           ref={heroRef}
@@ -132,13 +176,13 @@ export default function HomePage() {
               src="/images/gvr-kothapally/gvr-05.jpeg"
               alt="GVR Kothapally aerial view"
               fill
-              priority
+              preload
               className="object-cover"
               sizes="100vw"
             />
-            {/* Deep gradient overlay — left-to-right so text is readable */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#0C0C0C]/95 via-[#0C0C0C]/70 to-[#0C0C0C]/20" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C]/60 via-transparent to-transparent" />
+            {/* Deep gradient overlay — card-style dark */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#0C0C0C]/95 via-[#0C0C0C]/80 to-[#0C0C0C]/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C]/70 via-transparent to-transparent" />
           </motion.div>
 
           {/* Hero content */}
@@ -146,42 +190,59 @@ export default function HomePage() {
             className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 w-full"
             style={{ opacity: heroOpacity }}
           >
-            <div className="max-w-2xl space-y-7">
-              {/* Eyebrow badge */}
+            <div className="max-w-3xl space-y-8">
+              {/* Globe logo + Company name — matching business card top half */}
               <motion.div
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                className="flex items-center gap-5"
               >
-                <span className="glow-badge">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C8923A] animate-pulse" />
-                  Now Selling — GVR Kothapally
-                </span>
+                <div className="relative w-28 h-28 sm:w-36 sm:h-36 flex-shrink-0">
+                  <Image
+                    src="/images/logo-v4.png"
+                    alt="Sravya Global Developers"
+                    fill
+                    className="object-contain"
+                    preload
+                  />
+                </div>
+                <div>
+                  <h2
+                    className="text-[#D4A847] text-lg sm:text-xl tracking-[0.2em] uppercase font-medium"
+                    style={{ fontFamily: "var(--font-playfair)" }}
+                  >
+                    Sravya Global
+                  </h2>
+                  <p className="text-[#D4A847]/70 text-xs sm:text-sm tracking-[0.35em] uppercase mt-0.5">
+                    Developers
+                  </p>
+                </div>
               </motion.div>
 
               {/* Display headline */}
               <motion.h1
-                className="text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1.0] tracking-[-0.03em] text-[#F5F3EF]"
+                className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#F5F3EF]"
+                style={{ fontFamily: "var(--font-playfair)" }}
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.75, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.75, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               >
-                Build Wealth{" "}
-                <span className="text-[#C8923A] italic" style={{ fontFamily: "var(--font-playfair)" }}>
-                  on Land
-                </span>
+                Building Trust.{" "}
+                <span className="text-[#D4A847] italic">Creating</span>
                 <br />
-                That Endures
+                Landmarks.
               </motion.h1>
 
-              {/* Subtext — max 20 words */}
+              {/* Services tagline — matching business card */}
               <motion.p
-                className="text-base text-[#F5F3EF]/65 leading-relaxed max-w-lg"
+                className="text-sm sm:text-base text-[#F5F3EF]/55 leading-relaxed max-w-2xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.7, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
               >
-                Premium villa plots in Hyderabad's fastest-growing corridor. RERA approved. Starting ₹25 Lakhs.
+                Layout Designs & Approvals · Layout Developments — HMDA, FCDA & DTCP ·
+                Earth Work · Landscaping · Building Plans · Land Survey · Quantity Surveys
               </motion.p>
 
               {/* CTAs */}
@@ -189,10 +250,10 @@ export default function HomePage() {
                 className="flex flex-wrap items-center gap-4"
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
               >
-                <Link href="/projects/gvr-kothapally" className="btn-primary">
-                  View Project <ArrowRight size={15} weight="bold" />
+                <Link href="/services" className="btn-primary">
+                  Our Services <ArrowRight size={15} weight="bold" />
                 </Link>
                 <Link href="/contact" className="btn-ghost">
                   Enquire Now
@@ -203,19 +264,19 @@ export default function HomePage() {
 
           {/* Bottom stat bar */}
           <motion.div
-            className="absolute bottom-0 left-0 right-0 z-10 border-t border-white/5 bg-[#0C0C0C]/80 backdrop-blur-md"
+            className="absolute bottom-0 left-0 right-0 z-10 border-t border-[#D4A847]/20 bg-[#0C0C0C]/80 backdrop-blur-md"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/5">
+              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#D4A847]/15">
                 {stats.map((s) => (
                   <div key={s.label} className="px-6 py-5 text-center">
-                    <div className="text-2xl font-bold text-[#C8923A] tracking-tight">
+                    <div className="text-2xl font-bold text-[#D4A847] tracking-tight">
                       {s.value}
                     </div>
-                    <div className="text-[0.7rem] font-medium uppercase tracking-[0.1em] text-[#F5F3EF]/40 mt-1">
+                    <div className="text-[0.7rem] font-medium uppercase tracking-[0.12em] text-[#F5F3EF]/40 mt-1">
                       {s.label}
                     </div>
                   </div>
@@ -225,21 +286,66 @@ export default function HomePage() {
           </motion.div>
         </section>
 
+        {/* ── Gold Divider ── */}
+        <div className="gold-divider" />
+
         {/* ──────────────────────────────────────
-            ABOUT STRIP — asymmetric split
+            SERVICES OVERVIEW — 7-card grid
+            ────────────────────────────────────── */}
+        <section className="py-24 md:py-32 bg-[#111111]" aria-label="Our Services">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
+            <Reveal className="text-center space-y-4 max-w-2xl mx-auto">
+              <span className="amber-line mx-auto" />
+              <h2 className="t-headline text-[#F5F3EF] mt-4">
+                Our Services
+              </h2>
+              <p className="t-body text-center">
+                From concept to completion — comprehensive land development, civil engineering, and survey services across Telangana.
+              </p>
+            </Reveal>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+              {services.map((s, i) => (
+                <Reveal key={s.title} delay={i * 0.06}>
+                  <div className="service-card space-y-4 h-full">
+                    <div className="w-12 h-12 rounded-full bg-[#D4A847]/10 flex items-center justify-center">
+                      {s.icon}
+                    </div>
+                    <h3 className="text-base font-semibold text-[#F5F3EF]">{s.title}</h3>
+                    <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">{s.desc}</p>
+                  </div>
+                </Reveal>
+              ))}
+            </div>
+
+            <Reveal delay={0.1} className="text-center">
+              <Link
+                href="/services"
+                className="inline-flex items-center gap-2 text-[#D4A847] text-sm font-semibold uppercase tracking-wider hover:gap-3 transition-all duration-200"
+              >
+                Explore All Services <ArrowUpRight size={16} weight="bold" />
+              </Link>
+            </Reveal>
+          </div>
+        </section>
+
+        <div className="gold-divider" />
+
+        {/* ──────────────────────────────────────
+            ABOUT STRIP — Who We Are
             ────────────────────────────────────── */}
         <section className="py-24 md:py-32" aria-label="About Sravya">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               {/* Image mosaic */}
               <Reveal className="grid grid-cols-2 grid-rows-2 gap-3 h-[480px]">
-                <div className="relative rounded-[4px] overflow-hidden row-span-2">
+                <div className="relative rounded-[4px] overflow-hidden row-span-2 border border-[#D4A847]/20">
                   <Image src="/images/gvr-kothapally/gvr-07.jpeg" alt="GVR Kothapally site" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
-                <div className="relative rounded-[4px] overflow-hidden">
+                <div className="relative rounded-[4px] overflow-hidden border border-[#D4A847]/20">
                   <Image src="/images/gvr-kothapally/gvr-12.jpeg" alt="Premium plots layout" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
-                <div className="relative rounded-[4px] overflow-hidden">
+                <div className="relative rounded-[4px] overflow-hidden border border-[#D4A847]/20">
                   <Image src="/images/gvr-kothapally/gvr-18.jpeg" alt="Green landscaping" fill className="object-cover hover:scale-105 transition-transform duration-700" />
                 </div>
               </Reveal>
@@ -254,16 +360,30 @@ export default function HomePage() {
                 </Reveal>
                 <Reveal delay={0.1}>
                   <p className="t-body">
-                    Sravya Global Developers has built a reputation on one simple principle — putting the buyer first. Every plot we develop is RERA registered, legally vetted, and designed to appreciate in value over time.
+                    Sravya Global Developers has built a reputation on one simple principle — putting the client first. Led by P.C. Sekhar (Managing Partner), we deliver comprehensive land development services from layout approvals to quantity surveys.
                   </p>
                 </Reveal>
                 <Reveal delay={0.15}>
                   <p className="t-body">
-                    Our flagship venture, GVR Kothapally, sits on the high-growth Chevella-Vikarabad corridor — one of Hyderabad's fastest appreciating real estate zones.
+                    Every project we undertake is RERA registered, legally vetted, and executed with precision. Our flagship venture, GVR Kothapally, sits on the high-growth Chevella-Vikarabad corridor.
                   </p>
                 </Reveal>
+
+                {/* Managing Partner callout */}
                 <Reveal delay={0.2}>
-                  <Link href="/about" className="inline-flex items-center gap-2 text-[#C8923A] text-sm font-semibold uppercase tracking-wider hover:gap-3 transition-all duration-200">
+                  <div className="card-static p-5 flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-[#D4A847]/15 flex items-center justify-center flex-shrink-0">
+                      <span className="text-[#D4A847] font-bold text-lg" style={{ fontFamily: "var(--font-playfair)" }}>PC</span>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-[#F5F3EF]">P.C. Sekhar</div>
+                      <div className="text-xs text-[#D4A847] font-semibold uppercase tracking-[0.12em]">Managing Partner</div>
+                    </div>
+                  </div>
+                </Reveal>
+
+                <Reveal delay={0.25}>
+                  <Link href="/about" className="inline-flex items-center gap-2 text-[#D4A847] text-sm font-semibold uppercase tracking-wider hover:gap-3 transition-all duration-200">
                     About Us <ArrowUpRight size={16} weight="bold" />
                   </Link>
                 </Reveal>
@@ -272,15 +392,16 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ──────────────────────────────────────
-            PROJECT SHOWCASE — full-width feature card
+            PROJECT SHOWCASE — GVR Kothapally
             ────────────────────────────────────── */}
         <section className="py-24 md:py-32" aria-label="Our project">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             <Reveal className="text-center space-y-3 max-w-xl mx-auto">
-              <h2 className="t-headline text-[#F5F3EF]">GVR Kothapally</h2>
+              <span className="amber-line mx-auto" />
+              <h2 className="t-headline text-[#F5F3EF] mt-4">GVR Kothapally</h2>
               <p className="t-body text-center">
                 Our ongoing flagship venture — 240 premium villa plots across 20 acres near Chevella.
               </p>
@@ -290,7 +411,7 @@ export default function HomePage() {
             <Reveal>
               <Link
                 href="/projects/gvr-kothapally"
-                className="group block relative rounded-[4px] overflow-hidden aspect-[16/7] bg-[#1A1A1A]"
+                className="group block relative rounded-[4px] overflow-hidden aspect-[16/7] bg-[#1A1A1A] border border-[#D4A847]/20 hover:border-[#D4A847]/50 transition-colors duration-300"
                 aria-label="View GVR Kothapally project details"
               >
                 <Image
@@ -306,14 +427,14 @@ export default function HomePage() {
                 <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 flex items-end justify-between gap-6">
                   <div className="space-y-2">
                     <span className="glow-badge">Ongoing</span>
-                    <h3 className="text-2xl md:text-4xl font-bold text-[#F5F3EF] tracking-tight">
+                    <h3 className="text-2xl md:text-4xl font-bold text-[#F5F3EF] tracking-tight" style={{ fontFamily: "var(--font-playfair)" }}>
                       GVR Kothapally
                     </h3>
                     <p className="text-[#F5F3EF]/60 text-sm">
                       Chevella — Vikarabad Road, Hyderabad · From ₹25 Lakhs
                     </p>
                   </div>
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#C8923A] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
+                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-[#D4A847] flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                     <ArrowUpRight size={20} weight="bold" className="text-[#0C0C0C]" />
                   </div>
                 </div>
@@ -329,7 +450,7 @@ export default function HomePage() {
               ].map(({ label, val }) => (
                 <Reveal key={label}>
                   <div className="stat-chip">
-                    <span className="t-caption text-[#C8923A]">{label}</span>
+                    <span className="t-caption text-[#D4A847]">{label}</span>
                     <span className="text-xl font-bold text-[#F5F3EF] tracking-tight">{val}</span>
                   </div>
                 </Reveal>
@@ -338,11 +459,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ──────────────────────────────────────
-            WHY OPEN PLOTS — 4-col icon feature grid
-            (different layout from above — no zigzag)
+            WHY OPEN PLOTS — 4-col icon grid
             ────────────────────────────────────── */}
         <section className="py-24 md:py-32 bg-[#111111]" aria-label="Why invest in open plots">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
@@ -353,12 +473,11 @@ export default function HomePage() {
               </h2>
             </Reveal>
 
-            {/* 4-col feature grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {reasons.map((r, i) => (
                 <Reveal key={r.title} delay={i * 0.07}>
-                  <div className="card p-6 space-y-4 hover:border-[#C8923A]/20 transition-colors duration-300 h-full">
-                    <div className="w-10 h-10 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
+                  <div className="card p-6 space-y-4 h-full">
+                    <div className="w-10 h-10 rounded-full bg-[#D4A847]/10 flex items-center justify-center">
                       {r.icon}
                     </div>
                     <h3 className="t-title text-[#F5F3EF]">{r.title}</h3>
@@ -368,19 +487,19 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* Comparison table — 5 rows, no `border-b on every row` */}
+            {/* Comparison table */}
             <Reveal delay={0.1}>
               <div className="card overflow-hidden">
-                <div className="grid grid-cols-3 gap-0 text-xs font-semibold uppercase tracking-[0.1em] border-b border-white/5 px-6 py-4 bg-[#1A1A1A]">
+                <div className="grid grid-cols-3 gap-0 text-xs font-semibold uppercase tracking-[0.1em] border-b border-[#D4A847]/15 px-6 py-4 bg-[#1A1A1A]">
                   <span className="text-[#F5F3EF]/40">Metric</span>
-                  <span className="text-[#C8923A]">Sravya Open Plots</span>
+                  <span className="text-[#D4A847]">Sravya Open Plots</span>
                   <span className="text-[#F5F3EF]/40">Apartments</span>
                 </div>
-                <div className="divide-y divide-white/[0.04]">
+                <div className="divide-y divide-[#D4A847]/[0.08]">
                   {comparison.map((row, i) => (
                     <div key={row.metric} className={`grid grid-cols-3 gap-0 px-6 py-4 ${i % 2 === 0 ? "bg-transparent" : "bg-[#1A1A1A]/50"}`}>
                       <span className="text-sm font-medium text-[#F5F3EF]/50">{row.metric}</span>
-                      <span className="text-sm font-semibold text-[#C8923A]">{row.plots}</span>
+                      <span className="text-sm font-semibold text-[#D4A847]">{row.plots}</span>
                       <span className="text-sm text-[#F5F3EF]/35">{row.flats}</span>
                     </div>
                   ))}
@@ -390,10 +509,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ──────────────────────────────────────
-            GALLERY STRIP — horizontal scroll
+            GALLERY STRIP
             ────────────────────────────────────── */}
         <section className="py-24 overflow-hidden" aria-label="Site gallery">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
@@ -401,17 +520,16 @@ export default function HomePage() {
               <h2 className="t-headline text-[#F5F3EF] max-w-sm">
                 Site Gallery
               </h2>
-              <Link href="/projects/gvr-kothapally" className="inline-flex items-center gap-2 text-[#C8923A] text-sm font-semibold uppercase tracking-wider hover:gap-3 transition-all duration-200 flex-shrink-0">
+              <Link href="/projects/gvr-kothapally" className="inline-flex items-center gap-2 text-[#D4A847] text-sm font-semibold uppercase tracking-wider hover:gap-3 transition-all duration-200 flex-shrink-0">
                 View All <ArrowRight size={15} weight="bold" />
               </Link>
             </Reveal>
 
-            {/* Scroll container */}
             <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide -mx-4 px-4 sm:mx-0 sm:px-0">
               {[6, 9, 14, 17, 22, 27, 31, 35].map((n) => (
                 <div
                   key={n}
-                  className="flex-none w-72 h-52 relative rounded-[4px] overflow-hidden snap-start"
+                  className="flex-none w-72 h-52 relative rounded-[4px] overflow-hidden snap-start border border-[#D4A847]/15"
                 >
                   <Image
                     src={`/images/gvr-kothapally/gvr-${String(n).padStart(2, "0")}.jpeg`}
@@ -426,10 +544,10 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ──────────────────────────────────────
-            TESTIMONIALS — 3-col card grid
+            TESTIMONIALS
             ────────────────────────────────────── */}
         <section className="py-24 md:py-32 bg-[#111111]" aria-label="Customer testimonials">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
@@ -444,18 +562,15 @@ export default function HomePage() {
               {testimonials.map((t, i) => (
                 <Reveal key={t.name} delay={i * 0.08}>
                   <div className="card p-7 space-y-5 flex flex-col h-full">
-                    {/* Stars */}
                     <div className="flex gap-1">
                       {[...Array(5)].map((_, k) => (
-                        <Star key={k} size={14} weight="fill" className="text-[#C8923A]" />
+                        <Star key={k} size={14} weight="fill" className="text-[#D4A847]" />
                       ))}
                     </div>
-                    {/* Quote — max 3 lines */}
-                    <p className="text-[#F5F3EF]/70 text-sm leading-relaxed flex-1 line-clamp-4">
+                    <p className="text-[#F5F3EF]/70 text-sm leading-relaxed flex-1 line-clamp-4 italic" style={{ fontFamily: "var(--font-playfair)" }}>
                       &ldquo;{t.quote}&rdquo;
                     </p>
-                    {/* Attribution */}
-                    <div className="pt-2 border-t border-white/5">
+                    <div className="pt-2 border-t border-[#D4A847]/15">
                       <div className="font-semibold text-sm text-[#F5F3EF]">{t.name}</div>
                       <div className="text-xs text-[#F5F3EF]/40 mt-0.5">{t.role}</div>
                     </div>
@@ -466,13 +581,12 @@ export default function HomePage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ──────────────────────────────────────
-            CTA — full-width with real image bg
+            CTA — Contact
             ────────────────────────────────────── */}
         <section className="relative py-24 md:py-32 overflow-hidden" aria-label="Contact call to action">
-          {/* Background */}
           <div className="absolute inset-0 z-0">
             <Image
               src="/images/gvr-kothapally/gvr-15.jpeg"
@@ -481,34 +595,34 @@ export default function HomePage() {
               className="object-cover"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-[#0C0C0C]/85" />
+            <div className="absolute inset-0 bg-[#0C0C0C]/88" />
           </div>
 
           <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
             <Reveal>
               <span className="amber-line mx-auto" />
               <h2 className="t-headline text-[#F5F3EF] mt-4">
-                Secure Your Plot Today
+                Partner With Sravya Global
               </h2>
               <p className="t-body text-center mt-4 max-w-lg mx-auto">
-                Limited plots available. Our team will guide you through the entire buying process — from site visit to registration.
+                Whether you need layout approvals, land development, or investment opportunities — our team is ready to guide you through every step.
               </p>
             </Reveal>
             <Reveal delay={0.1} className="flex flex-wrap items-center justify-center gap-4">
               <Link href="/contact" className="btn-primary">
-                Book a Site Visit <ArrowRight size={15} weight="bold" />
+                Get In Touch <ArrowRight size={15} weight="bold" />
               </Link>
               <a href="tel:+919949736082" className="btn-ghost">
-                <PhoneCall size={15} weight="fill" /> Call Us Now
+                <PhoneCall size={15} weight="fill" /> Call P.C. Sekhar
               </a>
             </Reveal>
 
             {/* Reassurance chips */}
             <Reveal delay={0.15}>
               <div className="flex flex-wrap items-center justify-center gap-3">
-                {["RERA Approved", "Clear Title", "No Hidden Charges", "Free Site Visit"].map((chip) => (
+                {["RERA Approved", "Clear Title", "15+ Years Experience", "Free Consultation"].map((chip) => (
                   <div key={chip} className="flex items-center gap-1.5 text-xs text-[#F5F3EF]/50">
-                    <CheckCircle size={12} weight="fill" className="text-[#C8923A]" />
+                    <CheckCircle size={12} weight="fill" className="text-[#D4A847]" />
                     {chip}
                   </div>
                 ))}

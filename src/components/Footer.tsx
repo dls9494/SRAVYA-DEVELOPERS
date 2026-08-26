@@ -21,6 +21,16 @@ const navLinks = [
   { name: "Contact", href: "/contact" },
 ];
 
+const serviceLinks = [
+  { name: "Layout Designs & Approvals", href: "/services" },
+  { name: "Layout Developments (HMDA, FCDA & DTCP)", href: "/services" },
+  { name: "Earth Work", href: "/services" },
+  { name: "Landscaping", href: "/services" },
+  { name: "Building Plans", href: "/services" },
+  { name: "Land Survey", href: "/services" },
+  { name: "Quantity Surveys", href: "/services" },
+];
+
 const legalLinks = [
   { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms & Conditions", href: "/terms-and-conditions" },
@@ -51,7 +61,10 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
               </div>
             </Link>
             <p className="text-sm text-[#F5F3EF]/45 leading-relaxed max-w-xs">
-              Building Trust. Creating Landmarks. Premium villa plots in Hyderabad's high-growth corridors.
+              Building Trust. Creating Landmarks. We offer comprehensive services including premium layout designs, developments (HMDA, FCDA & DTCP), earth work, landscaping, land surveys, and building plans in Hyderabad.
+            </p>
+            <p className="text-sm font-semibold text-[#D4A847]">
+              P.C. Sekhar — Managing Partner
             </p>
             {/* Socials */}
             <div className="flex items-center gap-3">
@@ -67,7 +80,7 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={s.label}
-                  className="w-9 h-9 rounded-full bg-[#1A1A1A] border border-white/[0.06] flex items-center justify-center text-[#F5F3EF]/40 hover:text-[#C8923A] hover:border-[#C8923A]/30 transition-all duration-200"
+                  className="w-9 h-9 rounded-full bg-[#1A1A1A] border border-white/[0.06] flex items-center justify-center text-[#F5F3EF]/40 hover:text-[#D4A847] hover:border-[#D4A847]/30 transition-all duration-200"
                 >
                   {s.icon}
                 </a>
@@ -75,19 +88,19 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
             </div>
           </div>
 
-          {/* ── Quick Links ── */}
+          {/* ── Services ── */}
           <div className="space-y-6">
             <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-[#F5F3EF]/30">
-              Quick Links
+              Our Services
             </h4>
             <ul className="space-y-3">
-              {navLinks.map((l) => (
-                <li key={l.name}>
+              {serviceLinks.map((s) => (
+                <li key={s.name}>
                   <Link
-                    href={l.href}
-                    className="group flex items-center gap-1.5 text-sm text-[#F5F3EF]/50 hover:text-[#C8923A] transition-colors duration-200"
+                    href={s.href}
+                    className="group flex items-center gap-1.5 text-sm text-[#F5F3EF]/50 hover:text-[#D4A847] transition-colors duration-200"
                   >
-                    <span>{l.name}</span>
+                    <span>{s.name}</span>
                     <ArrowUpRight
                       size={11}
                       weight="bold"
@@ -99,23 +112,48 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
             </ul>
           </div>
 
-          {/* ── Our Portfolio ── */}
-          <div className="space-y-6">
-            <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-[#F5F3EF]/30">
-              Portfolio
-            </h4>
-            <ul className="space-y-4">
-              <li>
-                <Link href="/projects/gvr-kothapally" className="group block">
-                  <span className="block text-sm font-semibold text-[#F5F3EF]/70 group-hover:text-[#C8923A] transition-colors">
-                    GVR Kothapally
-                  </span>
-                  <span className="block text-xs text-[#F5F3EF]/30 mt-0.5">
-                    Ongoing · Chevella – Vikarabad Road
-                  </span>
-                </Link>
-              </li>
-            </ul>
+          {/* ── Quick Links & Portfolio ── */}
+          <div className="space-y-10">
+            <div className="space-y-6">
+              <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-[#F5F3EF]/30">
+                Quick Links
+              </h4>
+              <ul className="space-y-3">
+                {navLinks.map((l) => (
+                  <li key={l.name}>
+                    <Link
+                      href={l.href}
+                      className="group flex items-center gap-1.5 text-sm text-[#F5F3EF]/50 hover:text-[#D4A847] transition-colors duration-200"
+                    >
+                      <span>{l.name}</span>
+                      <ArrowUpRight
+                        size={11}
+                        weight="bold"
+                        className="opacity-0 group-hover:opacity-100 transition-opacity"
+                      />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="space-y-6">
+              <h4 className="text-xs font-bold uppercase tracking-[0.12em] text-[#F5F3EF]/30">
+                Portfolio
+              </h4>
+              <ul className="space-y-4">
+                <li>
+                  <Link href="/projects/gvr-kothapally" className="group block">
+                    <span className="block text-sm font-semibold text-[#F5F3EF]/70 group-hover:text-[#D4A847] transition-colors">
+                      GVR Kothapally
+                    </span>
+                    <span className="block text-xs text-[#F5F3EF]/30 mt-0.5">
+                      Ongoing · Chevella – Vikarabad Road
+                    </span>
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* ── Contact ── */}
@@ -125,25 +163,25 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
             </h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-sm text-[#F5F3EF]/50">
-                <MapPin size={15} weight="fill" className="text-[#C8923A] mt-0.5 flex-shrink-0" />
+                <MapPin size={15} weight="fill" className="text-[#D4A847] mt-0.5 flex-shrink-0" />
                 <span>7-2/P-30, My Homes Colony, Manneguda, Hyderabad</span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={15} weight="fill" className="text-[#C8923A] flex-shrink-0" />
+                <Phone size={15} weight="fill" className="text-[#D4A847] flex-shrink-0" />
                 <div className="flex flex-col gap-1">
-                  <a href="tel:+919949736082" className="text-sm text-[#F5F3EF]/50 hover:text-[#C8923A] transition-colors">
+                  <a href="tel:+919949736082" className="text-sm text-[#F5F3EF]/50 hover:text-[#D4A847] transition-colors">
                     +91 99497 36082
                   </a>
-                  <a href="tel:+916309366082" className="text-sm text-[#F5F3EF]/50 hover:text-[#C8923A] transition-colors">
+                  <a href="tel:+916309366082" className="text-sm text-[#F5F3EF]/50 hover:text-[#D4A847] transition-colors">
                     +91 63093 66082
                   </a>
                 </div>
               </li>
               <li className="flex items-center gap-3">
-                <EnvelopeSimple size={15} weight="fill" className="text-[#C8923A] flex-shrink-0" />
+                <EnvelopeSimple size={15} weight="fill" className="text-[#D4A847] flex-shrink-0" />
                 <a
                   href="mailto:sravyaglobaldevelopers@gmail.com"
-                  className="text-sm text-[#F5F3EF]/50 hover:text-[#C8923A] transition-colors break-all"
+                  className="text-sm text-[#F5F3EF]/50 hover:text-[#D4A847] transition-colors break-all"
                 >
                   sravyaglobaldevelopers@gmail.com
                 </a>
@@ -153,19 +191,22 @@ export default function Footer({ onOpenDisclaimer }: FooterProps) {
         </div>
 
         {/* ── Bottom bar ── */}
-        <div className="mt-16 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#F5F3EF]/25">
-          <p>&copy; {year} Sravya Global Developers. All rights reserved.</p>
-          <div className="flex items-center gap-5 flex-wrap">
+        <div className="mt-16 pt-8 border-t border-[#D4A847]/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#F5F3EF]/40">
+          <div className="flex flex-col items-center md:items-start gap-1">
+            <p>&copy; {year} Sravya Global Developers. All rights reserved.</p>
+            <p>Firm Registration No. 791 of 2026, Govt. of Telangana</p>
+          </div>
+          <div className="flex items-center gap-5 flex-wrap justify-center">
             {onOpenDisclaimer && (
               <button
                 onClick={onOpenDisclaimer}
-                className="hover:text-[#C8923A] transition-colors underline decoration-dotted"
+                className="hover:text-[#D4A847] transition-colors underline decoration-dotted"
               >
                 Disclaimer
               </button>
             )}
             {legalLinks.map((l) => (
-              <Link key={l.name} href={l.href} className="hover:text-[#C8923A] transition-colors">
+              <Link key={l.name} href={l.href} className="hover:text-[#D4A847] transition-colors">
                 {l.name}
               </Link>
             ))}

@@ -40,17 +40,17 @@ function Reveal({
 
 const values = [
   {
-    icon: <ShieldCheck size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <ShieldCheck size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Integrity",
     desc: "Every document is legally vetted, RERA registered, and transparently shared with buyers from day one.",
   },
   {
-    icon: <Handshake size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <Handshake size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Trust",
     desc: "We build relationships before transactions. Our repeat buyer rate speaks to the confidence our clients have in us.",
   },
   {
-    icon: <UsersThree size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <UsersThree size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Customer First",
     desc: "From inquiry to registration — we guide buyers through every step without confusion or hidden costs.",
   },
@@ -71,7 +71,7 @@ export default function AboutPage() {
               src="/images/gvr-kothapally/gvr-08.jpeg"
               alt="About Sravya Global Developers"
               fill
-              priority
+              preload={true}
               className="object-cover"
               sizes="100vw"
             />
@@ -108,31 +108,42 @@ export default function AboutPage() {
                 </Reveal>
                 <Reveal delay={0.1}>
                   <p className="t-body">
-                    Sravya Global Developers was founded on core values of transparency, integrity, and long-term customer growth. We specialize purely in land developments — transforming suburban outskirts into thriving, master-planned residential communities.
+                    Sravya Global Developers was founded on core values of transparency, integrity, and long-term customer growth. We offer a comprehensive suite of services including Layout Designs & Approvals, Layout Developments (HMDA, FCDA & DTCP), Earth Work, Landscaping, Building Plans, Land Survey, and Quantity Surveys.
                   </p>
                 </Reveal>
                 <Reveal delay={0.15}>
                   <p className="t-body">
                     By maintaining a strong focus on strategic location selection near proposed radial corridors, highways, and IT hubs, we ensure every square yard you buy is poised for maximum wealth appreciation.
                   </p>
+
+                  <div className="mt-8 space-y-3 t-body text-sm">
+                    <p className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                      <span className="text-[#D4A847] font-semibold tracking-wider uppercase text-xs">Office:</span> 
+                      <span>7-2/P-30, My Homes Colony, Manneguda, Hyderabad</span>
+                    </p>
+                    <p className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2">
+                      <span className="text-[#D4A847] font-semibold tracking-wider uppercase text-xs">Registration:</span> 
+                      <span>Firm Reg. No. 791 of 2026, Govt. of Telangana</span>
+                    </p>
+                  </div>
                 </Reveal>
 
                 {/* Mission / Vision — vertical stack (no split header) */}
-                <Reveal delay={0.2} className="pt-8 border-t border-white/[0.06] grid grid-cols-1 sm:grid-cols-2 gap-8">
+                <Reveal delay={0.2} className="pt-8 border-t border-[#D4A847]/20 grid grid-cols-1 sm:grid-cols-2 gap-8">
                   <div className="space-y-3">
-                    <div className="w-10 h-10 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
-                      <Target size={18} weight="fill" className="text-[#C8923A]" />
+                    <div className="w-10 h-10 rounded-full bg-[#D4A847]/10 flex items-center justify-center">
+                      <Target size={18} weight="fill" className="text-[#D4A847]" />
                     </div>
-                    <h3 className="font-semibold text-[#F5F3EF]">Our Mission</h3>
+                    <h3 className="font-[family-name:var(--font-playfair)] text-xl text-[#F5F3EF]">Our Mission</h3>
                     <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">
                       To deliver premium, legally compliant open plots that offer safe and lucrative investment channels for families and NRI buyers.
                     </p>
                   </div>
                   <div className="space-y-3">
-                    <div className="w-10 h-10 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
-                      <Eye size={18} weight="fill" className="text-[#C8923A]" />
+                    <div className="w-10 h-10 rounded-full bg-[#D4A847]/10 flex items-center justify-center">
+                      <Eye size={18} weight="fill" className="text-[#D4A847]" />
                     </div>
-                    <h3 className="font-semibold text-[#F5F3EF]">Our Vision</h3>
+                    <h3 className="font-[family-name:var(--font-playfair)] text-xl text-[#F5F3EF]">Our Vision</h3>
                     <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">
                       To become South India's most trusted land development brand — celebrated for clear titles, quality infrastructure, and buyer satisfaction.
                     </p>
@@ -142,7 +153,7 @@ export default function AboutPage() {
 
               {/* Image */}
               <Reveal className="order-1 lg:order-2">
-                <div className="relative aspect-[4/5] rounded-[4px] overflow-hidden">
+                <div className="relative aspect-[4/5] rounded-[4px] overflow-hidden border border-[#D4A847]/20">
                   <Image
                     src="/images/gvr-kothapally/gvr-20.jpeg"
                     alt="Sravya Global land development"
@@ -151,8 +162,8 @@ export default function AboutPage() {
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
                   {/* Stat badge overlay */}
-                  <div className="absolute bottom-6 left-6 bg-[#0C0C0C]/80 backdrop-blur-md border border-white/10 rounded-[4px] p-4 space-y-1">
-                    <div className="text-2xl font-bold text-[#C8923A]">15+</div>
+                  <div className="absolute bottom-6 left-6 bg-[#0C0C0C]/80 backdrop-blur-md border border-[#D4A847]/20 rounded-[4px] p-4 space-y-1">
+                    <div className="text-2xl font-bold text-[#D4A847]">15+</div>
                     <div className="text-xs font-semibold uppercase tracking-[0.1em] text-[#F5F3EF]/50">Years of Experience</div>
                   </div>
                 </div>
@@ -161,7 +172,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ── Core Values — 3-col cards ── */}
         <section className="py-24 md:py-32 bg-[#111111]" aria-label="Core values">
@@ -174,11 +185,11 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {values.map((v, i) => (
                 <Reveal key={v.title} delay={i * 0.08}>
-                  <div className="card p-8 space-y-5 h-full hover:border-[#C8923A]/20 transition-colors duration-300">
-                    <div className="w-11 h-11 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
+                  <div className="card p-8 space-y-5 h-full border border-[#D4A847]/20 hover:border-[#D4A847]/50 transition-colors duration-300">
+                    <div className="w-11 h-11 rounded-full bg-[#D4A847]/10 flex items-center justify-center">
                       {v.icon}
                     </div>
-                    <h3 className="text-lg font-bold text-[#F5F3EF]">{v.title}</h3>
+                    <h3 className="text-xl font-[family-name:var(--font-playfair)] text-[#F5F3EF]">{v.title}</h3>
                     <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">{v.desc}</p>
                   </div>
                 </Reveal>
@@ -187,7 +198,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ── Leadership Quote — centered editorial ── */}
         <section className="py-24 md:py-32" aria-label="Leadership message">
@@ -201,8 +212,8 @@ export default function AboutPage() {
             </Reveal>
             <Reveal delay={0.1}>
               <div className="space-y-1">
-                <div className="font-semibold text-[#F5F3EF]">Peddapudi Chandrasekhar &amp; Peddapudi Sibe Rani</div>
-                <div className="text-xs text-[#C8923A] font-semibold uppercase tracking-[0.12em]">Managing Partners, Sravya Global Developers</div>
+                <div className="font-[family-name:var(--font-playfair)] text-xl text-[#F5F3EF]">P.C. Sekhar (Peddapudi Chandrasekhar)</div>
+                <div className="text-xs text-[#D4A847] font-semibold uppercase tracking-[0.12em]">Managing Partner, Sravya Global Developers</div>
               </div>
             </Reveal>
             <Reveal delay={0.15}>

@@ -15,6 +15,7 @@ import {
   CaretDown,
   PhoneCall,
   CheckCircle,
+  Buildings,
 } from "@phosphor-icons/react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -44,17 +45,17 @@ function Reveal({
 
 const benefits = [
   {
-    icon: <CurrencyDollar size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <CurrencyDollar size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Currency Advantage",
     desc: "Foreign currency strength against the Indian Rupee gives NRIs significantly lower entry costs on premium land compared to domestic buyers.",
   },
   {
-    icon: <Scales size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <Scales size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Simplified FEMA Norms",
     desc: "Under RBI guidelines, NRIs hold the same residential property rights as residents. FEMA regulations are straightforward and well-established.",
   },
   {
-    icon: <TrendUp size={22} weight="fill" className="text-[#C8923A]" />,
+    icon: <TrendUp size={22} weight="fill" className="text-[#D4A847]" />,
     title: "Tax-Efficient Yields",
     desc: "Capital gains indexation benefits and easy tax compliance structures make open plots a highly lucrative medium-to-long term wealth vehicle.",
   },
@@ -105,7 +106,7 @@ const faqs = [
 function FAQ({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className={`border rounded-[4px] transition-colors duration-200 overflow-hidden ${open ? "border-[#C8923A]/30 bg-[#C8923A]/5" : "border-white/[0.06] bg-[#1A1A1A]"}`}>
+    <div className={`border border-[#D4A847]/20 rounded-[4px] transition-colors duration-200 overflow-hidden ${open ? "bg-[#D4A847]/10" : "bg-[#1A1A1A]"}`}>
       <button
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
@@ -115,7 +116,7 @@ function FAQ({ q, a }: { q: string; a: string }) {
         <CaretDown
           size={16}
           weight="bold"
-          className={`text-[#C8923A] flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+          className={`text-[#D4A847] flex-shrink-0 transition-transform duration-300 ${open ? "rotate-180" : ""}`}
         />
       </button>
       <motion.div
@@ -124,7 +125,7 @@ function FAQ({ q, a }: { q: string; a: string }) {
         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
         style={{ overflow: "hidden" }}
       >
-        <p className="px-6 pb-5 text-sm text-[#F5F3EF]/55 leading-relaxed border-t border-white/[0.06] pt-4">
+        <p className="px-6 pb-5 text-sm text-[#F5F3EF]/55 leading-relaxed border-t border-[#D4A847]/20 pt-4">
           {a}
         </p>
       </motion.div>
@@ -142,7 +143,7 @@ export default function NRIInvestorsPage() {
       <main>
         {/* ── Hero ── */}
         <section
-          className="relative min-h-[50dvh] flex items-center pt-20 overflow-hidden"
+          className="relative min-h-[50dvh] flex items-center pt-20 overflow-hidden border-b border-[#D4A847]/20"
           aria-label="NRI Investors hero"
         >
           <div className="absolute inset-0 z-0">
@@ -175,7 +176,7 @@ export default function NRIInvestorsPage() {
         </section>
 
         {/* ── Why Hyderabad for NRIs — 3 benefit cards ── */}
-        <section className="py-24 md:py-32" aria-label="Benefits for NRIs">
+        <section className="py-24 md:py-32 border-b border-[#D4A847]/20" aria-label="Benefits for NRIs">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
             <Reveal className="max-w-xl">
               <span className="amber-line" />
@@ -190,8 +191,8 @@ export default function NRIInvestorsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {benefits.map((b, i) => (
                 <Reveal key={b.title} delay={i * 0.08}>
-                  <div className="card p-8 space-y-5 h-full hover:border-[#C8923A]/20 transition-colors duration-300">
-                    <div className="w-11 h-11 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
+                  <div className="card border border-[#D4A847]/20 p-8 space-y-5 h-full hover:border-[#D4A847]/40 transition-colors duration-300">
+                    <div className="w-11 h-11 rounded-full bg-[#D4A847]/10 flex items-center justify-center">
                       {b.icon}
                     </div>
                     <h3 className="font-bold text-[#F5F3EF]">{b.title}</h3>
@@ -203,10 +204,31 @@ export default function NRIInvestorsPage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
+
+        {/* ── Broader Services Mention ── */}
+        <section className="py-24 bg-[#111111] border-b border-[#D4A847]/20" aria-label="Beyond Plots">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Reveal>
+              <div className="card border border-[#D4A847]/20 p-8 md:p-12 flex flex-col md:flex-row gap-8 items-center bg-[#1A1A1A]">
+                <div className="w-16 h-16 rounded-full bg-[#D4A847]/10 flex items-center justify-center flex-shrink-0">
+                  <Buildings size={32} weight="fill" className="text-[#D4A847]" />
+                </div>
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold text-[#F5F3EF] font-serif">Comprehensive Real Estate Services</h3>
+                  <p className="text-[#F5F3EF]/70 leading-relaxed max-w-3xl">
+                    Beyond premium open plots, Sravya Global Developers offers a full suite of services for our NRI clients, ensuring an end-to-end investment experience. Our capabilities include <strong className="text-[#D4A847] font-medium">Layout Designs & Approvals</strong>, <strong className="text-[#D4A847] font-medium">Layout Developments (HMDA, FCDA & DTCP)</strong>, <strong className="text-[#D4A847] font-medium">Earth Work & Landscaping</strong>, <strong className="text-[#D4A847] font-medium">Building Plans</strong>, <strong className="text-[#D4A847] font-medium">Land Survey</strong>, and <strong className="text-[#D4A847] font-medium">Quantity Surveys</strong>. We provide holistic solutions for all your property needs in Hyderabad.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </section>
+
+        <div className="gold-divider" />
 
         {/* ── 4-Step Process — numbered timeline cards ── */}
-        <section className="py-24 md:py-32 bg-[#111111]" aria-label="Buying process for NRIs">
+        <section className="py-24 md:py-32 bg-[#111111] border-b border-[#D4A847]/20" aria-label="Buying process for NRIs">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
             <Reveal className="max-w-xl">
               <span className="amber-line" />
@@ -221,20 +243,20 @@ export default function NRIInvestorsPage() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {steps.map((s, i) => (
                 <Reveal key={s.step} delay={i * 0.07}>
-                  <div className="card p-7 space-y-5 h-full relative overflow-hidden hover:border-[#C8923A]/20 transition-colors duration-300">
+                  <div className="card border border-[#D4A847]/20 p-7 space-y-5 h-full relative overflow-hidden hover:border-[#D4A847]/40 transition-colors duration-300">
                     {/* Watermark number */}
                     <span
                       className="absolute top-3 right-5 text-[4.5rem] font-bold leading-none select-none pointer-events-none"
                       style={{
                         color: "transparent",
-                        WebkitTextStroke: "1px rgba(200,146,58,0.12)",
+                        WebkitTextStroke: "1px rgba(212,168,71,0.12)",
                         fontFamily: "var(--font-playfair)",
                       }}
                     >
                       {s.step}
                     </span>
-                    <div className="w-9 h-9 rounded-full bg-[#C8923A]/15 flex items-center justify-center">
-                      <span className="text-xs font-bold text-[#C8923A]">{s.step}</span>
+                    <div className="w-9 h-9 rounded-full bg-[#D4A847]/15 flex items-center justify-center">
+                      <span className="text-xs font-bold text-[#D4A847]">{s.step}</span>
                     </div>
                     <h3 className="font-bold text-[#F5F3EF] leading-snug">{s.title}</h3>
                     <p className="text-sm text-[#F5F3EF]/50 leading-relaxed">{s.desc}</p>
@@ -245,10 +267,10 @@ export default function NRIInvestorsPage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ── FAQ + Helpline — 2-col asymmetric ── */}
-        <section className="py-24 md:py-32" aria-label="NRI FAQs">
+        <section className="py-24 md:py-32 border-b border-[#D4A847]/20" aria-label="NRI FAQs">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 items-start">
 
@@ -269,9 +291,9 @@ export default function NRIInvestorsPage() {
               <Reveal delay={0.15}>
                 <div className="space-y-5 sticky top-24">
                   {/* Helpline card */}
-                  <div className="card p-7 space-y-5">
-                    <div className="w-11 h-11 rounded-full bg-[#C8923A]/10 flex items-center justify-center">
-                      <PhoneCall size={20} weight="fill" className="text-[#C8923A]" />
+                  <div className="card border border-[#D4A847]/20 p-7 space-y-5">
+                    <div className="w-11 h-11 rounded-full bg-[#D4A847]/10 flex items-center justify-center">
+                      <PhoneCall size={20} weight="fill" className="text-[#D4A847]" />
                     </div>
                     <div>
                       <h3 className="font-bold text-[#F5F3EF]">NRI Helpline</h3>
@@ -293,7 +315,7 @@ export default function NRIInvestorsPage() {
                   </div>
 
                   {/* Trust badges */}
-                  <div className="card p-6 space-y-4">
+                  <div className="card border border-[#D4A847]/20 p-6 space-y-4">
                     <div className="text-xs font-semibold uppercase tracking-[0.1em] text-[#F5F3EF]/30">
                       Why Trust Sravya
                     </div>
@@ -305,7 +327,7 @@ export default function NRIInvestorsPage() {
                       "NRE / NRO payment compliant",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-3">
-                        <CheckCircle size={14} weight="fill" className="text-[#C8923A] flex-shrink-0" />
+                        <CheckCircle size={14} weight="fill" className="text-[#D4A847] flex-shrink-0" />
                         <span className="text-sm text-[#F5F3EF]/60">{item}</span>
                       </div>
                     ))}
@@ -316,10 +338,10 @@ export default function NRIInvestorsPage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ── Documents checklist — compact strip ── */}
-        <section className="py-20 bg-[#111111]" aria-label="Documents required">
+        <section className="py-20 bg-[#111111] border-b border-[#D4A847]/20" aria-label="Documents required">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
             <Reveal className="max-w-xl">
               <span className="amber-line" />
@@ -328,16 +350,16 @@ export default function NRIInvestorsPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
-                { icon: <Certificate size={18} weight="fill" className="text-[#C8923A]" />, label: "Valid Indian Passport / OCI / PIO Card" },
-                { icon: <FileText size={18} weight="fill" className="text-[#C8923A]" />, label: "PAN Card (or Form 60 if not available)" },
-                { icon: <Handshake size={18} weight="fill" className="text-[#C8923A]" />, label: "NRE / NRO / FCNR Bank Account details" },
-                { icon: <FileText size={18} weight="fill" className="text-[#C8923A]" />, label: "Proof of overseas address" },
-                { icon: <Certificate size={18} weight="fill" className="text-[#C8923A]" />, label: "Power of Attorney (if not registering in person)" },
-                { icon: <FileText size={18} weight="fill" className="text-[#C8923A]" />, label: "2 passport-size photographs" },
+                { icon: <Certificate size={18} weight="fill" className="text-[#D4A847]" />, label: "Valid Indian Passport / OCI / PIO Card" },
+                { icon: <FileText size={18} weight="fill" className="text-[#D4A847]" />, label: "PAN Card (or Form 60 if not available)" },
+                { icon: <Handshake size={18} weight="fill" className="text-[#D4A847]" />, label: "NRE / NRO / FCNR Bank Account details" },
+                { icon: <FileText size={18} weight="fill" className="text-[#D4A847]" />, label: "Proof of overseas address" },
+                { icon: <Certificate size={18} weight="fill" className="text-[#D4A847]" />, label: "Power of Attorney (if not registering in person)" },
+                { icon: <FileText size={18} weight="fill" className="text-[#D4A847]" />, label: "2 passport-size photographs" },
               ].map(({ icon, label }) => (
                 <Reveal key={label}>
-                  <div className="flex items-center gap-4 card px-5 py-4 hover:border-[#C8923A]/20 transition-colors duration-300">
-                    <div className="w-9 h-9 rounded-full bg-[#C8923A]/10 flex items-center justify-center flex-shrink-0">
+                  <div className="flex items-center gap-4 card border border-[#D4A847]/20 px-5 py-4 hover:border-[#D4A847]/40 transition-colors duration-300">
+                    <div className="w-9 h-9 rounded-full bg-[#D4A847]/10 flex items-center justify-center flex-shrink-0">
                       {icon}
                     </div>
                     <span className="text-sm text-[#F5F3EF]/70 leading-snug">{label}</span>
@@ -348,7 +370,7 @@ export default function NRIInvestorsPage() {
           </div>
         </section>
 
-        <div className="section-divider" />
+        <div className="gold-divider" />
 
         {/* ── CTA ── */}
         <section className="py-24 text-center" aria-label="NRI contact CTA">

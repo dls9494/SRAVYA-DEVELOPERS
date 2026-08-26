@@ -15,6 +15,7 @@ import {
 
 const navLinks = [
   { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
   { name: "Projects", href: "/projects" },
   { name: "Why Sravya", href: "/why-sravya" },
   { name: "NRI / Investors", href: "/nri-investors" },
@@ -43,7 +44,7 @@ export default function Header() {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? "glass-nav py-4"
+            ? "glass-nav py-4 border-b border-[rgba(212,168,71,0.3)]"
             : "bg-transparent border-b border-transparent py-5"
         }`}
         style={{ height: "80px" }}
@@ -52,13 +53,13 @@ export default function Header() {
 
           {/* Logo */}
           <Link href="/" className="flex-shrink-0 flex items-center group" aria-label="Sravya Global Developers home">
-            <div className="relative w-44 h-14 sm:w-48 sm:h-16 transition-opacity duration-300 group-hover:opacity-85">
+            <div className="relative w-56 h-16 sm:w-64 sm:h-[4.5rem] transition-opacity duration-300 group-hover:opacity-85">
               <Image
                 src="/images/logo-v4.png"
                 alt="Sravya Global Developers"
                 fill
                 className="object-contain object-left"
-                priority
+                preload={true}
               />
             </div>
           </Link>
@@ -73,7 +74,7 @@ export default function Header() {
                   href={link.href}
                   className={`relative px-3 py-1.5 text-[0.75rem] font-semibold uppercase tracking-[0.1em] transition-colors duration-200 ${
                     active
-                      ? "text-[#C8923A]"
+                      ? "text-[#D4A847]"
                       : "text-[#F5F3EF]/70 hover:text-[#F5F3EF]"
                   }`}
                 >
@@ -81,7 +82,7 @@ export default function Header() {
                   {active && (
                     <motion.span
                       layoutId="nav-underline"
-                      className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-[#C8923A] rounded-full"
+                      className="absolute bottom-0 left-3 right-3 h-[1.5px] bg-[#D4A847] rounded-full"
                       transition={{ type: "spring", stiffness: 400, damping: 30 }}
                     />
                   )}
@@ -94,7 +95,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4 flex-shrink-0">
             <a
               href="tel:+919949736082"
-              className="flex items-center gap-1.5 text-[0.75rem] font-medium text-[#C8923A]/80 hover:text-[#C8923A] transition-colors"
+              className="flex items-center gap-1.5 text-[0.75rem] font-medium text-[#D4A847]/80 hover:text-[#D4A847] transition-colors"
             >
               <PhoneCall size={13} weight="fill" />
               <span>+91 99497 36082</span>
@@ -107,7 +108,7 @@ export default function Header() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setDrawerOpen(true)}
-            className="lg:hidden p-2 text-[#F5F3EF]/70 hover:text-[#C8923A] transition-colors"
+            className="lg:hidden p-2 text-[#F5F3EF]/70 hover:text-[#D4A847] transition-colors"
             aria-label="Open navigation menu"
             aria-expanded={drawerOpen}
           >
@@ -153,7 +154,7 @@ export default function Header() {
                 </div>
                 <button
                   onClick={() => setDrawerOpen(false)}
-                  className="p-2 text-[#F5F3EF]/50 hover:text-[#C8923A] transition-colors"
+                  className="p-2 text-[#F5F3EF]/50 hover:text-[#D4A847] transition-colors"
                   aria-label="Close navigation menu"
                 >
                   <X size={20} weight="bold" />
@@ -175,7 +176,7 @@ export default function Header() {
                         href={link.href}
                         className={`block px-4 py-3 rounded-[4px] text-sm font-semibold uppercase tracking-[0.1em] transition-all duration-200 ${
                           active
-                            ? "bg-[#C8923A]/10 text-[#C8923A] border-l-2 border-[#C8923A]"
+                            ? "bg-[#D4A847]/10 text-[#D4A847] border-l-2 border-[#D4A847]"
                             : "text-[#F5F3EF]/60 hover:text-[#F5F3EF] hover:bg-white/5"
                         }`}
                       >
@@ -188,29 +189,33 @@ export default function Header() {
 
               {/* Drawer footer */}
               <div className="px-6 pb-8 space-y-4 border-t border-white/5 pt-6">
+                <div className="mb-4">
+                  <div className="text-sm font-semibold text-[#D4A847] font-serif">P.C. Sekhar</div>
+                  <div className="text-[0.65rem] text-[#F5F3EF]/50 uppercase tracking-widest mt-0.5">Managing Partner</div>
+                </div>
                 <a
                   href="tel:+919949736082"
-                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#C8923A] transition-colors"
+                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#D4A847] transition-colors"
                 >
-                  <PhoneCall size={16} weight="fill" className="text-[#C8923A]" />
+                  <PhoneCall size={16} weight="fill" className="text-[#D4A847]" />
                   <span>+91 99497 36082</span>
                 </a>
                 <a
                   href="tel:+916309366082"
-                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#C8923A] transition-colors"
+                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#D4A847] transition-colors"
                 >
-                  <PhoneCall size={16} weight="fill" className="text-[#C8923A]" />
+                  <PhoneCall size={16} weight="fill" className="text-[#D4A847]" />
                   <span>+91 63093 66082</span>
                 </a>
                 <a
                   href="mailto:sravyaglobaldevelopers@gmail.com"
-                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#C8923A] transition-colors"
+                  className="flex items-center gap-3 text-sm text-[#F5F3EF]/60 hover:text-[#D4A847] transition-colors"
                 >
-                  <EnvelopeSimple size={16} weight="fill" className="text-[#C8923A]" />
-                  <span>sravyaglobaldevelopers@gmail.com</span>
+                  <EnvelopeSimple size={16} weight="fill" className="text-[#D4A847] flex-shrink-0" />
+                  <span className="truncate">sravyaglobaldevelopers@gmail.com</span>
                 </a>
                 <div className="flex items-start gap-3 text-sm text-[#F5F3EF]/50">
-                  <MapPin size={16} weight="fill" className="text-[#C8923A] mt-0.5 flex-shrink-0" />
+                  <MapPin size={16} weight="fill" className="text-[#D4A847] mt-0.5 flex-shrink-0" />
                   <span>7-2/P-30, My Homes Colony, Manneguda, Hyderabad</span>
                 </div>
                 <Link href="/contact" className="btn-primary w-full text-center mt-2">

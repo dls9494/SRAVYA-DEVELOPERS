@@ -3,7 +3,7 @@ import { Outfit, Playfair_Display } from "next/font/google";
 import type LayoutProps from "next/types";
 import "./globals.css";
 
-// Premium sans — wide tracking range, clean geometric
+// Clean geometric sans for body text
 const outfit = Outfit({
   variable: "--font-geist",
   subsets: ["latin"],
@@ -11,27 +11,27 @@ const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-// Deliberate serif for ONE specific use-case: the hero display eyeline
+// Elegant serif for display headlines — matching the business card typography
 const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   display: "swap",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700", "800", "900"],
   style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
-  title: "Sravya Global Developers | Premium Villa Plots in Hyderabad",
+  title: "Sravya Global Developers | Layout Designs, Land Development & Building Plans — Hyderabad",
   description:
-    "Discover premium open plots, residential land, and luxury gated communities by Sravya Global Developers in Hyderabad's fastest-growing corridors.",
+    "Sravya Global Developers — Hyderabad's trusted firm for Layout Designs & Approvals, HMDA/FCDA/DTCP Layout Developments, Earth Work, Landscaping, Building Plans, Land Survey, and Quantity Surveys. Led by P.C. Sekhar, Managing Partner.",
   keywords:
-    "Sravya Global Developers, open plots Hyderabad, villa plots, land investment, gated community, Chevella, Vikarabad Road",
+    "Sravya Global Developers, layout designs Hyderabad, HMDA approvals, FCDA DTCP, earth work, landscaping, building plans, land survey, quantity surveys, open plots, villa plots, land development Hyderabad, P.C. Sekhar",
   openGraph: {
-    title: "Sravya Global Developers | Premium Land Developers",
+    title: "Sravya Global Developers | Layout Designs & Land Development",
     description:
-      "Building Trust. Creating Landmarks. Premium villa plots in high-growth corridors of Hyderabad.",
+      "Layout Designs & Approvals, Layout Developments (HMDA, FCDA & DTCP), Earth Work, Landscaping, Building Plans, Land Survey, and Quantity Surveys in Hyderabad.",
     type: "website",
-    locale: "en_US",
+    locale: "en_IN",
   },
 };
 

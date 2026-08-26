@@ -2,78 +2,78 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowRight, Landmark, ShieldCheck, TrendingUp } from "lucide-react";
+import { ArrowRight, Bank, ShieldCheck, TrendUp } from "@phosphor-icons/react";
 
 export default function CTA() {
   return (
-    <section className="bg-primary-900 text-ivory rounded-2xl overflow-hidden shadow-2xl relative border border-primary-800/50 font-sans">
+    <section className="bg-[#1A1A1A] text-[#F5F3EF] rounded-xl overflow-hidden relative border border-[#D4A847]/30 font-sans my-12">
       {/* Decorative background element */}
-      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-gold-500/5 blur-3xl -mr-20 -mt-20 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-primary-700/10 blur-3xl -ml-20 -mb-20 pointer-events-none" />
+      <div className="absolute top-0 right-0 w-80 h-80 rounded-full bg-[#D4A847]/5 blur-3xl -mr-20 -mt-20 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 rounded-full bg-[#111111]/80 blur-3xl -ml-20 -mb-20 pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-6 py-12 md:py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         
         {/* Left Column: Details */}
         <div className="lg:col-span-7 space-y-6 text-left">
-          <p className="text-xs font-bold uppercase tracking-widest text-gold-400">
-            Exclusive Plotted Developments
+          <p className="text-xs font-bold uppercase tracking-widest text-[#D4A847]">
+            End-To-End Development
           </p>
 
-          <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight leading-tight text-ivory">
-            Secure Your Future with High-Growth Land
+          <h2 className="font-serif text-3xl md:text-5xl font-bold tracking-tight leading-tight text-[#F5F3EF]">
+            Comprehensive Real Estate & Development Services
           </h2>
 
-          <p className="text-sm md:text-base text-ivory/80 leading-relaxed max-w-xl">
-            Open plots are the safest and highest-yielding asset class in Hyderabad's current expansion phase. Partner with **Sravya Global Developers** to acquire clear-titled, HMDA/DTCP layouts in top growth corridors.
+          <p className="text-sm md:text-base text-[#F5F3EF]/80 leading-relaxed max-w-xl">
+            From layout designs, approvals, and developments to high-growth plot investments, Sravya Global Developers offers end-to-end real estate solutions in Hyderabad. We ensure clear titles and strict regulatory compliance.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center gap-4 pt-2">
             <Link
               href="/contact"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300 shadow-lg shadow-gold-500/10"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-[#111111] bg-[#D4A847] hover:bg-[#C8923A] rounded-full transition-all duration-300"
             >
-              <span>Book A Site Visit</span>
-              <ArrowRight size={16} />
+              <span>Book A Consultation</span>
+              <ArrowRight size={16} weight="bold" />
             </Link>
             
             <Link
-              href="/nri-investors"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-ivory border border-white/20 hover:bg-white/5 rounded-lg transition-all duration-300"
+              href="/#services"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-3.5 text-sm font-semibold uppercase tracking-wider text-[#F5F3EF] border border-[#D4A847]/30 hover:bg-white/5 rounded-full transition-all duration-300"
             >
-              NRI Investment Guide
+              Explore Services
             </Link>
           </div>
         </div>
 
         {/* Right Column: Vertical Trust Indicators */}
-        <div className="lg:col-span-5 space-y-6 border-l border-white/10 pl-6 lg:pl-10 py-2">
+        <div className="lg:col-span-5 space-y-6 border-l border-[#D4A847]/30 pl-6 lg:pl-10 py-2">
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-gold-500">
-              <TrendingUp size={20} />
+            <div className="w-10 h-10 rounded-full bg-[#111111] border border-[#D4A847]/30 flex items-center justify-center flex-shrink-0 text-[#D4A847]">
+              <TrendUp size={20} weight="fill" />
             </div>
             <div className="space-y-1">
-              <h4 className="text-sm font-bold text-ivory">High Return ROI</h4>
-              <p className="text-xs text-ivory/60 leading-relaxed">Rapid land appreciation outperforming built spaces.</p>
+              <h4 className="text-sm font-bold text-[#F5F3EF]">High Return ROI</h4>
+              <p className="text-xs text-[#F5F3EF]/60 leading-relaxed">Strategic land developments outperforming traditional assets.</p>
             </div>
           </div>
           
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-gold-500">
-              <ShieldCheck size={20} />
+            <div className="w-10 h-10 rounded-full bg-[#111111] border border-[#D4A847]/30 flex items-center justify-center flex-shrink-0 text-[#D4A847]">
+              <ShieldCheck size={20} weight="fill" />
             </div>
             <div className="space-y-1">
-              <h4 className="text-sm font-bold text-ivory">100% Clear Titles</h4>
-              <p className="text-xs text-ivory/60 leading-relaxed">Vigorously vetted legal titles with spot registration.</p>
+              <h4 className="text-sm font-bold text-[#F5F3EF]">100% Clear Titles</h4>
+              <p className="text-xs text-[#F5F3EF]/60 leading-relaxed">Vigorously vetted legal titles with transparent documentation.</p>
             </div>
           </div>
 
           <div className="flex items-start gap-4">
-            <div className="w-10 h-10 rounded bg-white/5 border border-white/10 flex items-center justify-center flex-shrink-0 text-gold-500">
-              <Landmark size={20} />
+            <div className="w-10 h-10 rounded-full bg-[#111111] border border-[#D4A847]/30 flex items-center justify-center flex-shrink-0 text-[#D4A847]">
+              <Bank size={20} weight="fill" />
             </div>
             <div className="space-y-1">
-              <h4 className="text-sm font-bold text-ivory">HMDA & DTCP Approved</h4>
-              <p className="text-xs text-ivory/60 leading-relaxed">Strict regulatory compliance and code alignment.</p>
+              <h4 className="text-sm font-bold text-[#F5F3EF]">HMDA & DTCP Compliant</h4>
+              <p className="text-xs text-[#F5F3EF]/60 leading-relaxed">Strict adherence to regulatory guidelines and approvals.</p>
             </div>
           </div>
         </div>

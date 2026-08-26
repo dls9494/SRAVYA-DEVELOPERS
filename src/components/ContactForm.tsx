@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { CheckCircle, AlertCircle, Send, Loader2 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { CheckCircle, WarningCircle, PaperPlaneRight, Spinner } from "@phosphor-icons/react";
+import { motion, AnimatePresence } from "motion/react";
 
 interface ContactFormProps {
   projectSlug?: string;
@@ -22,8 +22,16 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
   const projectsList = [
-    { label: "Select a Venture", value: "" },
-    { label: "GVR Kothapally", value: "gvr-kothapally" },
+    { label: "Select a Service", value: "" },
+    { label: "Layout Designs & Approvals", value: "layout-designs" },
+    { label: "Layout Developments (HMDA/FCDA/DTCP)", value: "layout-developments" },
+    { label: "Earth Work", value: "earth-work" },
+    { label: "Landscaping", value: "landscaping" },
+    { label: "Building Plans", value: "building-plans" },
+    { label: "Land Survey", value: "land-survey" },
+    { label: "Quantity Surveys", value: "quantity-surveys" },
+    { label: "Plot Investment (GVR Kothapally)", value: "plot-investment" },
+    { label: "Other", value: "other" },
   ];
 
   const validate = () => {
@@ -46,7 +54,6 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear validation error for that field on change
     if (errors[name]) {
       setErrors((prev) => {
         const copy = { ...prev };
@@ -61,7 +68,6 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulate API request
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitSuccess(true);
@@ -77,10 +83,10 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="space-y-5 font-sans">
+      <form onSubmit={handleSubmit} className="space-y-5 font-sans bg-[#1A1A1A] p-6 rounded-lg border border-[#D4A847]/30">
         {/* Name Field */}
         <div>
-          <label htmlFor="name" className="block text-sm font-semibold text-primary-950 mb-1.5 uppercase tracking-wider">
+          <label htmlFor="name" className="block text-sm font-semibold text-[#F5F3EF] mb-1.5 uppercase tracking-wider">
             Full Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -90,15 +96,15 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
             value={formData.name}
             onChange={handleChange}
             placeholder="John Doe"
-            className={`w-full px-4 py-3 rounded-lg border bg-white focus:outline-none transition-smooth text-charcoal ${
+            className={`w-full px-4 py-3 rounded-lg border bg-[#111111] text-[#F5F3EF] placeholder:text-[#F5F3EF]/30 focus:outline-none transition-all ${
               errors.name
                 ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                : "border-primary-900/20 focus:border-gold-500 focus:ring-1 focus:ring-gold-500"
+                : "border-[#D4A847]/30 focus:border-[#D4A847] focus:ring-1 focus:ring-[#D4A847]"
             }`}
           />
           {errors.name && (
             <p className="mt-1 text-xs text-red-500 flex items-center gap-1 font-medium">
-              <AlertCircle size={12} />
+              <WarningCircle size={12} weight="bold" />
               <span>{errors.name}</span>
             </p>
           )}
@@ -108,11 +114,11 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           {/* Phone Field */}
           <div>
-            <label htmlFor="phone" className="block text-sm font-semibold text-primary-950 mb-1.5 uppercase tracking-wider">
+            <label htmlFor="phone" className="block text-sm font-semibold text-[#F5F3EF] mb-1.5 uppercase tracking-wider">
               Phone Number <span className="text-red-500">*</span>
             </label>
             <div className="relative">
-              <span className="absolute left-3.5 top-[13px] text-sm text-charcoal/50 font-medium">+91</span>
+              <span className="absolute left-3.5 top-[13px] text-sm text-[#F5F3EF]/50 font-medium">+91</span>
               <input
                 type="tel"
                 id="phone"
@@ -120,16 +126,16 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
                 value={formData.phone}
                 onChange={handleChange}
                 placeholder="9876543210"
-                className={`w-full pl-12 pr-4 py-3 rounded-lg border bg-white focus:outline-none transition-smooth text-charcoal ${
+                className={`w-full pl-12 pr-4 py-3 rounded-lg border bg-[#111111] text-[#F5F3EF] placeholder:text-[#F5F3EF]/30 focus:outline-none transition-all ${
                   errors.phone
                     ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                    : "border-primary-900/20 focus:border-gold-500 focus:ring-1 focus:ring-gold-500"
+                    : "border-[#D4A847]/30 focus:border-[#D4A847] focus:ring-1 focus:ring-[#D4A847]"
                 }`}
               />
             </div>
             {errors.phone && (
               <p className="mt-1 text-xs text-red-500 flex items-center gap-1 font-medium">
-                <AlertCircle size={12} />
+                <WarningCircle size={12} weight="bold" />
                 <span>{errors.phone}</span>
               </p>
             )}
@@ -137,7 +143,7 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
 
           {/* Email Field */}
           <div>
-            <label htmlFor="email" className="block text-sm font-semibold text-primary-950 mb-1.5 uppercase tracking-wider">
+            <label htmlFor="email" className="block text-sm font-semibold text-[#F5F3EF] mb-1.5 uppercase tracking-wider">
               Email Address
             </label>
             <input
@@ -147,15 +153,15 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
               value={formData.email}
               onChange={handleChange}
               placeholder="example@mail.com"
-              className={`w-full px-4 py-3 rounded-lg border bg-white focus:outline-none transition-smooth text-charcoal ${
+              className={`w-full px-4 py-3 rounded-lg border bg-[#111111] text-[#F5F3EF] placeholder:text-[#F5F3EF]/30 focus:outline-none transition-all ${
                 errors.email
                   ? "border-red-500 focus:ring-1 focus:ring-red-500"
-                  : "border-primary-900/20 focus:border-gold-500 focus:ring-1 focus:ring-gold-500"
+                  : "border-[#D4A847]/30 focus:border-[#D4A847] focus:ring-1 focus:ring-[#D4A847]"
               }`}
             />
             {errors.email && (
               <p className="mt-1 text-xs text-red-500 flex items-center gap-1 font-medium">
-                <AlertCircle size={12} />
+                <WarningCircle size={12} weight="bold" />
                 <span>{errors.email}</span>
               </p>
             )}
@@ -164,18 +170,18 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
 
         {/* Project Selection Dropdown */}
         <div>
-          <label htmlFor="project" className="block text-sm font-semibold text-primary-950 mb-1.5 uppercase tracking-wider">
-            Interested Venture
+          <label htmlFor="project" className="block text-sm font-semibold text-[#F5F3EF] mb-1.5 uppercase tracking-wider">
+            Interested Service / Venture
           </label>
           <select
             id="project"
             name="project"
             value={formData.project}
             onChange={handleChange}
-            className="w-full px-4 py-3 rounded-lg border border-primary-900/20 bg-white focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-smooth text-charcoal"
+            className="w-full px-4 py-3 rounded-lg border border-[#D4A847]/30 bg-[#111111] text-[#F5F3EF] focus:outline-none focus:border-[#D4A847] focus:ring-1 focus:ring-[#D4A847] transition-all"
           >
             {projectsList.map((proj) => (
-              <option key={proj.value} value={proj.value}>
+              <option key={proj.value} value={proj.value} className="bg-[#111111]">
                 {proj.label}
               </option>
             ))}
@@ -184,7 +190,7 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
 
         {/* Message Field */}
         <div>
-          <label htmlFor="message" className="block text-sm font-semibold text-primary-950 mb-1.5 uppercase tracking-wider">
+          <label htmlFor="message" className="block text-sm font-semibold text-[#F5F3EF] mb-1.5 uppercase tracking-wider">
             Your Inquiry Message
           </label>
           <textarea
@@ -193,8 +199,8 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
             rows={4}
             value={formData.message}
             onChange={handleChange}
-            placeholder="Tell us about your requirements (e.g. plot size, budget, purpose of investment)..."
-            className="w-full px-4 py-3 rounded-lg border border-primary-900/20 bg-white focus:outline-none focus:border-gold-500 focus:ring-1 focus:ring-gold-500 transition-smooth text-charcoal"
+            placeholder="Tell us about your requirements..."
+            className="w-full px-4 py-3 rounded-lg border border-[#D4A847]/30 bg-[#111111] text-[#F5F3EF] placeholder:text-[#F5F3EF]/30 focus:outline-none focus:border-[#D4A847] focus:ring-1 focus:ring-[#D4A847] transition-all"
           />
         </div>
 
@@ -202,16 +208,16 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 disabled:bg-gold-300 disabled:cursor-not-allowed rounded-lg transition-all duration-300 shadow-md hover:shadow-gold-500/10 mt-2"
+          className="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 text-base font-semibold uppercase tracking-wider text-[#111111] bg-[#D4A847] hover:bg-[#C8923A] disabled:opacity-70 disabled:cursor-not-allowed rounded-full transition-all duration-300 mt-2"
         >
           {isSubmitting ? (
             <>
-              <Loader2 size={18} className="animate-spin" />
+              <Spinner size={18} weight="bold" className="animate-spin" />
               <span>Sending Enquiry...</span>
             </>
           ) : (
             <>
-              <Send size={18} />
+              <PaperPlaneRight size={18} weight="bold" />
               <span>Submit Enquiry</span>
             </>
           )}
@@ -224,33 +230,33 @@ export default function ContactForm({ projectSlug = "" }: ContactFormProps) {
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
               initial={{ opacity: 0 }}
-              animate={{ opacity: 0.6 }}
+              animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setSubmitSuccess(false)}
-              className="absolute inset-0 bg-black"
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm"
             />
             <motion.div
               initial={{ scale: 0.9, y: 20, opacity: 0 }}
               animate={{ scale: 1, y: 0, opacity: 1 }}
               exit={{ scale: 0.9, y: 20, opacity: 0 }}
-              className="relative bg-ivory border border-gold-300 rounded-xl shadow-2xl p-8 max-w-sm w-full text-center space-y-6 overflow-hidden"
+              className="relative bg-[#1A1A1A] border border-[#D4A847]/30 rounded-lg shadow-2xl p-8 max-w-sm w-full text-center space-y-6 overflow-hidden"
             >
               <div className="flex justify-center">
-                <div className="w-16 h-16 rounded-full bg-primary-900 flex items-center justify-center border border-gold-500 text-gold-500 animate-bounce">
-                  <CheckCircle size={36} />
+                <div className="w-16 h-16 rounded-full bg-[#111111] flex items-center justify-center border border-[#D4A847] text-[#D4A847]">
+                  <CheckCircle size={36} weight="fill" />
                 </div>
               </div>
               
               <div className="space-y-2">
-                <h3 className="font-serif text-2xl font-bold text-primary-950">Thank You!</h3>
-                <p className="text-sm text-charcoal/80 leading-relaxed">
-                  Your enquiry has been successfully sent. Our investment representative will call you back within 24 hours.
+                <h3 className="font-serif text-2xl font-bold text-[#F5F3EF]">Thank You!</h3>
+                <p className="text-sm text-[#F5F3EF]/80 leading-relaxed font-sans">
+                  Your enquiry has been successfully sent. Our team will contact you shortly.
                 </p>
               </div>
 
               <button
                 onClick={() => setSubmitSuccess(false)}
-                className="w-full inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-primary-900 bg-gold-500 hover:bg-gold-400 rounded-lg transition-all duration-300"
+                className="w-full inline-flex items-center justify-center px-5 py-2.5 text-sm font-semibold uppercase tracking-wider text-[#111111] bg-[#D4A847] hover:bg-[#C8923A] rounded-full transition-all duration-300"
               >
                 Close Window
               </button>
