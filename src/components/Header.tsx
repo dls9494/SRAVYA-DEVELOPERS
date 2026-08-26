@@ -52,17 +52,29 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between gap-6">
 
           {/* Left group: Logo + Desktop Nav */}
-          <div className="flex items-center gap-6 xl:gap-8">
-            {/* Logo */}
-            <Link href="/" className="flex-shrink-0 flex items-center group" aria-label="Sravya Global Developers home">
-              <div className="relative w-56 h-16 sm:w-64 sm:h-[4.5rem] transition-opacity duration-300 group-hover:opacity-85">
+          <div className="flex items-center gap-4 xl:gap-6">
+            {/* Logo — clean globe icon + brand text */}
+            <Link href="/" className="flex-shrink-0 flex items-center gap-2.5 group" aria-label="Sravya Global Developers home">
+              <div className="relative w-[48px] h-[48px] sm:w-[54px] sm:h-[54px] flex-shrink-0 transition-opacity duration-300 group-hover:opacity-85">
                 <Image
-                  src="/images/logo-v4.png"
-                  alt="Sravya Global Developers"
+                  src="/images/globe-v5.png"
+                  alt="Sravya Global Developers globe"
                   fill
-                  className="object-contain object-left"
+                  className="object-contain"
                   preload={true}
                 />
+              </div>
+              {/* Brand name beside the globe */}
+              <div className="leading-tight transition-opacity duration-300 group-hover:opacity-85">
+                <div
+                  className="text-[#D4A847] text-[0.82rem] font-bold tracking-[0.18em] uppercase"
+                  style={{ fontFamily: "var(--font-playfair)" }}
+                >
+                  Sravya Global
+                </div>
+                <div className="text-[#D4A847]/65 text-[0.6rem] tracking-[0.28em] uppercase font-medium">
+                  Developers
+                </div>
               </div>
             </Link>
 
@@ -147,13 +159,19 @@ export default function Header() {
             >
               {/* Drawer header */}
               <div className="flex items-center justify-between px-6 py-5 border-b border-white/5">
-                <div className="relative w-40 h-14">
-                  <Image
-                    src="/images/logo-v4.png"
-                    alt="Sravya Global Developers"
-                    fill
-                    className="object-contain object-left"
-                  />
+                <div className="flex items-center gap-2.5">
+                  <div className="relative w-10 h-10 flex-shrink-0">
+                    <Image
+                      src="/images/globe-v5.png"
+                      alt="Sravya Global Developers"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  <div className="leading-tight">
+                    <div className="text-[#D4A847] text-[0.78rem] font-bold tracking-[0.15em] uppercase" style={{ fontFamily: "var(--font-playfair)" }}>Sravya Global</div>
+                    <div className="text-[#D4A847]/60 text-[0.58rem] tracking-[0.25em] uppercase">Developers</div>
+                  </div>
                 </div>
                 <button
                   onClick={() => setDrawerOpen(false)}
