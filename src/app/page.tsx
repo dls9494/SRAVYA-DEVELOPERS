@@ -220,6 +220,22 @@ export default function HomePage() {
                 </div>
               </motion.div>
 
+              {/* Live selling status */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+                className="flex items-center gap-2.5 px-4 py-2 rounded-full bg-[#D4A847]/10 border border-[#D4A847]/25 w-fit"
+              >
+                <span className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400" />
+                </span>
+                <span className="text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-[#F5F3EF]/80">
+                  Now Selling — GVR Kothapally
+                </span>
+              </motion.div>
+
               {/* Display headline */}
               <motion.h1
                 className="text-[clamp(2.25rem,5.5vw,4.5rem)] font-bold leading-[1.05] tracking-[-0.02em] text-[#F5F3EF]"
